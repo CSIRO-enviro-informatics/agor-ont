@@ -10,6 +10,7 @@
                                             owl:versionIRI <http://test.linked.data.gov.au/def/auorg/0.5> ;
                                             owl:imports <http://www.w3.org/ns/org#> ;
                                             <http://purl.org/dc/terms/creator> "Nicholas Car"^^xsd:string ;
+                                            rdfs:label "AU Org Ontology"@en ;
                                             <http://purl.org/dc/terms/modified> "2018-05-21"^^xsd:date ;
                                             owl:versionInfo "Beta version"@en ;
                                             <http://purl.org/dc/terms/created> "2018-05-21"^^xsd:date ;
@@ -106,7 +107,7 @@ This ontology is incomplete as of v0.5 and is currently for demo purposes only."
 ###  http://test.linked.data.gov.au/def/auorg#GovernorGeneral
 :GovernorGeneral rdf:type owl:Class ;
                  rdfs:subClassOf <http://xmlns.com/foaf/0.1/Person> ;
-                 rdfs:comment """The Governor-General of the Commonwealth of Australia, the representative of the Australian monarch. 
+                 rdfs:comment """The Governor-General of the Commonwealth of Australia, the representative of the Australian monarch.
 
 The Governor-General is appointed by the Australian monarch (also the British monach) on the advice of the Prime Minister of Australia. The Governor-General has formal presidency over the Federal Executive Council and is Commander-in-Chief of the Australian Defence Force"""@en ;
                  rdfs:label "Govenor-General"@en .
