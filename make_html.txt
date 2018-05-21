@@ -1,0 +1,20 @@
+* static links to http://pid.data.gov.au/websrv/static/LODE/
+* ont GitHub:
+
+<dl>
+    <dt>Further documentation &amp; examples:</dt>
+    <dd><a href="http://github.com/CSIRO-enviro-informatics/auorg-ont">This ontology's full documentation on GitHub</a></dd>
+</dl>
+
+* add note to RDF:
+
+<dl>
+    <dt>
+        Other visualisation:
+    </dt>
+    <dd>
+        <a href="https://promsns.org/def/auorg.ttl">Ontology source (RDF, turtle)</a>
+    </dd>
+</dl>
+
+* remove a couple of namespaces

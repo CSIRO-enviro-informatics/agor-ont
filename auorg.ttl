@@ -1,0 +1,144 @@
+@prefix : <http://test.linked.data.gov.au/def/auorg#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://test.linked.data.gov.au/def/auorg> .
+
+<http://test.linked.data.gov.au/def/auorg> rdf:type owl:Ontology ;
+                                            owl:versionIRI <http://test.linked.data.gov.au/def/auorg/0.5> ;
+                                            owl:imports <http://www.w3.org/ns/org#> ;
+                                            <http://purl.org/dc/terms/creator> "Nicholas Car"^^xsd:string ;
+                                            <http://purl.org/dc/terms/modified> "2018-05-21"^^xsd:date ;
+                                            owl:versionInfo "Beta version"@en ;
+                                            <http://purl.org/dc/terms/created> "2018-05-21"^^xsd:date ;
+                                            <http://purl.org/dc/terms/creator> <http://orcid.org/0000-0002-8742-7730> ;
+                                            rdfs:seeAlso "The GitHub repository containing addition documentation: http://github.com/CSIRO-enviro-informatics/auorg-ont/"@en ;
+                                            rdfs:comment """This ontology defines a series of sub classes of the generic org:Organization class to describe types of Australian Government organisations represented in the website directory.data.gov.au. It also defines a series of properties for organisations to capture specific properties of those organisations also given in directory.gov.au.
+
+This ontology is incomplete as of v0.5 and is currently for demo purposes only."""@en .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://test.linked.data.gov.au/def/auorg#hasAppropriations
+:hasAppropriations rdf:type owl:ObjectProperty ;
+                   rdfs:range :AustralianDollars .
+
+
+###  http://test.linked.data.gov.au/def/auorg#hasPortfolio
+:hasPortfolio rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf <http://www.w3.org/ns/org#subOrganizationOf> ;
+              rdfs:comment "is within a particular government Portfolio"@en ;
+              rdfs:label "has portfolio"@en .
+
+
+###  http://test.linked.data.gov.au/def/auorg#hasStreetAddress
+:hasStreetAddress rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf <http://www.w3.org/ns/org#hasSite> ;
+                  rdfs:range <http://gnafld.net/def/gnaf#Address> ;
+                  rdfs:comment "Has a GNAF address of"@en ;
+                  rdfs:label "has street address"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://test.linked.data.gov.au/def/auorg#hasABN
+:hasABN rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf <http://www.w3.org/ns/org#identifier> ;
+        rdfs:range xsd:integer .
+
+
+###  http://test.linked.data.gov.au/def/auorg#hasAppropriations
+:hasAppropriations rdf:type owl:DatatypeProperty .
+
+
+###  http://test.linked.data.gov.au/def/auorg#hasAverageStaffingLevel
+:hasAverageStaffingLevel rdf:type owl:DatatypeProperty ;
+                         rdfs:range xsd:integer ;
+                         rdfs:comment "Has an average annual staffig level of (no. of people)"@en ;
+                         rdfs:label "has average staffing level"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://gnafld.net/def/gnaf#Address
+<http://gnafld.net/def/gnaf#Address> rdf:type owl:Class ;
+                                     rdfs:subClassOf <http://www.w3.org/ns/org#Site> ;
+                                     rdfs:comment "An Address object, defined by the GNAF ontology and supplied by the GNAF dataset only."@en ;
+                                     rdfs:label "Address"@en .
+
+
+###  http://test.linked.data.gov.au/def/auorg#AustralianDollars
+:AustralianDollars rdf:type owl:Class ;
+                   rdfs:subClassOf xsd:integer ;
+                   rdfs:comment "Australian Dollars in whole dollar units"@en ;
+                   rdfs:label "Australian Dollars"@en .
+
+
+###  http://test.linked.data.gov.au/def/auorg#Board
+:Board rdf:type owl:Class ;
+       rdfs:subClassOf <http://www.w3.org/ns/org#FormalOrganization> ;
+       rdfs:comment "An Australian Government Board"@en ;
+       rdfs:label "Board"@en .
+
+
+###  http://test.linked.data.gov.au/def/auorg#CommonwealthOfParliament
+:CommonwealthOfParliament rdf:type owl:Class ;
+                          rdfs:subClassOf <http://www.w3.org/ns/org#FormalOrganization> ;
+                          rdfs:comment "The Australian Government parliament"@en ;
+                          rdfs:label "Commonwealth of Parliament"@en .
+
+
+###  http://test.linked.data.gov.au/def/auorg#DirectorySubStructure
+:DirectorySubStructure rdf:type owl:Class ;
+                       rdfs:subClassOf <http://xmlns.com/foaf/0.1/Organization> ;
+                       rdfs:comment "A sub-unit of an Australian government entity"@en ;
+                       rdfs:label "Directory sub-structure"@en .
+
+
+###  http://test.linked.data.gov.au/def/auorg#GovernorGeneral
+:GovernorGeneral rdf:type owl:Class ;
+                 rdfs:subClassOf <http://xmlns.com/foaf/0.1/Person> ;
+                 rdfs:comment """The Governor-General of the Commonwealth of Australia, the representative of the Australian monarch. 
+
+The Governor-General is appointed by the Australian monarch (also the British monach) on the advice of the Prime Minister of Australia. The Governor-General has formal presidency over the Federal Executive Council and is Commander-in-Chief of the Australian Defence Force"""@en ;
+                 rdfs:label "Govenor-General"@en .
+
+
+###  http://test.linked.data.gov.au/def/auorg#NonBoard
+:NonBoard rdf:type owl:Class ;
+          rdfs:subClassOf <http://www.w3.org/ns/org#FormalOrganization> ;
+          rdfs:comment "An Australian Government non-board entity"@en ;
+          rdfs:label "Non-Board"@en .
+
+
+###  http://test.linked.data.gov.au/def/auorg#Portfolio
+:Portfolio rdf:type owl:Class ;
+           rdfs:subClassOf <http://www.w3.org/ns/org#FormalOrganization> ;
+           rdfs:comment "A portfolio is a minister's area of responsibility as a member of Cabinet. As a general rule, there is one department in each portfolio."@en ;
+           rdfs:label "Portfolio"@en .
+
+
+###  http://test.linked.data.gov.au/def/auorg#SingleExecutiveRole
+:SingleExecutiveRole rdf:type owl:Class ;
+                     rdfs:subClassOf <http://www.w3.org/ns/org#Post> ;
+                     rdfs:comment "A single executive (Senior Executive Service in the Australian Public Service) role"@en ;
+                     rdfs:label "Single Executive Role"@en .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+:hasAppropriations rdfs:label "has appropriations"@en ;
+                   rdfs:comment "Has a current yearly budgetary approppriation ammount in australian Dollars"@en .
+
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
