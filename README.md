@@ -1,15 +1,18 @@
 # Au Org Ontology
-An OWL ontology representing specialised Australian government entities described in the [directory.gov.au](https://directory.gov.au) website.
+An OWL ontology specialising the [Organization Ontology](https://www.w3.org/TR/vocab-org/) to model Australian Federal government entities.
 
 
 ## Introduction
-This ontology formally models elements of [directory.gov.au](https://directory.gov.au) website to allow for their presentation as a Linked Data dataset in accordance with Semantic Web principles. The dataset using this ontology is available at <http://test.linked.data.gov.au/dataset/auorg> where it is currently in test mode, demonstrating aspects of Linked Data.
+Terminology in this ontology is sourced from:
+* Administrative Arrangement Orders?
+* [directory.gov.au](https://directory.gov.au)
+* ...
 
 
 ## Ontology document
 Namespace location:
-* HTML: <http://test.linked.data.gov.au/def/auorg>
-* RDF turtle: <http://test.linked.data.gov.au/def/auorg.ttl>
+* HTML: <http://linked.data.gov.au/def/auorg>
+* RDF turtle: <http://linked.data.gov.au/def/auorg.ttl>
 
 Local copies:
 * HTML: [auorg.html](auorg.html)  
@@ -27,3 +30,10 @@ Creator:
 CSIRO Land & Water, Brisbane, Australia    
 <nicholas.car@csiro.au>  
 <http://orcid.org/0000-0002-8742-7730>  
+
+Contributor:  
+**Simon Cox**  
+*Research Scientist*  
+CSIRO Land & Water, Melbourne, Australia    
+<simon.cox@csiro.au>  
+<http://orcid.org/0000-0002-3884-3420>  
