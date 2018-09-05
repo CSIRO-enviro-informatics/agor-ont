@@ -110,7 +110,9 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://test.linked.data.gov.au/def/auorg#hasAppropriations
 :hasAppropriations rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf :hasBudgetItem ;
-                   rdfs:range :Appropriations .
+                   rdfs:range :Appropriations ;
+                   rdfs:comment "Has a current annual budgetary appropriation amount in Australian Dollars" ;
+                   rdfs:label "Annual appropriation budget (AUD)" .
 
 
 ###  http://test.linked.data.gov.au/def/auorg#hasBudgetItem
