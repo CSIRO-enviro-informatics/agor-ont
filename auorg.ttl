@@ -109,15 +109,15 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://test.linked.data.gov.au/def/auorg#hasAppropriations
 :hasAppropriations rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf :hasBudget ;
+                   rdfs:subPropertyOf :hasBudgetItem ;
                    rdfs:range :Appropriations .
 
 
-###  http://test.linked.data.gov.au/def/auorg#hasBudget
-:hasBudget rdf:type owl:ObjectProperty ;
-           rdfs:domain org:Organization ;
-           rdfs:range :BudgetItem ;
-           rdfs:label "budget item" .
+###  http://test.linked.data.gov.au/def/auorg#hasBudgetItem
+:hasBudgetItem rdf:type owl:ObjectProperty ;
+               rdfs:domain org:Organization ;
+               rdfs:range :BudgetItem ;
+               rdfs:label "budget item" .
 
 
 ###  http://test.linked.data.gov.au/def/auorg#hasStreetAddress
@@ -198,8 +198,8 @@ gnaf:Address rdf:type owl:Class ;
 :Appropriations rdf:type owl:Class ;
                 rdfs:subClassOf :BudgetItem ,
                                 [ rdf:type owl:Restriction ;
-                                  owl:onProperty :budgetSource ;
-                                  owl:someValuesFrom :Government
+                                  owl:onProperty :budgetQuantity ;
+                                  owl:allValuesFrom :AustralianDollars
                                 ] ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty :budgetDuration ;
@@ -209,7 +209,7 @@ gnaf:Address rdf:type owl:Class ;
                                   owl:onProperty :budgetSource ;
                                   owl:hasValue :CommonwealthOfAustralia
                                 ] ;
-                rdfs:label "Appropriations budget" .
+                rdfs:label "Appropriations budget (annualized)" .
 
 
 ###  http://test.linked.data.gov.au/def/auorg#AustralianDollars
@@ -237,11 +237,23 @@ gnaf:Address rdf:type owl:Class ;
 ###  http://test.linked.data.gov.au/def/auorg#BudgetItem
 :BudgetItem rdf:type owl:Class ;
             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                              owl:onProperty :budgetPurpose ;
+                              owl:minCardinality "1"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :budgetSource ;
+                              owl:minCardinality "1"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
                               owl:onProperty :budgetDuration ;
                               owl:cardinality "1"^^xsd:nonNegativeInteger
                             ] ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :budgetInterval ;
+                              owl:cardinality "1"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :budgetQuantity ;
                               owl:cardinality "1"^^xsd:nonNegativeInteger
                             ] ;
             rdfs:label "Budget item" .
