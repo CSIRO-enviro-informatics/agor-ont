@@ -13,8 +13,19 @@
         Other visualisation:
     </dt>
     <dd>
-        <a href="https://promsns.org/def/auorg.ttl">Ontology source (RDF, turtle)</a>
+        <a href="https://linked.data.gov.au/def/auorg.ttl">Ontology source (RDF, turtle)</a>
     </dd>
 </dl>
 
+
+* delete all:
+
+(
+            <a href="http://www.essepuntato.it/lode/owlapi/http://www.w3.org/2006/time">visualise it with LODE</a>)
+
+
 * remove a couple of namespaces
+
+* add CSIRO logo:
+
+<img src="csiro-logo.jpg" style="width:200px;" alt="CSIRO Logo" /><br />
