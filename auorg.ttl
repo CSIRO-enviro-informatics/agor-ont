@@ -1,341 +1,448 @@
-# baseURI: http://test.linked.data.gov.au/def/auorg
-# imports: http://purl.org/dc/elements/1.1/
-# imports: http://www.w3.org/2006/time
-# imports: http://www.w3.org/ns/org#
-# imports: http://www.w3.org/ns/time/gregorian
-
-@prefix : <http://test.linked.data.gov.au/def/auorg#> .
+@prefix : <http://test.linked.data.gov.au/def/auorg/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dct: <http://purl.org/dc/terms/> .
-@prefix gnaf: <http://gnafld.net/def/gnaf#> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix gnaf: <http://gnafld.net/def/gnaf#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix time: <http://www.w3.org/2006/time> .
+@base <http://linked.data.gov.au/def/auorg> .
 
-<http://test.linked.data.gov.au/def/auorg>
-  rdf:type owl:Ontology ;
-  dct:contributor <https://orcid.org/0000-0002-3884-3420> ;
-  dct:created "2018-05-21"^^xsd:date ;
-  dct:creator <http://orcid.org/0000-0002-8742-7730> ;
-  dct:creator "Nicholas Car" ;
-  dct:modified "2012-06-14"^^xsd:date ;
-  dct:modified "2018-05-21"^^xsd:date ;
-  dct:publisher <http://purl.org/dc/aboutdcmi#DCMI> ;
-  dct:title "Dublin Core Metadata Element Set, Version 1.1"@en ;
-  rdfs:comment """This ontology defines a series of sub classes of the generic org:Organization class to describe types of Australian Government organisations represented in the website directory.data.gov.au. It also defines a series of properties for organisations to capture specific properties of those organisations also given in directory.gov.au.
+<http://linked.data.gov.au/def/auorg> rdf:type owl:Ontology ;
+                                       owl:versionIRI <http://linked.data.gov.au/def/auorg/0.6> ;
+                                       owl:imports <http://www.w3.org/ns/time/gregorian> ,
+                                                   time: ,
+                                                   org: ;
+                                       dcterms:modified "2018-09-07"^^xsd:date ;
+                                       dc:creator "Nicholas J. Car" ;
+                                       rdfs:label "AU Org Ontology"@en ;
+                                       dcterms:publisher <http://www.csiro.au> ;
+                                       owl:versionInfo "0.6 has been reviewed and enhanced by Simon Cox" ;
+                                       dc:publisher "CSIRO" ;
+                                       dcterms:contributor <https://orcid.org/0000-0002-3884-3420> ;
+                                       owl:versionInfo "Beta version"@en ;
+                                       dcterms:creator <http://orcid.org/0000-0002-8742-7730> ;
+                                       dcterms:created "2018-05-21"^^xsd:date ;
+                                       dc:contributor "Simon J.D. Cox" ;
+                                       rdfs:comment """The purpose of this ontology is to allow for the Semantic Web representation of Australian Federal Government Entities (organisations), their subcomponents and people related to them with particular roles.
 
-This ontology is incomplete as of v0.5 and is currently for demo purposes only."""@en ;
-  rdfs:label "AU Org Ontology"@en ;
-  rdfs:seeAlso "The GitHub repository containing addition documentation: http://github.com/CSIRO-enviro-informatics/auorg-ont/"@en ;
-  owl:imports <http://purl.org/dc/elements/1.1/> ;
-  owl:imports <http://www.w3.org/2006/time> ;
-  owl:imports org: ;
-  owl:imports <http://www.w3.org/ns/time/gregorian> ;
-  owl:versionIRI <http://test.linked.data.gov.au/def/auorg/0.5> ;
-  owl:versionInfo "Beta version"@en ;
-.
-:Agency
-  rdf:type owl:Class ;
-  rdfs:label "Government Agency" ;
-  rdfs:subClassOf :Entity ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onProperty org:linkedTo ;
-      owl:someValuesFrom :Jurisdiction ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onProperty org:purpose ;
-      owl:someValuesFrom :Function ;
-    ] ;
-.
-:Appropriations
-  rdf:type owl:Class ;
-  rdfs:label "Appropriations budget (annualized)" ;
-  rdfs:subClassOf :BudgetItem ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:allValuesFrom :AustralianDollars ;
-      owl:onProperty :budgetQuantity ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:hasValue :CommonwealthOfAustralia ;
-      owl:onProperty :budgetSource ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:hasValue <http://www.w3.org/2006/time#unitYear> ;
-      owl:onProperty :budgetDuration ;
-    ] ;
-.
-:AustralianDollars
-  rdf:type owl:Class ;
-  rdfs:comment "Sum of money in whole Australian Dollars"@en ;
-  rdfs:label "Australian Dollars"@en ;
-  rdfs:subClassOf :SumOfMoney ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:allValuesFrom xsd:integer ;
-      owl:onProperty :moneyAmount ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:hasValue "AUD" ;
-      owl:onProperty :moneyCurrency ;
-    ] ;
-.
-:Board
-  rdf:type owl:Class ;
-  rdfs:comment "An Australian Government Board"@en ;
-  rdfs:label "Board"@en ;
-  rdfs:subClassOf org:FormalOrganization ;
-.
-:BudgetItem
-  rdf:type owl:Class ;
-  rdfs:label "Budget item" ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty :budgetDuration ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty :budgetInterval ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty :budgetQuantity ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty :budgetPurpose ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty :budgetSource ;
-    ] ;
-.
-:CommonwealthOfAustralia
-  rdf:type :Jurisdiction ;
-  rdf:type owl:NamedIndividual ;
-  :levelOfGovernment :Federal ;
-  rdfs:comment "The Australian Government , on behalf of the Commonwealth of Australia"@en ;
-  rdfs:label "Commonwealth of Australia"@en ;
-.
-:Department
-  rdf:type owl:Class ;
-  rdfs:label "Government Department" ;
-  rdfs:subClassOf :Entity ;
-  rdfs:subClassOf org:OrganizationalUnit ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onProperty org:purpose ;
-      owl:someValuesFrom :Function ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onProperty org:unitOf ;
-      owl:someValuesFrom :Jurisdiction ;
-    ] ;
-.
-:DepartmentSecretary
-  rdf:type owl:NamedIndividual ;
-  rdf:type org:Role ;
-  rdfs:label "Department Secretary" ;
-.
-:DirectorySubStructure
-  rdf:type owl:Class ;
-  rdfs:comment "*** Don't understand this one ... ***" ;
-  rdfs:comment "A sub-unit of an Australian government entity"@en ;
-  rdfs:label "Directory sub-structure"@en ;
-  rdfs:subClassOf org:OrganizationalUnit ;
-.
-:Entity
-  rdf:type owl:Class ;
-  rdfs:comment "Government entity, any kind, any level of government" ;
-  rdfs:label "Government Entity" ;
-  rdfs:subClassOf org:Organization ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty :levelOfGovernment ;
-    ] ;
-.
-:Federal
-  rdf:type owl:NamedIndividual ;
-  rdf:type skos:Concept ;
-  rdfs:label "Federal" ;
-.
-:Function
-  rdf:type owl:Class ;
-  rdfs:label "Government function" ;
-  rdfs:subClassOf skos:Concept ;
-.
-:GovernorGeneral
-  rdf:type owl:NamedIndividual ;
-  rdf:type org:Role ;
-  rdfs:comment """The Governor-General of the Commonwealth of Australia, the representative of the Australian monarch.
+This ontology specialises the W3C's recommended Organization Ontology to model Entities. Its specialised classes and properties have been initially informed by the Australian government's online organisations directory, https://www.directory.gov.au. This includes particular types of organisation found in Australian Federal government such as a 'Board', 'Government Entity' and so on.
+
+Further specialisation and extension is likely as this ontology is developed to cover the conceptual space of systems that are important for Australian government structure, such as the Administrative Arrangement Orders that alter Entities.
+
+This ontology is incomplete as of v0.6 and is currently for demo purposes only."""@en ;
+                                       rdfs:seeAlso "The GitHub repository containing addition documentation: http://github.com/CSIRO-enviro-informatics/auorg-ont/"@en .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://test.linked.data.gov.au/def/auorg#budgetDuration
+:budgetDuration rdf:type owl:ObjectProperty ;
+                rdfs:domain :BudgetItem ;
+                rdfs:range time:TemporalDuration ;
+                rdfs:label "duration of interval over which budget applies" .
+
+
+###  http://test.linked.data.gov.au/def/auorg#budgetInterval
+:budgetInterval rdf:type owl:ObjectProperty ;
+                rdfs:domain :BudgetItem ;
+                rdfs:range time:ProperInterval ;
+                rdfs:label "interval over which budget applies" .
+
+
+###  http://test.linked.data.gov.au/def/auorg#budgetPurpose
+:budgetPurpose rdf:type owl:ObjectProperty ;
+               rdfs:domain :BudgetItem ;
+               rdfs:range :Function ;
+               rdfs:label "purpose for which budget is allocated" .
+
+
+###  http://test.linked.data.gov.au/def/auorg#budgetQuantity
+:budgetQuantity rdf:type owl:ObjectProperty ;
+                rdfs:domain :BudgetItem ;
+                rdfs:range :SumOfMoney ;
+                rdfs:label "budget quantity" .
+
+
+###  http://test.linked.data.gov.au/def/auorg#budgetSource
+:budgetSource rdf:type owl:ObjectProperty ;
+              rdfs:domain :BudgetItem ;
+              rdfs:range <http://xmlns.com/foaf/0.1/Agent> ;
+              rdfs:label "source of budget" .
+
+
+###  http://test.linked.data.gov.au/def/auorg#hasAppropriations
+:hasAppropriations rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf :hasBudgetItem ;
+                   rdfs:range :Appropriations ;
+                   rdfs:comment "Has a current annual budgetary appropriation amount in Australian Dollars" ;
+                   rdfs:label "Annual appropriation budget (AUD)" .
+
+
+###  http://test.linked.data.gov.au/def/auorg#hasBudgetItem
+:hasBudgetItem rdf:type owl:ObjectProperty ;
+               rdfs:domain org:Organization ;
+               rdfs:range :BudgetItem ;
+               rdfs:label "budget item" .
+
+
+###  http://test.linked.data.gov.au/def/auorg#hasStreetAddress
+:hasStreetAddress rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf org:hasSite ;
+                  rdfs:range gnaf:Address ;
+                  rdfs:comment "Has a GNAF address of"@en ;
+                  rdfs:label "has street address"@en .
+
+
+###  http://test.linked.data.gov.au/def/auorg#inPortfolio
+:inPortfolio rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf org:subOrganizationOf ;
+             rdfs:range :Portfolio ;
+             rdfs:comment "is within a particular government Portfolio"@en ;
+             rdfs:label "in portfolio"@en .
+
+
+###  http://test.linked.data.gov.au/def/auorg#levelOfGovernment
+:levelOfGovernment rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf org:classification ;
+                   rdfs:domain :Jurisdiction ;
+                   rdfs:label "level of government (Federal, State, Local)" .
+
+
+###  http://www.w3.org/ns/org#purpose
+org:purpose rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://test.linked.data.gov.au/def/auorg#hasABN
+:hasABN rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf org:identifier ;
+        rdfs:range xsd:integer ;
+        rdfs:comment "org:identifier is a sub-property of skos:notation, which is a owl:DatatypeProperty, i.e. a literal. Could be constrained to be a string with the pattern 'NN NNN NNN NNN` to match ABN structure" .
+
+
+###  http://test.linked.data.gov.au/def/auorg#hasAverageStaffingLevel
+:hasAverageStaffingLevel rdf:type owl:DatatypeProperty ;
+                         rdfs:range xsd:integer ;
+                         rdfs:comment "Has an average annual staffig level of (no. of people)"@en ;
+                         rdfs:label "has average staffing level"@en .
+
+
+###  http://test.linked.data.gov.au/def/auorg#moneyAmount
+:moneyAmount rdf:type owl:DatatypeProperty ;
+             rdfs:domain :SumOfMoney ;
+             rdfs:range xsd:decimal ;
+             rdfs:label "Money amount" .
+
+
+###  http://test.linked.data.gov.au/def/auorg#moneyCurrency
+:moneyCurrency rdf:type owl:DatatypeProperty ;
+               rdfs:domain :SumOfMoney ;
+               rdfs:range xsd:string ;
+               rdfs:label "Money currency - ISO 4217 code" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://gnafld.net/def/gnaf#Address
+gnaf:Address rdf:type owl:Class .
+
+
+###  http://test.linked.data.gov.au/def/auorg#Agency
+:Agency rdf:type owl:Class ;
+        rdfs:subClassOf :Entity ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty org:linkedTo ;
+                          owl:someValuesFrom :Jurisdiction
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty org:purpose ;
+                          owl:someValuesFrom :Function
+                        ] ;
+        rdfs:comment "The Governor-General appoints ministers, establishes departments of state and agencies, and allocates responsibility among ministers through an Administrative Arrangements Order (AAO)."@en ;
+        rdfs:isDefinedBy <https://www.australia.gov.au/about-government/departments-and-agencies> ;
+        rdfs:label "Government Agency" .
+
+
+###  http://test.linked.data.gov.au/def/auorg#Appropriations
+:Appropriations rdf:type owl:Class ;
+                rdfs:subClassOf :BudgetItem ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :budgetQuantity ;
+                                  owl:allValuesFrom :AustralianDollars
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :budgetDuration ;
+                                  owl:hasValue time:unitYear
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :budgetSource ;
+                                  owl:hasValue :CommonwealthOfAustralia
+                                ] ;
+                rdfs:label "Appropriations budget (annualized)" .
+
+
+###  http://test.linked.data.gov.au/def/auorg#AustralianDollars
+:AustralianDollars rdf:type owl:Class ;
+                   rdfs:subClassOf :SumOfMoney ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :moneyAmount ;
+                                     owl:allValuesFrom xsd:integer
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :moneyCurrency ;
+                                     owl:hasValue "AUD"
+                                   ] ;
+                   rdfs:comment "Sum of money in whole Australian Dollars"@en ;
+                   rdfs:label "Australian Dollars"@en .
+
+
+###  http://test.linked.data.gov.au/def/auorg#Board
+:Board rdf:type owl:Class ;
+       rdfs:subClassOf org:FormalOrganization ;
+       rdfs:comment "An Australian Government Board"@en ;
+       rdfs:label "Board"@en .
+
+
+###  http://test.linked.data.gov.au/def/auorg#BudgetItem
+:BudgetItem rdf:type owl:Class ;
+            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                              owl:onProperty :budgetPurpose ;
+                              owl:minCardinality "1"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :budgetSource ;
+                              owl:minCardinality "1"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :budgetDuration ;
+                              owl:cardinality "1"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :budgetInterval ;
+                              owl:cardinality "1"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :budgetQuantity ;
+                              owl:cardinality "1"^^xsd:nonNegativeInteger
+                            ] ;
+            rdfs:label "Budget item" .
+
+
+###  http://test.linked.data.gov.au/def/auorg#Department
+:Department rdf:type owl:Class ;
+            rdfs:subClassOf :Entity ,
+                            org:OrganizationalUnit ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty org:purpose ;
+                              owl:someValuesFrom :Function
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty org:unitOf ;
+                              owl:someValuesFrom :Jurisdiction
+                            ] ;
+            rdfs:label "Government Department" .
+
+
+###  http://test.linked.data.gov.au/def/auorg#DirectorySubStructure
+:DirectorySubStructure rdf:type owl:Class ;
+                       rdfs:subClassOf org:OrganizationalUnit ;
+                       rdfs:comment "*** Don't understand this one ... ***" ,
+                                    "A sub-unit of an Australian government entity"@en ;
+                       rdfs:label "Directory sub-structure"@en .
+
+
+###  http://test.linked.data.gov.au/def/auorg#Entity
+:Entity rdf:type owl:Class ;
+        rdfs:subClassOf org:Organization ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :levelOfGovernment ;
+                          owl:cardinality "1"^^xsd:nonNegativeInteger
+                        ] ;
+        rdfs:comment "Government entity, any kind, any level of government" ;
+        rdfs:label "Government Entity" .
+
+
+###  http://test.linked.data.gov.au/def/auorg#Function
+:Function rdf:type owl:Class ;
+          rdfs:subClassOf skos:Concept ;
+          rdfs:label "Government function" .
+
+
+###  http://test.linked.data.gov.au/def/auorg#Jurisdiction
+:Jurisdiction rdf:type owl:Class ;
+              rdfs:subClassOf :Entity ,
+                              org:FormalOrganization ;
+              rdfs:comment "This applies to the top/autonomous government entity - e.g. one for each national, state, local government jurisdiction" ;
+              rdfs:label "Government or Jurisdiction" .
+
+
+###  http://test.linked.data.gov.au/def/auorg#NonBoard
+:NonBoard rdf:type owl:Class ;
+          rdfs:subClassOf org:FormalOrganization ;
+          rdfs:comment "An Australian Government non-board entity"@en ;
+          rdfs:label "Non-Board"@en .
+
+
+###  http://test.linked.data.gov.au/def/auorg#Outcome
+:Outcome rdf:type owl:Class ;
+         rdfs:subClassOf :Function ;
+         rdfs:label "Government Outcome" .
+
+
+###  http://test.linked.data.gov.au/def/auorg#Portfolio
+:Portfolio rdf:type owl:Class ;
+           rdfs:subClassOf :Function ;
+           rdfs:comment "A portfolio is a minister's area of responsibility as a member of Cabinet. As a general rule, there is one department associated with each portfolio."@en ,
+                        "Is this an organization or is this a classifier?" ;
+           rdfs:isDefinedBy <https://www.australia.gov.au/about-government/departments-and-agencies> ;
+           rdfs:label "Government Portfolio"@en .
+
+
+###  http://test.linked.data.gov.au/def/auorg#Program
+:Program rdf:type owl:Class ;
+         rdfs:subClassOf :Function ;
+         rdfs:label "Government Program" .
+
+
+###  http://test.linked.data.gov.au/def/auorg#SingleExecutiveRole
+:SingleExecutiveRole rdf:type owl:Class ;
+                     rdfs:subClassOf org:Post ;
+                     rdfs:comment "A single executive (Senior Executive Service in the Australian Public Service) role"@en ;
+                     rdfs:label "Single Executive Role"@en .
+
+
+###  http://test.linked.data.gov.au/def/auorg#SumOfMoney
+:SumOfMoney rdf:type owl:Class ;
+            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                              owl:onProperty :moneyAmount ;
+                              owl:cardinality "1"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :moneyCurrency ;
+                              owl:cardinality "1"^^xsd:nonNegativeInteger
+                            ] ;
+            rdfs:label "Sum of money" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://linked.data.gov.au/def/auorg#AustralianCapitalTerritory
+:AustralianCapitalTerritory rdf:type owl:NamedIndividual ,
+                                     :Jurisdiction ;
+                            :levelOfGovernment :State ;
+                            rdfs:label "Australian Capital Territory" .
+
+
+###  http://linked.data.gov.au/def/auorg#NewSouthWales
+:NewSouthWales rdf:type owl:NamedIndividual ,
+                        :Jurisdiction ;
+               :levelOfGovernment :State ;
+               rdfs:label "New South Wales" .
+
+
+###  http://linked.data.gov.au/def/auorg#NorthernTerritory
+:NorthernTerritory rdf:type owl:NamedIndividual ,
+                            :Jurisdiction ;
+                   :levelOfGovernment :State ;
+                   rdfs:label "Northern Territory" .
+
+
+###  http://linked.data.gov.au/def/auorg#Queensland
+:Queensland rdf:type owl:NamedIndividual ,
+                     :Jurisdiction ;
+            :levelOfGovernment :State .
+
+
+###  http://linked.data.gov.au/def/auorg#SouthAustralia
+:SouthAustralia rdf:type owl:NamedIndividual ,
+                         :Jurisdiction ;
+                :levelOfGovernment :State ;
+                rdfs:label "South Australia" .
+
+
+###  http://linked.data.gov.au/def/auorg#Tasmania
+:Tasmania rdf:type owl:NamedIndividual ,
+                   :Jurisdiction ;
+          :levelOfGovernment :State ;
+          rdfs:label "Tasmania" .
+
+
+###  http://linked.data.gov.au/def/auorg#Victoria
+:Victoria rdf:type owl:NamedIndividual ,
+                   :Jurisdiction ;
+          :levelOfGovernment :State ;
+          rdfs:label "Victoria" .
+
+
+###  http://linked.data.gov.au/def/auorg#WesternAustralia
+:WesternAustralia rdf:type owl:NamedIndividual ,
+                           :Jurisdiction ;
+                  :levelOfGovernment :State ;
+                  rdfs:label "Western Australia" .
+
+
+###  http://test.linked.data.gov.au/def/auorg#CommonwealthOfAustralia
+:CommonwealthOfAustralia rdf:type owl:NamedIndividual ,
+                                  :Jurisdiction ;
+                         :levelOfGovernment :Federal ;
+                         rdfs:comment """The Australian Government , on behalf of the Commonwealth of Australia.
+
+Australia's formal name is the Commonwealth of Australia. Australia is both a representative democracy and a constitutional monarchy with Queen Elizabeth II as Australia's head of state."""@en ;
+                         rdfs:isDefinedBy <https://www.australia.gov.au/about-government/how-government-works> ;
+                         rdfs:label "Commonwealth of Australia"@en .
+
+
+###  http://test.linked.data.gov.au/def/auorg#DepartmentSecretary
+:DepartmentSecretary rdf:type owl:NamedIndividual ,
+                              org:Role ;
+                     rdfs:label "Department Secretary" .
+
+
+###  http://test.linked.data.gov.au/def/auorg#Federal
+:Federal rdf:type owl:NamedIndividual ,
+                  skos:Concept ;
+         rdfs:label "Federal" .
+
+
+###  http://test.linked.data.gov.au/def/auorg#GovernorGeneral
+:GovernorGeneral rdf:type owl:NamedIndividual ,
+                          org:Role ;
+                 rdfs:comment """The Governor-General of the Commonwealth of Australia, the representative of the Australian monarch.
 
 The Governor-General is appointed by the Australian monarch (also the British monach) on the advice of the Prime Minister of Australia. The Governor-General has formal presidency over the Federal Executive Council and is Commander-in-Chief of the Australian Defence Force"""@en ;
-  rdfs:label "Governor-General"@en ;
-.
-:Jurisdiction
-  rdf:type owl:Class ;
-  rdfs:comment "This applies to the top/autonomous government entity - e.g. one for each national, state, local government jurisdiction" ;
-  rdfs:label "Government or Jurisdiction" ;
-  rdfs:subClassOf :Entity ;
-  rdfs:subClassOf org:FormalOrganization ;
-.
-:Local
-  rdf:type owl:NamedIndividual ;
-  rdf:type skos:Concept ;
-  rdfs:label "Local government" ;
-.
-:Minister
-  rdf:type owl:NamedIndividual ;
-  rdf:type org:Role ;
-  rdfs:label "Minister" ;
-.
-:NonBoard
-  rdf:type owl:Class ;
-  rdfs:comment "An Australian Government non-board entity"@en ;
-  rdfs:label "Non-Board"@en ;
-  rdfs:subClassOf org:FormalOrganization ;
-.
-:Outcome
-  rdf:type owl:Class ;
-  rdfs:label "Government Outcome" ;
-  rdfs:subClassOf :Function ;
-.
-:Portfolio
-  rdf:type owl:Class ;
-  rdfs:comment "A portfolio is a minister's area of responsibility as a member of Cabinet. As a general rule, there is one department associated with each portfolio."@en ;
-  rdfs:comment "Is this an organization or is this a classifier?" ;
-  rdfs:label "Government Portfolio"@en ;
-  rdfs:subClassOf :Function ;
-.
-:Program
-  rdf:type owl:Class ;
-  rdfs:label "Government Program" ;
-  rdfs:subClassOf :Function ;
-.
-:SingleExecutiveRole
-  rdf:type owl:Class ;
-  rdfs:comment "A single executive (Senior Executive Service in the Australian Public Service) role"@en ;
-  rdfs:label "Single Executive Role"@en ;
-  rdfs:subClassOf org:Post ;
-.
-:State
-  rdf:type owl:NamedIndividual ;
-  rdf:type skos:Concept ;
-  rdfs:label "State or Territory" ;
-.
-:SumOfMoney
-  rdf:type owl:Class ;
-  rdfs:label "Sum of money" ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty :moneyAmount ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty :moneyCurrency ;
-    ] ;
-.
-:budgetDuration
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain :BudgetItem ;
-  rdfs:label "duration of interval over which budget applies" ;
-  rdfs:range <http://www.w3.org/2006/time#TemporalDuration> ;
-.
-:budgetInterval
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain :BudgetItem ;
-  rdfs:label "interval over which budget applies" ;
-  rdfs:range <http://www.w3.org/2006/time#ProperInterval> ;
-.
-:budgetPurpose
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain :BudgetItem ;
-  rdfs:label "purpose for which budget is allocated" ;
-  rdfs:range :Function ;
-.
-:budgetQuantity
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain :BudgetItem ;
-  rdfs:label "budget quantity" ;
-  rdfs:range :SumOfMoney ;
-.
-:budgetSource
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain :BudgetItem ;
-  rdfs:label "source of budget" ;
-  rdfs:range <http://xmlns.com/foaf/0.1/Agent> ;
-.
-:hasABN
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "org:identifier is a sub-property of skos:notation, which is a owl:DatatypeProperty, i.e. a literal. Could be constrained to be a string with the pattern 'NN NNN NNN NNN` to match ABN structure" ;
-  rdfs:range xsd:integer ;
-  rdfs:subPropertyOf org:identifier ;
-.
-:hasAppropriations
-  rdf:type owl:ObjectProperty ;
-  rdfs:comment "Has a current annual budgetary appropriation amount in Australian Dollars" ;
-  rdfs:label "Annual appropriation budget (AUD)" ;
-  rdfs:range :Appropriations ;
-  rdfs:subPropertyOf :hasBudgetItem ;
-.
-:hasAverageStaffingLevel
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "Has an average annual staffig level of (no. of people)"@en ;
-  rdfs:label "has average staffing level"@en ;
-  rdfs:range xsd:integer ;
-.
-:hasBudgetItem
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain org:Organization ;
-  rdfs:label "budget item" ;
-  rdfs:range :BudgetItem ;
-.
-:hasStreetAddress
-  rdf:type owl:ObjectProperty ;
-  rdfs:comment "Has a GNAF address of"@en ;
-  rdfs:label "has street address"@en ;
-  rdfs:range gnaf:Address ;
-  rdfs:subPropertyOf org:hasSite ;
-.
-:inPortfolio
-  rdf:type owl:ObjectProperty ;
-  rdfs:comment "is within a particular government Portfolio"@en ;
-  rdfs:label "in portfolio"@en ;
-  rdfs:range :Portfolio ;
-  rdfs:subPropertyOf org:subOrganizationOf ;
-.
-:levelOfGovernment
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain :Jurisdiction ;
-  rdfs:label "level of government (Federal, State, Local)" ;
-  rdfs:subPropertyOf org:classification ;
-.
-:moneyAmount
-  rdf:type owl:DatatypeProperty ;
-  rdfs:domain :SumOfMoney ;
-  rdfs:label "Money amount" ;
-  rdfs:range xsd:decimal ;
-.
-:moneyCurrency
-  rdf:type owl:DatatypeProperty ;
-  rdfs:domain :SumOfMoney ;
-  rdfs:label "Money currency - ISO 4217 code" ;
-  rdfs:range xsd:string ;
-.
+                 rdfs:label "Governor-General"@en .
+
+
+###  http://test.linked.data.gov.au/def/auorg#Local
+:Local rdf:type owl:NamedIndividual ,
+                skos:Concept ;
+       rdfs:label "Local government" .
+
+
+###  http://test.linked.data.gov.au/def/auorg#Minister
+:Minister rdf:type owl:NamedIndividual ,
+                   org:Role ;
+          rdfs:label "Minister" .
+
+
+###  http://test.linked.data.gov.au/def/auorg#State
+:State rdf:type owl:NamedIndividual ,
+                skos:Concept ;
+       rdfs:label "State or Territory" .
+
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
