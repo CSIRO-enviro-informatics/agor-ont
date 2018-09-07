@@ -1,439 +1,1086 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>AU Org Ontology</title>
-        <link href="http://pid.data.gov.au/websrv/static/LODE/owl.css" rel="stylesheet" type="text/css">
-        <link href="http://pid.data.gov.au/websrv/static/LODE/Primer.css" rel="stylesheet" type="text/css">
-        <link href="http://pid.data.gov.au/websrv/static/LODE/rec.css" rel="stylesheet" type="text/css">
-        <link href="http://pid.data.gov.au/websrv/static/LODE/extra.css" rel="stylesheet" type="text/css">
-        <link rel="shortcut icon" href="http://pid.data.gov.au/websrv/static/LODE/favicon.ico">
-    </head>
-    <body>
-        <div class="head">
-            <h1>AU Org Ontology</h1>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>AU Org Ontology</title>
+    <link href="http://lode2.linked.data.gov.au/owl.css" rel="stylesheet" type="text/css">
+    <link href="http://lode2.linked.data.gov.au/Primer.css" rel="stylesheet" type="text/css">
+    <link href="http://lode2.linked.data.gov.au/rec.css" rel="stylesheet" type="text/css">
+    <link href="http://lode2.linked.data.gov.au/extra.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="http://lode2.linked.data.gov.au/favicon.ico">
+</head>
+<body>
+<div class="head">
+    <img src="csiro-logo.png" style="width:100px;" alt="CSIRO Logo" />
+    <h1>AU Org Ontology</h1>
+    <dl>
+        <dt>
+            IRI:
+        </dt>
+        <dd>
+            http://linked.data.gov.au/def/auorg
+        </dd>
+        <dt>
+            Version IRI:
+        </dt>
+        <dd>
+            http://linked.data.gov.au/def/auorg/0.6
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            Current version:
+        </dt>
+        <dd>
+            Beta version
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            Authors:
+        </dt>
+        <dd>
+            Nicholas J. Car
+        </dd>
+        <dd>
+            <a href="http://orcid.org/0000-0002-8742-7730">http://orcid.org/0000-0002-8742-7730</a>
+        </dd>
+        <dt>
+            Contributors:
+        </dt>
+        <dd>
+            Simon J.D. Cox
+        </dd>
+        <dd>
+            <a href="https://orcid.org/0000-0002-3884-3420">https://orcid.org/0000-0002-3884-3420</a>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            Publisher:
+        </dt>
+        <dd>
+            CSIRO
+        </dd>
+        <dd>
+            <a href="http://www.csiro.au">http://www.csiro.au</a>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            Imported Ontologies:
+        </dt>
+        <dd>
+            <a href="http://www.w3.org/2006/time">http://www.w3.org/2006/time</a>
+        </dd>
+        <dd>
+            <a href="http://www.w3.org/ns/org#">http://www.w3.org/ns/org#</a>
+        </dd>
+        <dd>
+            <a href="http://www.w3.org/ns/time/gregorian">http://www.w3.org/ns/time/gregorian</a>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            Other visualisation:
+        </dt>
+        <dd>
+            <a href="https://linked.data.gov.au/def/auorg.ttl">Ontology source (RDF, turtle)</a>
+        </dd>
+    </dl>
+    <dl>
+        <dt>Further documentation &amp; examples:</dt>
+        <dd><a href="http://github.com/CSIRO-enviro-informatics/auorg-ont">This ontology's full documentation on GitHub</a></dd>
+    </dl>
+</div>
+<hr>
+<h2>Abstract</h2>
+<span class="markdown"><p>The purpose of this ontology is to allow for the Semantic Web representation of Australian Federal Government Entities (organisations), their subcomponents and people related to them with particular roles.</p> <p>This ontology specialises the W3C's recommended Organization Ontology to model Entities. Its specialised classes and properties have been initially informed by the Australian government's online organisations directory, https://www.directory.gov.au. This includes particular types of organisation found in Australian Federal government such as a 'Board', 'Government Entity' and so on.</p> <p>Further specialisation and extension is likely as this ontology is developed to cover the conceptual space of systems that are important for Australian government structure, such as the Administrative Arrangement Orders that alter Entities.</p> <p>This ontology is incomplete as of v0.6 and is currently for demo purposes only.</p> </span>
+<div id="toc">
+    <h2>Table of Content</h2>
+    <ol>
+        <li><a href="#classes">Classes</a></li>
+        <li><a href="#objectproperties">Object Properties</a></li>
+        <li><a href="#dataproperties">Data Properties</a></li>
+        <li><a href="#namedindividuals">Named Individuals</a></li>
+        <li><a href="#annotationproperties">Annotation Properties</a></li>
+        <li><a href="#namespacedeclarations">Namespace Declarations</a></li>
+    </ol>
+</div>
+<div id="classes">
+    <h2>Classes</h2>
+    <ul class="hlist">
+        <li><a href="#d4e364" title="http://gnafld.net/def/gnaf#Address">Address</a></li>
+        <li><a href="#Appropriations" title="http://linked.data.gov.au/def/auorg#Appropriations">Appropriations budget (annualized)</a></li>
+        <li><a href="#AustralianDollars" title="http://linked.data.gov.au/def/auorg#AustralianDollars">Australian Dollars</a></li>
+        <li><a href="#Board" title="http://linked.data.gov.au/def/auorg#Board">Board</a></li>
+        <li><a href="#BudgetItem" title="http://linked.data.gov.au/def/auorg#BudgetItem">Budget item</a></li>
+        <li><a href="#DirectorySubStructure" title="http://linked.data.gov.au/def/auorg#DirectorySubStructure">Directory sub-structure</a></li>
+        <li><a href="#Department" title="http://linked.data.gov.au/def/auorg#Department">Government Department</a></li>
+        <li><a href="#Government" title="http://linked.data.gov.au/def/auorg#Government">Government entity</a></li>
+        <li><a href="#Function" title="http://linked.data.gov.au/def/auorg#Function">Government function</a></li>
+        <li><a href="#NonBoard" title="http://linked.data.gov.au/def/auorg#NonBoard">Non-Board</a></li>
+        <li><a href="#Portfolio" title="http://linked.data.gov.au/def/auorg#Portfolio">Portfolio</a></li>
+        <li><a href="#SingleExecutiveRole" title="http://linked.data.gov.au/def/auorg#SingleExecutiveRole">Single Executive Role</a></li>
+        <li><a href="#SumOfMoney" title="http://linked.data.gov.au/def/auorg#SumOfMoney">Sum of money</a></li>
+    </ul>
+    <div id="d4e364" class="entity">
+        <a name="http://gnafld.net/def/gnaf#Address"></a>
+        <h3>Address<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://gnafld.net/def/gnaf#Address</p>
+        <div class="comment">
+            <span class="markdown"><p>An Address object, defined by the GNAF ontology and supplied by the GNAF dataset only.</p> </span>
+        </div>
+        <dl class="description">
+            <dt>
+                has super-classes
+            </dt>
+            <dd>
+                <span class="dotted" title="http://www.w3.org/ns/org#Site">site</span>
+            </dd>
+            <dt>
+                is in range of
+            </dt>
+            <dd>
+                <a href="#hasStreetAddress" title="http://linked.data.gov.au/def/auorg#hasStreetAddress">has street address</a>
+                <sup title="object property" class="type-op">op</sup>
+            </dd>
+        </dl>
+    </div>
+    <div id="Appropriations" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#Appropriations"></a>
+        <h3>Appropriations budget (annualized)<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#Appropriations</p>
+        <dl class="description">
+            <dt>
+                has super-classes
+            </dt>
+            <dd>
+                <a href="#BudgetItem" title="http://linked.data.gov.au/def/auorg#BudgetItem">Budget item</a>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+            <dd>
+                <a href="#budgetQuantity" title="http://linked.data.gov.au/def/auorg#budgetQuantity">budget quantity</a>
+                <sup title="object property" class="type-op">op</sup>
+                <span class="logic">only</span>
+                <a href="#AustralianDollars" title="http://linked.data.gov.au/def/auorg#AustralianDollars">Australian Dollars</a>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+            <dd>
+                <a href="#budgetDuration" title="http://linked.data.gov.au/def/auorg#budgetDuration">duration of interval over which budget applies</a>
+                <sup title="object property" class="type-op">op</sup>
+                <span class="logic">value</span>
+                <span class="dotted" title="http://www.w3.org/2006/time#unitYear">unit year</span>
+            </dd>
+            <dd>
+                <a href="#budgetSource" title="http://linked.data.gov.au/def/auorg#budgetSource">source of budget</a>
+                <sup title="object property" class="type-op">op</sup>
+                <span class="logic">value</span>
+                <a href="#CommonwealthOfAustralia" title="http://linked.data.gov.au/def/auorg#CommonwealthOfAustralia">Commonwealth of Australia</a>
+            </dd>
+            <dt>
+                is in range of
+            </dt>
+            <dd>
+                <a href="#hasAppropriations" title="http://linked.data.gov.au/def/auorg#hasAppropriations">Annual appropriation budget (AUD)</a>
+                <sup title="object property" class="type-op">op</sup>
+            </dd>
+        </dl>
+    </div>
+    <div id="AustralianDollars" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#AustralianDollars"></a>
+        <h3>Australian Dollars<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#AustralianDollars</p>
+        <div class="comment">
+            <span class="markdown"><p>Sum of money in whole Australian Dollars</p> </span>
+        </div>
+        <dl class="description">
+            <dt>
+                has super-classes
+            </dt>
+            <dd>
+                <a href="#SumOfMoney" title="http://linked.data.gov.au/def/auorg#SumOfMoney">Sum of money</a>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+            <dd>
+                <a href="#moneyAmount" title="http://linked.data.gov.au/def/auorg#moneyAmount">Money amount</a>
+                <sup title="data property" class="type-dp">dp</sup>
+                <span class="logic">only</span>
+                <span class="dotted" title="http://www.w3.org/2001/XMLSchema#integer">integer</span>
+            </dd>
+            <dd>
+                <a href="#moneyCurrency" title="http://linked.data.gov.au/def/auorg#moneyCurrency">Money currency - ISO 4217 code</a>
+                <sup title="data property" class="type-dp">dp</sup>
+                <span class="logic">value</span> AUD
+            </dd>
+        </dl>
+    </div>
+    <div id="Board" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#Board"></a>
+        <h3>Board<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#Board</p>
+        <div class="comment">
+            <span class="markdown"><p>An Australian Government Board</p> </span>
+        </div>
+        <dl class="description">
+            <dt>
+                has super-classes
+            </dt>
+            <dd>
+                <span class="dotted" title="http://www.w3.org/ns/org#FormalOrganization">formal organization</span>
+            </dd>
+        </dl>
+    </div>
+    <div id="BudgetItem" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#BudgetItem"></a>
+        <h3>Budget item<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#BudgetItem</p>
+        <dl class="description">
+            <dt>
+                has super-classes
+            </dt>
+            <dd>
+                <a href="#budgetPurpose" title="http://linked.data.gov.au/def/auorg#budgetPurpose">purpose for which budget is allocated</a>
+                <sup title="object property" class="type-op">op</sup>
+                <span class="logic">min</span> 1
+            </dd>
+            <dd>
+                <a href="#budgetSource" title="http://linked.data.gov.au/def/auorg#budgetSource">source of budget</a>
+                <sup title="object property" class="type-op">op</sup>
+                <span class="logic">min</span> 1
+            </dd>
+            <dd>
+                <a href="#budgetDuration" title="http://linked.data.gov.au/def/auorg#budgetDuration">duration of interval over which budget applies</a>
+                <sup title="object property" class="type-op">op</sup>
+                <span class="logic">exactly</span> 1
+            </dd>
+            <dd>
+                <a href="#budgetInterval" title="http://linked.data.gov.au/def/auorg#budgetInterval">interval over which budget applies</a>
+                <sup title="object property" class="type-op">op</sup>
+                <span class="logic">exactly</span> 1
+            </dd>
+            <dd>
+                <a href="#budgetQuantity" title="http://linked.data.gov.au/def/auorg#budgetQuantity">budget quantity</a>
+                <sup title="object property" class="type-op">op</sup>
+                <span class="logic">exactly</span> 1
+            </dd>
+            <dt>
+                has sub-classes
+            </dt>
+            <dd>
+                <a href="#Appropriations" title="http://linked.data.gov.au/def/auorg#Appropriations">Appropriations budget (annualized)</a>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+            <dt>
+                is in domain of
+            </dt>
+            <dd>
+                <a href="#budgetQuantity" title="http://linked.data.gov.au/def/auorg#budgetQuantity">budget quantity</a>
+                <sup title="object property" class="type-op">op</sup>,
+                <a href="#budgetDuration" title="http://linked.data.gov.au/def/auorg#budgetDuration">duration of interval over which budget applies</a>
+                <sup title="object property" class="type-op">op</sup>,
+                <a href="#budgetInterval" title="http://linked.data.gov.au/def/auorg#budgetInterval">interval over which budget applies</a>
+                <sup title="object property" class="type-op">op</sup>,
+                <a href="#budgetPurpose" title="http://linked.data.gov.au/def/auorg#budgetPurpose">purpose for which budget is allocated</a>
+                <sup title="object property" class="type-op">op</sup>,
+                <a href="#budgetSource" title="http://linked.data.gov.au/def/auorg#budgetSource">source of budget</a>
+                <sup title="object property" class="type-op">op</sup>
+            </dd>
+            <dt>
+                is in range of
+            </dt>
+            <dd>
+                <a href="#hasBudgetItem" title="http://linked.data.gov.au/def/auorg#hasBudgetItem">budget item</a>
+                <sup title="object property" class="type-op">op</sup>
+            </dd>
+        </dl>
+    </div>
+    <div id="DirectorySubStructure" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#DirectorySubStructure"></a>
+        <h3>Directory sub-structure<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#DirectorySubStructure</p>
+        <div class="comment">
+            <span class="markdown"><p>A sub-unit of an Australian government entity</p> </span>
+        </div>
+        <dl class="description">
+            <dt>
+                has super-classes
+            </dt>
+            <dd>
+                <span class="dotted" title="http://www.w3.org/ns/org#OrganizationalUnit">organizational unit</span>
+            </dd>
+        </dl>
+    </div>
+    <div id="Department" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#Department"></a>
+        <h3>Government Department<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#Department</p>
+        <dl class="description">
+            <dt>
+                has super-classes
+            </dt>
+            <dd>
+                <span class="dotted" title="http://www.w3.org/ns/org#OrganizationalUnit">organizational unit</span>
+            </dd>
+            <dd>
+                <span class="dotted" title="http://www.w3.org/ns/org#purpose">purpose</span>
+                <sup title="object property" class="type-op">op</sup>
+                <span class="logic">some</span>
+                <a href="#Function" title="http://linked.data.gov.au/def/auorg#Function">Government function</a>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+            <dd>
+                <span class="dotted" title="http://www.w3.org/ns/org#unitOf">unit of</span>
+                <span class="logic">some</span>
+                <a href="#Government" title="http://linked.data.gov.au/def/auorg#Government">Government entity</a>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+        </dl>
+    </div>
+    <div id="Government" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#Government"></a>
+        <h3>Government entity<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#Government</p>
+        <dl class="description">
+            <dt>
+                has super-classes
+            </dt>
+            <dd>
+                <span class="dotted" title="http://www.w3.org/ns/org#FormalOrganization">formal organization</span>
+            </dd>
+            <dd>
+                <a href="#levelOfGovernment" title="http://linked.data.gov.au/def/auorg#levelOfGovernment">level of government (Federal, State, Local)</a>
+                <sup title="object property" class="type-op">op</sup>
+                <span class="logic">exactly</span> 1
+            </dd>
+            <dt>
+                is in domain of
+            </dt>
+            <dd>
+                <a href="#levelOfGovernment" title="http://linked.data.gov.au/def/auorg#levelOfGovernment">level of government (Federal, State, Local)</a>
+                <sup title="object property" class="type-op">op</sup>
+            </dd>
+            <dt>
+                has members
+            </dt>
+            <dd>
+                <a href="#CommonwealthOfAustralia" title="http://linked.data.gov.au/def/auorg#CommonwealthOfAustralia">Commonwealth of Australia</a>
+                <sup title="named individual" class="type-ni">ni</sup>
+            </dd>
+        </dl>
+    </div>
+    <div id="Function" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#Function"></a>
+        <h3>Government function<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#Function</p>
+        <dl class="description">
+            <dt>
+                has super-classes
+            </dt>
+            <dd>
+                <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            </dd>
+            <dt>
+                is in range of
+            </dt>
+            <dd>
+                <a href="#budgetPurpose" title="http://linked.data.gov.au/def/auorg#budgetPurpose">purpose for which budget is allocated</a>
+                <sup title="object property" class="type-op">op</sup>
+            </dd>
+        </dl>
+    </div>
+    <div id="NonBoard" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#NonBoard"></a>
+        <h3>Non-Board<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#NonBoard</p>
+        <div class="comment">
+            <span class="markdown"><p>An Australian Government non-board entity</p> </span>
+        </div>
+        <dl class="description">
+            <dt>
+                has super-classes
+            </dt>
+            <dd>
+                <span class="dotted" title="http://www.w3.org/ns/org#FormalOrganization">formal organization</span>
+            </dd>
+        </dl>
+    </div>
+    <div id="Portfolio" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#Portfolio"></a>
+        <h3>Portfolio<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#Portfolio</p>
+        <div class="comment">
+            <span class="markdown"><p>A portfolio is a minister's area of responsibility as a member of Cabinet. As a general rule, there is one department in each portfolio.</p> </span>
+        </div>
+        <dl class="description">
+            <dt>
+                has super-classes
+            </dt>
+            <dd>
+                <span class="dotted" title="http://www.w3.org/ns/org#Organization">organization</span>
+            </dd>
+            <dt>
+                is in range of
+            </dt>
+            <dd>
+                <a href="#inPortfolio" title="http://linked.data.gov.au/def/auorg#inPortfolio">in portfolio</a>
+                <sup title="object property" class="type-op">op</sup>
+            </dd>
+        </dl>
+    </div>
+    <div id="SingleExecutiveRole" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#SingleExecutiveRole"></a>
+        <h3>Single Executive Role<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#SingleExecutiveRole</p>
+        <div class="comment">
+            <span class="markdown"><p>A single executive (Senior Executive Service in the Australian Public Service) role</p> </span>
+        </div>
+        <dl class="description">
+            <dt>
+                has super-classes
+            </dt>
+            <dd>
+                <span class="dotted" title="http://www.w3.org/ns/org#Post">post</span>
+            </dd>
+        </dl>
+    </div>
+    <div id="SumOfMoney" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#SumOfMoney"></a>
+        <h3>Sum of money<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#SumOfMoney</p>
+        <dl class="description">
+            <dt>
+                has super-classes
+            </dt>
+            <dd>
+                <a href="#moneyAmount" title="http://linked.data.gov.au/def/auorg#moneyAmount">Money amount</a>
+                <sup title="data property" class="type-dp">dp</sup>
+                <span class="logic">exactly</span> 1
+            </dd>
+            <dd>
+                <a href="#moneyCurrency" title="http://linked.data.gov.au/def/auorg#moneyCurrency">Money currency - ISO 4217 code</a>
+                <sup title="data property" class="type-dp">dp</sup>
+                <span class="logic">exactly</span> 1
+            </dd>
+            <dt>
+                has sub-classes
+            </dt>
+            <dd>
+                <a href="#AustralianDollars" title="http://linked.data.gov.au/def/auorg#AustralianDollars">Australian Dollars</a>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+            <dt>
+                is in domain of
+            </dt>
+            <dd>
+                <a href="#moneyAmount" title="http://linked.data.gov.au/def/auorg#moneyAmount">Money amount</a>
+                <sup title="data property" class="type-dp">dp</sup>,
+                <a href="#moneyCurrency" title="http://linked.data.gov.au/def/auorg#moneyCurrency">Money currency - ISO 4217 code</a>
+                <sup title="data property" class="type-dp">dp</sup>
+            </dd>
+            <dt>
+                is in range of
+            </dt>
+            <dd>
+                <a href="#budgetQuantity" title="http://linked.data.gov.au/def/auorg#budgetQuantity">budget quantity</a>
+                <sup title="object property" class="type-op">op</sup>
+            </dd>
+        </dl>
+    </div>
+</div>
+<div id="objectproperties">
+    <h2>Object Properties</h2>
+    <ul class="hlist">
+        <li><a href="#hasAppropriations" title="http://linked.data.gov.au/def/auorg#hasAppropriations">Annual appropriation budget (AUD)</a></li>
+        <li><a href="#hasBudgetItem" title="http://linked.data.gov.au/def/auorg#hasBudgetItem">budget item</a></li>
+        <li><a href="#budgetQuantity" title="http://linked.data.gov.au/def/auorg#budgetQuantity">budget quantity</a></li>
+        <li><a href="#budgetDuration" title="http://linked.data.gov.au/def/auorg#budgetDuration">duration of interval over which budget applies</a></li>
+        <li><a href="#hasStreetAddress" title="http://linked.data.gov.au/def/auorg#hasStreetAddress">has street address</a></li>
+        <li><a href="#inPortfolio" title="http://linked.data.gov.au/def/auorg#inPortfolio">in portfolio</a></li>
+        <li><a href="#budgetInterval" title="http://linked.data.gov.au/def/auorg#budgetInterval">interval over which budget applies</a></li>
+        <li><a href="#levelOfGovernment" title="http://linked.data.gov.au/def/auorg#levelOfGovernment">level of government (Federal, State, Local)</a></li>
+        <li><a href="#budgetPurpose" title="http://linked.data.gov.au/def/auorg#budgetPurpose">purpose for which budget is allocated</a></li>
+        <li><a href="#budgetSource" title="http://linked.data.gov.au/def/auorg#budgetSource">source of budget</a></li>
+    </ul>
+    <div id="hasAppropriations" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#hasAppropriations"></a>
+        <h3>Annual appropriation budget (AUD)<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#hasAppropriations</p>
+        <div class="comment">
+            <span class="markdown"><p>Has a current annual budgetary appropriation amount in Australian Dollars</p> </span>
+        </div>
+        <div class="description">
             <dl>
                 <dt>
-                    IRI:
+                    has super-properties
                 </dt>
                 <dd>
-                    http://test.linked.data.gov.au/def/auorg
+                    <a href="#hasBudgetItem" title="http://linked.data.gov.au/def/auorg#hasBudgetItem">budget item</a>
+                    <sup title="object property" class="type-op">op</sup>
                 </dd>
                 <dt>
-                    Version IRI:
+                    has range
                 </dt>
                 <dd>
-                    http://test.linked.data.gov.au/def/auorg/0.5
+                    <a href="#Appropriations" title="http://linked.data.gov.au/def/auorg#Appropriations">Appropriations budget (annualized)</a>
+                    <sup title="class" class="type-c">c</sup>
                 </dd>
             </dl>
-            <dl>
-                <dt>
-                    Current version:
-                </dt>
-                <dd>
-                    Beta version
-                </dd>
-            </dl>
-            <dl>
-                <dt>
-                    Authors:
-                </dt>
-                <dd>
-                    Nicholas Car
-                </dd>
-                <dd>
-                    <a href="http://orcid.org/0000-0002-8742-7730">http://orcid.org/0000-0002-8742-7730</a>
-                </dd>
-            </dl>
-            <dl>
-                <dt>
-                    Imported Ontologies:
-                </dt>
-                <dd>
-                    <a href="http://www.w3.org/ns/org#">http://www.w3.org/ns/org#</a>
-                </dd>
-            </dl>
-            <dl>
-                <dt>
-                    Other visualisation:
-                </dt>
-                <dd>
-                    <a href="https://test.linked.data.gov.au/def/auorg.ttl">Ontology source (RDF, turtle)</a>
-                </dd>
-            </dl>
-            <dl>
-        				<dt>Further documentation &amp; examples:</dt>
-        				<dd><a href="http://github.com/CSIRO-enviro-informatics/auorg-ont">This ontology's full documentation on GitHub</a></dd>
-        		</dl>
         </div>
-        <hr>
-        <h2>Abstract</h2>
-        <span class="markdown"><p>This ontology defines a series of sub classes of the generic org:Organization class to describe types of Australian Government organisations represented in the website directory.data.gov.au. It also defines a series of properties for organisations to capture specific properties of those organisations also given in directory.gov.au.</p> <p>This ontology is incomplete as of v0.5 and is currently for demo purposes only.</p> </span>
-        <div id="toc">
-            <h2>Table of Content</h2>
-            <ol>
-                <li><a href="#classes">Classes</a></li>
-                <li><a href="#objectproperties">Object Properties</a></li>
-                <li><a href="#dataproperties">Data Properties</a></li>
-                <li><a href="#namespacedeclarations">Namespace Declarations</a></li>
-            </ol>
-        </div>
-        <div id="classes">
-            <h2>Classes</h2>
-            <ul class="hlist">
-                <li><a href="#d4e102" title="http://gnafld.net/def/gnaf#Address">Address</a></li>
-                <li><a href="#AustralianDollars" title="http://test.linked.data.gov.au/def/auorg#AustralianDollars">Australian Dollars</a></li>
-                <li><a href="#Board" title="http://test.linked.data.gov.au/def/auorg#Board">Board</a></li>
-                <li><a href="#CommonwealthOfParliament" title="http://test.linked.data.gov.au/def/auorg#CommonwealthOfParliament">Commonwealth of Parliament</a></li>
-                <li><a href="#DirectorySubStructure" title="http://test.linked.data.gov.au/def/auorg#DirectorySubStructure">Directory sub-structure</a></li>
-                <li><a href="#GovernorGeneral" title="http://test.linked.data.gov.au/def/auorg#GovernorGeneral">Govenor-General</a></li>
-                <li><a href="#NonBoard" title="http://test.linked.data.gov.au/def/auorg#NonBoard">Non-Board</a></li>
-                <li><a href="#Portfolio" title="http://test.linked.data.gov.au/def/auorg#Portfolio">Portfolio</a></li>
-                <li><a href="#SingleExecutiveRole" title="http://test.linked.data.gov.au/def/auorg#SingleExecutiveRole">Single Executive Role</a></li>
-            </ul>
-            <div id="d4e102" class="entity">
-                <a name="http://gnafld.net/def/gnaf#Address"></a>
-                <h3>Address<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
-                <p><strong>IRI:</strong> http://gnafld.net/def/gnaf#Address</p>
-                <div class="comment">
-                    <span class="markdown"><p>An Address object, defined by the GNAF ontology and supplied by the GNAF dataset only.</p> </span>
-                </div>
-                <dl class="description">
-                    <dt>
-                        has super-classes
-                    </dt>
-                    <dd>
-                        <span class="dotted" title="http://www.w3.org/ns/org#Site">site</span>
-                    </dd>
-                    <dt>
-                        is in range of
-                    </dt>
-                    <dd>
-                        <a href="#hasStreetAddress" title="http://test.linked.data.gov.au/def/auorg#hasStreetAddress">has street address</a>
-                        <sup title="object property" class="type-op">op</sup>
-                    </dd>
-                </dl>
-            </div>
-            <div id="AustralianDollars" class="entity">
-                <a name="http://test.linked.data.gov.au/def/auorg#AustralianDollars"></a>
-                <h3>Australian Dollars<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
-                <p><strong>IRI:</strong> http://test.linked.data.gov.au/def/auorg#AustralianDollars</p>
-                <div class="comment">
-                    <span class="markdown"><p>Australian Dollars in whole dollar units</p> </span>
-                </div>
-                <dl class="description">
-                    <dt>
-                        has super-classes
-                    </dt>
-                    <dd>
-                        <span class="dotted" title="http://www.w3.org/2001/XMLSchema#integer">integer</span>
-                    </dd>
-                    <dt>
-                        is in range of
-                    </dt>
-                    <dd>
-                        <a href="#hasAppropriations" title="http://test.linked.data.gov.au/def/auorg#hasAppropriations">has appropriations</a>
-                        <sup title="object property" class="type-op">op</sup>
-                    </dd>
-                </dl>
-            </div>
-            <div id="Board" class="entity">
-                <a name="http://test.linked.data.gov.au/def/auorg#Board"></a>
-                <h3>Board<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
-                <p><strong>IRI:</strong> http://test.linked.data.gov.au/def/auorg#Board</p>
-                <div class="comment">
-                    <span class="markdown"><p>An Australian Government Board</p> </span>
-                </div>
-                <dl class="description">
-                    <dt>
-                        has super-classes
-                    </dt>
-                    <dd>
-                        <span class="dotted" title="http://www.w3.org/ns/org#FormalOrganization">formal organization</span>
-                    </dd>
-                </dl>
-            </div>
-            <div id="CommonwealthOfParliament" class="entity">
-                <a name="http://test.linked.data.gov.au/def/auorg#CommonwealthOfParliament"></a>
-                <h3>Commonwealth of Parliament<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
-                <p><strong>IRI:</strong> http://test.linked.data.gov.au/def/auorg#CommonwealthOfParliament</p>
-                <div class="comment">
-                    <span class="markdown"><p>The Australian Government parliament</p> </span>
-                </div>
-                <dl class="description">
-                    <dt>
-                        has super-classes
-                    </dt>
-                    <dd>
-                        <span class="dotted" title="http://www.w3.org/ns/org#FormalOrganization">formal organization</span>
-                    </dd>
-                </dl>
-            </div>
-            <div id="DirectorySubStructure" class="entity">
-                <a name="http://test.linked.data.gov.au/def/auorg#DirectorySubStructure"></a>
-                <h3>Directory sub-structure<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
-                <p><strong>IRI:</strong> http://test.linked.data.gov.au/def/auorg#DirectorySubStructure</p>
-                <div class="comment">
-                    <span class="markdown"><p>A sub-unit of an Australian government entity</p> </span>
-                </div>
-                <dl class="description">
-                    <dt>
-                        has super-classes
-                    </dt>
-                    <dd>
-                        <span class="dotted" title="http://xmlns.com/foaf/0.1/Organization">organization</span>
-                    </dd>
-                </dl>
-            </div>
-            <div id="GovernorGeneral" class="entity">
-                <a name="http://test.linked.data.gov.au/def/auorg#GovernorGeneral"></a>
-                <h3>Govenor-General<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
-                <p><strong>IRI:</strong> http://test.linked.data.gov.au/def/auorg#GovernorGeneral</p>
-                <div class="comment">
-                    <span class="markdown"><p>The Governor-General of the Commonwealth of Australia, the representative of the Australian monarch.</p> <p>The Governor-General is appointed by the Australian monarch (also the British monach) on the advice of the Prime Minister of Australia. The Governor-General has formal presidency over the Federal Executive Council and is Commander-in-Chief of the Australian Defence Force</p> </span>
-                </div>
-                <dl class="description">
-                    <dt>
-                        has super-classes
-                    </dt>
-                    <dd>
-                        <span class="dotted" title="http://xmlns.com/foaf/0.1/Person">person</span>
-                    </dd>
-                </dl>
-            </div>
-            <div id="NonBoard" class="entity">
-                <a name="http://test.linked.data.gov.au/def/auorg#NonBoard"></a>
-                <h3>Non-Board<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
-                <p><strong>IRI:</strong> http://test.linked.data.gov.au/def/auorg#NonBoard</p>
-                <div class="comment">
-                    <span class="markdown"><p>An Australian Government non-board entity</p> </span>
-                </div>
-                <dl class="description">
-                    <dt>
-                        has super-classes
-                    </dt>
-                    <dd>
-                        <span class="dotted" title="http://www.w3.org/ns/org#FormalOrganization">formal organization</span>
-                    </dd>
-                </dl>
-            </div>
-            <div id="Portfolio" class="entity">
-                <a name="http://test.linked.data.gov.au/def/auorg#Portfolio"></a>
-                <h3>Portfolio<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
-                <p><strong>IRI:</strong> http://test.linked.data.gov.au/def/auorg#Portfolio</p>
-                <div class="comment">
-                    <span class="markdown"><p>A portfolio is a minister's area of responsibility as a member of Cabinet. As a general rule, there is one department in each portfolio.</p> </span>
-                </div>
-                <dl class="description">
-                    <dt>
-                        has super-classes
-                    </dt>
-                    <dd>
-                        <span class="dotted" title="http://www.w3.org/ns/org#FormalOrganization">formal organization</span>
-                    </dd>
-                </dl>
-            </div>
-            <div id="SingleExecutiveRole" class="entity">
-                <a name="http://test.linked.data.gov.au/def/auorg#SingleExecutiveRole"></a>
-                <h3>Single Executive Role<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
-                <p><strong>IRI:</strong> http://test.linked.data.gov.au/def/auorg#SingleExecutiveRole</p>
-                <div class="comment">
-                    <span class="markdown"><p>A single executive (Senior Executive Service in the Australian Public Service) role</p> </span>
-                </div>
-                <dl class="description">
-                    <dt>
-                        has super-classes
-                    </dt>
-                    <dd>
-                        <span class="dotted" title="http://www.w3.org/ns/org#Post">post</span>
-                    </dd>
-                </dl>
-            </div>
-        </div>
-        <div id="objectproperties">
-            <h2>Object Properties</h2>
-            <ul class="hlist">
-                <li><a href="#hasAppropriations" title="http://test.linked.data.gov.au/def/auorg#hasAppropriations"><span>has appropriations</span></a></li>
-                <li><a href="#hasPortfolio" title="http://test.linked.data.gov.au/def/auorg#hasPortfolio">has portfolio</a></li>
-                <li><a href="#hasStreetAddress" title="http://test.linked.data.gov.au/def/auorg#hasStreetAddress">has street address</a></li>
-            </ul>
-            <div id="hasAppropriations" class="entity">
-                <a name="http://test.linked.data.gov.au/def/auorg#hasAppropriations"></a>
-                <h3>has appropriations<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
-                <p><strong>IRI:</strong> http://test.linked.data.gov.au/def/auorg#hasAppropriations</p>
-                <div class="description">
-                    <dl>
-                        <dt>
-                            has range
-                        </dt>
-                        <dd>
-                            <a href="#AustralianDollars" title="http://test.linked.data.gov.au/def/auorg#AustralianDollars">Australian Dollars</a>
-                            <sup title="class" class="type-c">c</sup>
-                        </dd>
-                        <dt>
-                            is also defined as
-                        </dt>
-                        <dd>
-                            data property
-                        </dd>
-                    </dl>
-                </div>
-            </div>
-            <div id="hasPortfolio" class="entity">
-                <a name="http://test.linked.data.gov.au/def/auorg#hasPortfolio"></a>
-                <h3>has portfolio<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
-                <p><strong>IRI:</strong> http://test.linked.data.gov.au/def/auorg#hasPortfolio</p>
-                <div class="comment">
-                    <span class="markdown"><p>is within a particular government Portfolio</p> </span>
-                </div>
-                <div class="description">
-                    <dl>
-                        <dt>
-                            has super-properties
-                        </dt>
-                        <dd>
-                            <span class="dotted" title="http://www.w3.org/ns/org#subOrganizationOf">sub organization of</span>
-                        </dd>
-                    </dl>
-                </div>
-            </div>
-            <div id="hasStreetAddress" class="entity">
-                <a name="http://test.linked.data.gov.au/def/auorg#hasStreetAddress"></a>
-                <h3>has street address<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
-                <p><strong>IRI:</strong> http://test.linked.data.gov.au/def/auorg#hasStreetAddress</p>
-                <div class="comment">
-                    <span class="markdown"><p>Has a GNAF address of</p> </span>
-                </div>
-                <div class="description">
-                    <dl>
-                        <dt>
-                            has super-properties
-                        </dt>
-                        <dd>
-                            <span class="dotted" title="http://www.w3.org/ns/org#hasSite">has site</span>
-                        </dd>
-                        <dt>
-                            has range
-                        </dt>
-                        <dd>
-                            <a href="#d4e102" title="http://gnafld.net/def/gnaf#Address">Address</a>
-                            <sup title="class" class="type-c">c</sup>
-                        </dd>
-                    </dl>
-                </div>
-            </div>
-        </div>
-        <div id="dataproperties">
-            <h2>Data Properties</h2>
-            <ul class="hlist">
-                <li><a href="#hasABN" title="http://test.linked.data.gov.au/def/auorg#hasABN"><span>has a b n</span></a></li>
-                <li><a href="#hasAverageStaffingLevel" title="http://test.linked.data.gov.au/def/auorg#hasAverageStaffingLevel">has average staffing level</a></li>
-            </ul>
-            <div id="hasABN" class="entity">
-                <a name="http://test.linked.data.gov.au/def/auorg#hasABN"></a>
-                <h3>has a b n<sup title="data property" class="type-dp">dp</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a></span></h3>
-                <p><strong>IRI:</strong> http://test.linked.data.gov.au/def/auorg#hasABN</p>
-                <div class="description">
-                    <dl>
-                        <dt>
-                            has super-properties
-                        </dt>
-                        <dd>
-                            <span class="dotted" title="http://www.w3.org/ns/org#identifier">identifier</span>
-                        </dd>
-                        <dt>
-                            has range
-                        </dt>
-                        <dd>
-                            <span class="dotted" title="http://www.w3.org/2001/XMLSchema#integer">integer</span>
-                        </dd>
-                    </dl>
-                </div>
-            </div>
-            <div id="hasAverageStaffingLevel" class="entity">
-                <a name="http://test.linked.data.gov.au/def/auorg#hasAverageStaffingLevel"></a>
-                <h3>has average staffing level<sup title="data property" class="type-dp">dp</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a></span></h3>
-                <p><strong>IRI:</strong> http://test.linked.data.gov.au/def/auorg#hasAverageStaffingLevel</p>
-                <div class="comment">
-                    <span class="markdown"><p>Has an average annual staffig level of (no. of people)</p> </span>
-                </div>
-                <div class="description">
-                    <dl>
-                        <dt>
-                            has range
-                        </dt>
-                        <dd>
-                            <span class="dotted" title="http://www.w3.org/2001/XMLSchema#integer">integer</span>
-                        </dd>
-                    </dl>
-                </div>
-            </div>
-        </div>
-        <div id="namespacedeclarations">
-            <h2>Namespace Declarations <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+    </div>
+    <div id="hasBudgetItem" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#hasBudgetItem"></a>
+        <h3>budget item<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#hasBudgetItem</p>
+        <div class="description">
             <dl>
                 <dt>
-                    <em>default namespace</em>
+                    has sub-properties
                 </dt>
                 <dd>
-                    http://test.linked.data.gov.au/def/auorg#
+                    <a href="#hasAppropriations" title="http://linked.data.gov.au/def/auorg#hasAppropriations">Annual appropriation budget (AUD)</a>
+                    <sup title="object property" class="type-op">op</sup>
                 </dd>
                 <dt>
-                    foaf
+                    has domain
                 </dt>
                 <dd>
-                    http://xmlns.com/foaf/0.1/
+                    <span class="dotted" title="http://www.w3.org/ns/org#Organization">organization</span>
                 </dd>
                 <dt>
-                    gnaf
+                    has range
                 </dt>
                 <dd>
-                    http://gnafld.net/def/gnaf#
-                </dd>
-                <dt>
-                    org
-                </dt>
-                <dd>
-                    http://www.w3.org/ns/org#
-                </dd>
-                <dt>
-                    owl
-                </dt>
-                <dd>
-                    http://www.w3.org/2002/07/owl#
-                </dd>
-                <dt>
-                    rdf
-                </dt>
-                <dd>
-                    http://www.w3.org/1999/02/22-rdf-syntax-ns#
-                </dd>
-                <dt>
-                    rdfs
-                </dt>
-                <dd>
-                    http://www.w3.org/2000/01/rdf-schema#
-                </dd>
-                <dt>
-                    skos
-                </dt>
-                <dd>
-                    http://www.w3.org/2004/02/skos/core#
-                </dd>
-                <dt>
-                    terms
-                </dt>
-                <dd>
-                    http://purl.org/dc/terms/
-                </dd>
-                <dt>
-                    xsd
-                </dt>
-                <dd>
-                    http://www.w3.org/2001/XMLSchema#
+                    <a href="#BudgetItem" title="http://linked.data.gov.au/def/auorg#BudgetItem">Budget item</a>
+                    <sup title="class" class="type-c">c</sup>
                 </dd>
             </dl>
         </div>
-        <p class="endnote">This HTML document was obtained by processing the OWL ontology source code through <a href="http://lode2.promsns.org">LODE 2</a>, <em>Live OWL Documentation Environment, v2</em>, originally developed by <a href="http://www.essepuntato.it">Silvio Peroni</a> and updated by <a href="http://www.edmondchuc.com">Edmond Chuc</a> at the <a href="http://www.csiro.au">CSIRO</a>.</p>
-    </body>
+    </div>
+    <div id="budgetQuantity" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#budgetQuantity"></a>
+        <h3>budget quantity<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#budgetQuantity</p>
+        <div class="description">
+            <dl>
+                <dt>
+                    has domain
+                </dt>
+                <dd>
+                    <a href="#BudgetItem" title="http://linked.data.gov.au/def/auorg#BudgetItem">Budget item</a>
+                    <sup title="class" class="type-c">c</sup>
+                </dd>
+                <dt>
+                    has range
+                </dt>
+                <dd>
+                    <a href="#SumOfMoney" title="http://linked.data.gov.au/def/auorg#SumOfMoney">Sum of money</a>
+                    <sup title="class" class="type-c">c</sup>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <div id="budgetDuration" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#budgetDuration"></a>
+        <h3>duration of interval over which budget applies<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#budgetDuration</p>
+        <div class="description">
+            <dl>
+                <dt>
+                    has domain
+                </dt>
+                <dd>
+                    <a href="#BudgetItem" title="http://linked.data.gov.au/def/auorg#BudgetItem">Budget item</a>
+                    <sup title="class" class="type-c">c</sup>
+                </dd>
+                <dt>
+                    has range
+                </dt>
+                <dd>
+                    <span class="dotted" title="http://www.w3.org/2006/time#TemporalDuration">temporal duration</span>
+                    <sup title="class" class="type-c">c</sup>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <div id="hasStreetAddress" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#hasStreetAddress"></a>
+        <h3>has street address<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#hasStreetAddress</p>
+        <div class="comment">
+            <span class="markdown"><p>Has a GNAF address of</p> </span>
+        </div>
+        <div class="description">
+            <dl>
+                <dt>
+                    has super-properties
+                </dt>
+                <dd>
+                    <span class="dotted" title="http://www.w3.org/ns/org#hasSite">has site</span>
+                </dd>
+                <dt>
+                    has range
+                </dt>
+                <dd>
+                    <a href="#d4e364" title="http://gnafld.net/def/gnaf#Address">Address</a>
+                    <sup title="class" class="type-c">c</sup>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <div id="inPortfolio" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#inPortfolio"></a>
+        <h3>in portfolio<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#inPortfolio</p>
+        <div class="comment">
+            <span class="markdown"><p>is within a particular government Portfolio</p> </span>
+        </div>
+        <div class="description">
+            <dl>
+                <dt>
+                    has super-properties
+                </dt>
+                <dd>
+                    <span class="dotted" title="http://www.w3.org/ns/org#subOrganizationOf">sub organization of</span>
+                </dd>
+                <dt>
+                    has range
+                </dt>
+                <dd>
+                    <a href="#Portfolio" title="http://linked.data.gov.au/def/auorg#Portfolio">Portfolio</a>
+                    <sup title="class" class="type-c">c</sup>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <div id="budgetInterval" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#budgetInterval"></a>
+        <h3>interval over which budget applies<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#budgetInterval</p>
+        <div class="description">
+            <dl>
+                <dt>
+                    has domain
+                </dt>
+                <dd>
+                    <a href="#BudgetItem" title="http://linked.data.gov.au/def/auorg#BudgetItem">Budget item</a>
+                    <sup title="class" class="type-c">c</sup>
+                </dd>
+                <dt>
+                    has range
+                </dt>
+                <dd>
+                    <span class="dotted" title="http://www.w3.org/2006/time#ProperInterval">proper interval</span>
+                    <sup title="class" class="type-c">c</sup>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <div id="levelOfGovernment" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#levelOfGovernment"></a>
+        <h3>level of government (Federal, State, Local)<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#levelOfGovernment</p>
+        <div class="description">
+            <dl>
+                <dt>
+                    has super-properties
+                </dt>
+                <dd>
+                    <span class="dotted" title="http://www.w3.org/ns/org#classification">classification</span>
+                </dd>
+                <dt>
+                    has domain
+                </dt>
+                <dd>
+                    <a href="#Government" title="http://linked.data.gov.au/def/auorg#Government">Government entity</a>
+                    <sup title="class" class="type-c">c</sup>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <div id="budgetPurpose" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#budgetPurpose"></a>
+        <h3>purpose for which budget is allocated<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#budgetPurpose</p>
+        <div class="description">
+            <dl>
+                <dt>
+                    has domain
+                </dt>
+                <dd>
+                    <a href="#BudgetItem" title="http://linked.data.gov.au/def/auorg#BudgetItem">Budget item</a>
+                    <sup title="class" class="type-c">c</sup>
+                </dd>
+                <dt>
+                    has range
+                </dt>
+                <dd>
+                    <a href="#Function" title="http://linked.data.gov.au/def/auorg#Function">Government function</a>
+                    <sup title="class" class="type-c">c</sup>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <div id="budgetSource" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#budgetSource"></a>
+        <h3>source of budget<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#budgetSource</p>
+        <div class="description">
+            <dl>
+                <dt>
+                    has domain
+                </dt>
+                <dd>
+                    <a href="#BudgetItem" title="http://linked.data.gov.au/def/auorg#BudgetItem">Budget item</a>
+                    <sup title="class" class="type-c">c</sup>
+                </dd>
+                <dt>
+                    has range
+                </dt>
+                <dd>
+                    <span class="dotted" title="http://xmlns.com/foaf/0.1/Agent">agent</span>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>
+<div id="dataproperties">
+    <h2>Data Properties</h2>
+    <ul class="hlist">
+        <li><a href="#hasABN" title="http://linked.data.gov.au/def/auorg#hasABN"><span>has a b n</span></a></li>
+        <li><a href="#hasAverageStaffingLevel" title="http://linked.data.gov.au/def/auorg#hasAverageStaffingLevel">has average staffing level</a></li>
+        <li><a href="#moneyAmount" title="http://linked.data.gov.au/def/auorg#moneyAmount">Money amount</a></li>
+        <li><a href="#moneyCurrency" title="http://linked.data.gov.au/def/auorg#moneyCurrency">Money currency - ISO 4217 code</a></li>
+    </ul>
+    <div id="hasABN" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#hasABN"></a>
+        <h3>has a b n<sup title="data property" class="type-dp">dp</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#hasABN</p>
+        <div class="comment">
+            <span class="markdown"><p>org:identifier is a sub-property of skos:notation, which is a owl:DatatypeProperty, i.e. a literal. Could be constrained to be a string with the pattern 'NN NNN NNN NNN` to match ABN structure</p> </span>
+        </div>
+        <div class="description">
+            <dl>
+                <dt>
+                    has super-properties
+                </dt>
+                <dd>
+                    <span class="dotted" title="http://www.w3.org/ns/org#identifier">identifier</span>
+                </dd>
+                <dt>
+                    has range
+                </dt>
+                <dd>
+                    <span class="dotted" title="http://www.w3.org/2001/XMLSchema#integer">integer</span>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <div id="hasAverageStaffingLevel" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#hasAverageStaffingLevel"></a>
+        <h3>has average staffing level<sup title="data property" class="type-dp">dp</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#hasAverageStaffingLevel</p>
+        <div class="comment">
+            <span class="markdown"><p>Has an average annual staffig level of (no. of people)</p> </span>
+        </div>
+        <div class="description">
+            <dl>
+                <dt>
+                    has range
+                </dt>
+                <dd>
+                    <span class="dotted" title="http://www.w3.org/2001/XMLSchema#integer">integer</span>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <div id="moneyAmount" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#moneyAmount"></a>
+        <h3>Money amount<sup title="data property" class="type-dp">dp</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#moneyAmount</p>
+        <div class="description">
+            <dl>
+                <dt>
+                    has domain
+                </dt>
+                <dd>
+                    <a href="#SumOfMoney" title="http://linked.data.gov.au/def/auorg#SumOfMoney">Sum of money</a>
+                    <sup title="class" class="type-c">c</sup>
+                </dd>
+                <dt>
+                    has range
+                </dt>
+                <dd>
+                    <span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <div id="moneyCurrency" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#moneyCurrency"></a>
+        <h3>Money currency - ISO 4217 code<sup title="data property" class="type-dp">dp</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#moneyCurrency</p>
+        <div class="description">
+            <dl>
+                <dt>
+                    has domain
+                </dt>
+                <dd>
+                    <a href="#SumOfMoney" title="http://linked.data.gov.au/def/auorg#SumOfMoney">Sum of money</a>
+                    <sup title="class" class="type-c">c</sup>
+                </dd>
+                <dt>
+                    has range
+                </dt>
+                <dd>
+                    <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>
+<div id="namedindividuals">
+    <h2>Named Individuals</h2>
+    <ul class="hlist">
+        <li><a href="#CommonwealthOfAustralia" title="http://linked.data.gov.au/def/auorg#CommonwealthOfAustralia">Commonwealth of Australia</a></li>
+        <li><a href="#DepartmentSecretary" title="http://linked.data.gov.au/def/auorg#DepartmentSecretary">Department Secretary</a></li>
+        <li><a href="#Federal" title="http://linked.data.gov.au/def/auorg#Federal">Federal</a></li>
+        <li><a href="#GovernorGeneral" title="http://linked.data.gov.au/def/auorg#GovernorGeneral">Governor-General</a></li>
+        <li><a href="#Local" title="http://linked.data.gov.au/def/auorg#Local">Local government</a></li>
+        <li><a href="#Minister" title="http://linked.data.gov.au/def/auorg#Minister">Minister</a></li>
+        <li><a href="#State" title="http://linked.data.gov.au/def/auorg#State">State or Territory</a></li>
+    </ul>
+    <div id="CommonwealthOfAustralia" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#CommonwealthOfAustralia"></a>
+        <h3>Commonwealth of Australia<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#CommonwealthOfAustralia</p>
+        <div class="comment">
+            <span class="markdown"><p>The Australian Government , on behalf of the Commonwealth of Australia</p> </span>
+        </div>
+        <dl class="description">
+            <dt>
+                belongs to
+            </dt>
+            <dd>
+                <a href="#Government" title="http://linked.data.gov.au/def/auorg#Government">Government entity</a>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+            <dt>
+                has facts
+            </dt>
+            <dd>
+                <a href="#levelOfGovernment" title="http://linked.data.gov.au/def/auorg#levelOfGovernment">level of government (Federal, State, Local)</a>
+                <sup title="object property" class="type-op">op</sup>
+                <a href="#Federal" title="http://linked.data.gov.au/def/auorg#Federal">Federal</a>
+            </dd>
+        </dl>
+    </div>
+    <div id="DepartmentSecretary" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#DepartmentSecretary"></a>
+        <h3>Department Secretary<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#DepartmentSecretary</p>
+        <dl class="description">
+            <dt>
+                belongs to
+            </dt>
+            <dd>
+                <span class="dotted" title="http://www.w3.org/ns/org#Role">role</span>
+            </dd>
+        </dl>
+    </div>
+    <div id="Federal" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#Federal"></a>
+        <h3>Federal<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#Federal</p>
+        <dl class="description">
+            <dt>
+                belongs to
+            </dt>
+            <dd>
+                <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            </dd>
+        </dl>
+    </div>
+    <div id="GovernorGeneral" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#GovernorGeneral"></a>
+        <h3>Governor-General<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#GovernorGeneral</p>
+        <div class="comment">
+            <span class="markdown"><p>The Governor-General of the Commonwealth of Australia, the representative of the Australian monarch.</p> <p>The Governor-General is appointed by the Australian monarch (also the British monach) on the advice of the Prime Minister of Australia. The Governor-General has formal presidency over the Federal Executive Council and is Commander-in-Chief of the Australian Defence Force</p> </span>
+        </div>
+        <dl class="description">
+            <dt>
+                belongs to
+            </dt>
+            <dd>
+                <span class="dotted" title="http://www.w3.org/ns/org#Role">role</span>
+            </dd>
+        </dl>
+    </div>
+    <div id="Local" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#Local"></a>
+        <h3>Local government<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#Local</p>
+        <dl class="description">
+            <dt>
+                belongs to
+            </dt>
+            <dd>
+                <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            </dd>
+        </dl>
+    </div>
+    <div id="Minister" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#Minister"></a>
+        <h3>Minister<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#Minister</p>
+        <dl class="description">
+            <dt>
+                belongs to
+            </dt>
+            <dd>
+                <span class="dotted" title="http://www.w3.org/ns/org#Role">role</span>
+            </dd>
+        </dl>
+    </div>
+    <div id="State" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg#State"></a>
+        <h3>State or Territory<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg#State</p>
+        <dl class="description">
+            <dt>
+                belongs to
+            </dt>
+            <dd>
+                <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            </dd>
+        </dl>
+    </div>
+</div>
+<div id="annotationproperties">
+    <h2>Annotation Properties</h2>
+    <ul class="hlist">
+        <li><a href="#d4e145" title="http://purl.org/dc/terms/description"><span>description</span></a></li>
+        <li><a href="#d4e150" title="http://purl.org/dc/terms/hasVersion"><span>has version</span></a></li>
+        <li><a href="#d4e154" title="http://purl.org/dc/terms/issued"><span>issued</span></a></li>
+        <li><a href="#d4e158" title="http://purl.org/dc/terms/modified"><span>modified</span></a></li>
+        <li><a href="#d4e163" title="http://purl.org/dc/terms/publisher"><span>publisher</span></a></li>
+        <li><a href="#d4e167" title="http://purl.org/dc/terms/title"><span>title</span></a></li>
+    </ul>
+    <div id="d4e145" class="entity">
+        <a name="http://purl.org/dc/terms/description"></a>
+        <h3>description<sup title="annotation property" class="type-ap">ap</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://purl.org/dc/terms/description</p>
+    </div>
+    <div id="d4e150" class="entity">
+        <a name="http://purl.org/dc/terms/hasVersion"></a>
+        <h3>has version<sup title="annotation property" class="type-ap">ap</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://purl.org/dc/terms/hasVersion</p>
+    </div>
+    <div id="d4e154" class="entity">
+        <a name="http://purl.org/dc/terms/issued"></a>
+        <h3>issued<sup title="annotation property" class="type-ap">ap</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://purl.org/dc/terms/issued</p>
+    </div>
+    <div id="d4e158" class="entity">
+        <a name="http://purl.org/dc/terms/modified"></a>
+        <h3>modified<sup title="annotation property" class="type-ap">ap</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://purl.org/dc/terms/modified</p>
+    </div>
+    <div id="d4e163" class="entity">
+        <a name="http://purl.org/dc/terms/publisher"></a>
+        <h3>publisher<sup title="annotation property" class="type-ap">ap</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://purl.org/dc/terms/publisher</p>
+    </div>
+    <div id="d4e167" class="entity">
+        <a name="http://purl.org/dc/terms/title"></a>
+        <h3>title<sup title="annotation property" class="type-ap">ap</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://purl.org/dc/terms/title</p>
+    </div>
+</div>
+<div id="namespacedeclarations">
+    <h2>Namespace Declarations <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+    <dl>
+        <dt>
+            <em>default namespace</em>
+        </dt>
+        <dd>
+            http://linked.data.gov.au/def/auorg#
+        </dd>
+        <dt>
+            auorg
+        </dt>
+        <dd>
+            http://linked.data.gov.au/def/auorg#
+        </dd>
+        <dt>
+            dc
+        </dt>
+        <dd>
+            http://purl.org/dc/elements/1.1/
+        </dd>
+        <dt>
+            foaf
+        </dt>
+        <dd>
+            http://xmlns.com/foaf/0.1/
+        </dd>
+        <dt>
+            gnaf
+        </dt>
+        <dd>
+            http://gnafld.net/def/gnaf#
+        </dd>
+        <dt>
+            org
+        </dt>
+        <dd>
+            http://www.w3.org/ns/org#
+        </dd>
+        <dt>
+            owl
+        </dt>
+        <dd>
+            http://www.w3.org/2002/07/owl#
+        </dd>
+        <dt>
+            rdf
+        </dt>
+        <dd>
+            http://www.w3.org/1999/02/22-rdf-syntax-ns#
+        </dd>
+        <dt>
+            rdfs
+        </dt>
+        <dd>
+            http://www.w3.org/2000/01/rdf-schema#
+        </dd>
+        <dt>
+            skos
+        </dt>
+        <dd>
+            http://www.w3.org/2004/02/skos/core#
+        </dd>
+        <dt>
+            dct
+        </dt>
+        <dd>
+            http://purl.org/dc/terms/
+        </dd>
+        <dt>
+            time
+        </dt>
+        <dd>
+            http://www.w3.org/ns/time/
+        </dd>
+        <dt>
+            xsd
+        </dt>
+        <dd>
+            http://www.w3.org/2001/XMLSchema#
+        </dd>
+    </dl>
+</div>
+<p class="endnote">This HTML document was obtained by processing the OWL ontology source code through <a href="http://lode2.promsns.org">LODE 2</a>, <em>Live OWL Documentation Environment, v2</em>, originally developed by <a href="http://www.essepuntato.it">Silvio Peroni</a> and updated by <a href="http://www.edmondchuc.com">Edmond Chuc</a> at the <a href="http://www.csiro.au">CSIRO</a>.</p>
+</body>
 </html>
