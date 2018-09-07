@@ -1,4 +1,4 @@
-@prefix : <http://test.linked.data.gov.au/def/auorg/> .
+@prefix : <http://linked.data.gov.au/def/auorg/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix org: <http://www.w3.org/ns/org#> .
@@ -15,9 +15,7 @@
 
 <http://linked.data.gov.au/def/auorg> rdf:type owl:Ontology ;
                                        owl:versionIRI <http://linked.data.gov.au/def/auorg/0.6> ;
-                                       owl:imports <http://www.w3.org/ns/time/gregorian> ,
-                                                   time: ,
-                                                   org: ;
+                                       owl:imports org: ;
                                        dcterms:modified "2018-09-07"^^xsd:date ;
                                        dc:creator "Nicholas J. Car" ;
                                        rdfs:label "AU Org Ontology"@en ;

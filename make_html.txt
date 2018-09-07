@@ -1,22 +1,27 @@
-* static links to http://pid.data.gov.au/websrv/static/LODE/
-* ont GitHub:
+* use LODE2 http://lode2.linked.data.gov.au to generate HTML
 
-<dl>
-    <dt>Further documentation &amp; examples:</dt>
-    <dd><a href="http://github.com/CSIRO-enviro-informatics/auorg-ont">This ontology's full documentation on GitHub</a></dd>
-</dl>
-
-* add note to RDF:
+* change Other visualisation to Ontology source & change URI text
 
 <dl>
     <dt>
-        Other visualisation:
+        Ontology source:
     </dt>
     <dd>
         <a href="https://linked.data.gov.au/def/auorg.ttl">Ontology source (RDF, turtle)</a>
     </dd>
 </dl>
 
+* add GitHub after Ontology source:
+
+
+<dl>
+    <dt>
+        Further documentation &amp; examples:
+    </dt>
+    <dd>
+        <a href="http://github.com/CSIRO-enviro-informatics/auorg-ont">This ontology's full documentation on GitHub</a>
+    </dd>
+</dl>
 
 * delete all:
 
@@ -26,6 +31,8 @@
 
 * remove a couple of namespaces
 
-* add CSIRO logo:
+* remove all markdown spans
 
-<img src="csiro-logo.jpg" style="width:200px;" alt="CSIRO Logo" /><br />
+* add CSIRO logo above <h1>:
+
+<img src="style/csiro-logo.png" style="width:100px;" alt="CSIRO Logo" /><br />
