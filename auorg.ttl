@@ -27,9 +27,11 @@
                                        dcterms:creator <http://orcid.org/0000-0002-8742-7730> ;
                                        dcterms:created "2018-05-21"^^xsd:date ;
                                        dc:contributor "Simon J.D. Cox" ;
-                                       rdfs:comment """The purpose of this ontology is to allow for the Semantic Web representation of Australian Federal Government Entities (organisations), their subcomponents and people related to them with particular roles.
+                                       rdfs:comment """The purpose of this ontology is to allow for the Semantic Web representation of Australian Federal Government Entities (organisations), their subcomponents, some government functional units, and people related to them with particular roles.
 
 This ontology specialises the W3C's recommended Organization Ontology to model Entities. Its specialised classes and properties have been initially informed by the Australian government's online organisations directory, https://www.directory.gov.au. This includes particular types of organisation found in Australian Federal government such as a 'Board', 'Government Entity' and so on.
+
+It also models some functional units of government (Portfolio, Program, Outcome) as concepts and relates those units to Budget Items and Appropriations.
 
 Further specialisation and extension is likely as this ontology is developed to cover the conceptual space of systems that are important for Australian government structure, such as the Administrative Arrangement Orders that alter Entities.
 
@@ -135,7 +137,7 @@ This ontology is incomplete as of v0.6 and is currently for demo purposes only."
 ###  http://test.linked.data.gov.au/def/auorg#hasAverageStaffingLevel
 :hasAverageStaffingLevel rdf:type owl:DatatypeProperty ;
                          rdfs:range xsd:integer ;
-                         rdfs:comment "has an average annual staffig level of (no. of people)"@en ;
+                         rdfs:comment "has an average annual staffing level of (no. of people)"@en ;
                          rdfs:label "has average staffing level" .
 
 
@@ -438,6 +440,12 @@ The Governor-General is appointed by the Australian monarch (also the British mo
 :Minister rdf:type owl:NamedIndividual ,
                    org:Role ;
           rdfs:label "Minister" .
+
+
+###  http://test.linked.data.gov.au/def/auorg#PrimeMinister
+:Minister rdf:type owl:NamedIndividual ,
+                   org:Role ;
+          rdfs:label "Prime Minister" .
 
 
 ###  http://test.linked.data.gov.au/def/auorg#State

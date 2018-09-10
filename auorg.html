@@ -7,6 +7,8 @@
     <link href="style/Primer.css" rel="stylesheet" type="text/css">
     <link href="style/rec.css" rel="stylesheet" type="text/css">
     <link href="style/extra.css" rel="stylesheet" type="text/css">
+
+    <link href="style/nick.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div class="head">
@@ -92,11 +94,11 @@
 </div>
 <hr>
 <h2>Abstract</h2>
-<p>The purpose of this ontology is to allow for the Semantic Web representation of Australian Federal Government Entities (organisations), their subcomponents and people related to them with particular roles.</p> <p>This ontology specialises the W3C's recommended Organization Ontology to model Entities. Its specialised classes and properties have been initially informed by the Australian government's online organisations directory, https://www.directory.gov.au. This includes particular types of organisation found in Australian Federal government such as a 'Board', 'Government Entity' and so on.</p> <p>Further specialisation and extension is likely as this ontology is developed to cover the conceptual space of systems that are important for Australian government structure, such as the Administrative Arrangement Orders that alter Entities.</p> <p>This ontology is incomplete as of v0.6 and is currently for demo purposes only.</p>
-<div id="diagram">
-    <img src="auorg.png" title="AU Org ontology overview diagram" /><br />
-    <span style="font-size: small;"><strong>Figure 1</strong>: AU Org ontology overview diagram</span>
-</div>
+    <p>The purpose of this ontology is to allow for the Semantic Web representation of Australian Federal Government Entities (organisations), their subcomponents, some government functional units, and people related to them with particular roles.</p>
+    <p>This ontology specialises the W3C's recommended Organization Ontology to model Entities. Its specialised classes and properties have been initially informed by the Australian government's online organisations directory, https://www.directory.gov.au. This includes particular types of organisation found in Australian Federal government such as a 'Board', 'Government Entity' and so on.</p>
+    <p>It also models some functional units of government (Portfolio, Program, Outcome) as concepts and relates those units to Budget Items and Appropriations.</p>
+    <p>Further specialisation and extension is likely as this ontology is developed to cover the conceptual space of systems that are important for Australian government structure, such as the Administrative Arrangement Orders that alter Entities.</p>
+    <p>This ontology is incomplete as of v0.6 and is currently for demo purposes only.</p>
 <div id="toc">
     <h2>Table of Content</h2>
     <ol>
@@ -109,6 +111,18 @@
 </div>
 <div id="classes">
     <h2>Classes</h2>
+    <div class="figure">
+        <img src="images/entities.png" title="AU Org ontology Entities diagram" /><br />
+        <span class="caption"><strong>Figure 1</strong>: AU Org ontology Entities diagram</span>
+    </div>
+    <div class="figure">
+        <img src="images/functions.png" title="AU Org ontology Functions diagram" /><br />
+        <span class="caption"><strong>Figure 2</strong>: AU Org ontology Functions diagram</span>
+    </div>
+    <div class="figure">
+        <img src="images/posts.png" title="AU Org ontology Posts diagram" /><br />
+        <span class="caption"><strong>Figure 3</strong>: AU Org ontology Posts diagram</span>
+    </div>
     <ul class="hlist">
         <li><a href="#Appropriations" title="http://linked.data.gov.au/def/auorg/Appropriations">Appropriations budget (annualized)</a></li>
         <li><a href="#AustralianDollars" title="http://linked.data.gov.au/def/auorg/AustralianDollars">Australian Dollars</a></li>
@@ -610,6 +624,10 @@
 </div>
 <div id="objectproperties">
     <h2>Object Properties</h2>
+    <div class="figure">
+        <img src="images/objects.png" title="AU Org ontology object properties" /><br />
+        <span class="caption"><strong>Figure 4</strong>: AU Org ontology object properties</span>
+    </div>
     <ul class="hlist">
         <li><a href="#hasAppropriations" title="http://linked.data.gov.au/def/auorg/hasAppropriations">Annual appropriation budget (AUD)</a></li>
         <li><a href="#hasBudgetItem" title="http://linked.data.gov.au/def/auorg/hasBudgetItem">budget item</a></li>
@@ -866,6 +884,10 @@
 </div>
 <div id="dataproperties">
     <h2>Data Properties</h2>
+    <div class="figure">
+        <img src="images/datatypes.png" title="AU Org ontology datatype properties" /><br />
+        <span class="caption"><strong>Figure 5</strong>: AU Org ontology datatype properties</span>
+    </div>
     <ul class="hlist">
         <li><a href="#hasABN" title="http://linked.data.gov.au/def/auorg/hasABN"><span>has a b n</span></a></li>
         <li><a href="#hasAverageStaffingLevel" title="http://linked.data.gov.au/def/auorg/hasAverageStaffingLevel">has average staffing level</a></li>
@@ -901,7 +923,7 @@
         <h3>has average staffing level<sup title="data property" class="type-dp">dp</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg/hasAverageStaffingLevel</p>
         <div class="comment">
-            <p>Has an average annual staffig level of (no. of people)</p>
+            <p>Has an average annual staffing level of (no. of people)</p>
         </div>
         <div class="description">
             <dl>
@@ -971,6 +993,7 @@
         <li><a href="#Minister" title="http://linked.data.gov.au/def/auorg/Minister">Minister</a></li>
         <li><a href="#NewSouthWales" title="http://linked.data.gov.au/def/auorg/NewSouthWales">New South Wales</a></li>
         <li><a href="#NorthernTerritory" title="http://linked.data.gov.au/def/auorg/NorthernTerritory">Northern Territory</a></li>
+        <li><a href="#PrimeMinister" title="http://linked.data.gov.au/def/auorg/PrimeMinister">PrimeMinister</a></li>
         <li><a href="#Queensland" title="http://linked.data.gov.au/def/auorg/Queensland"><span>Queensland</span></a></li>
         <li><a href="#SouthAustralia" title="http://linked.data.gov.au/def/auorg/SouthAustralia">South Australia</a></li>
         <li><a href="#State" title="http://linked.data.gov.au/def/auorg/State">State or Territory</a></li>
@@ -1142,6 +1165,19 @@
                 <a href="#levelOfGovernment" title="http://linked.data.gov.au/def/auorg/levelOfGovernment">level of government (Federal, State, Local)</a>
                 <sup title="object property" class="type-op">op</sup>
                 <a href="#State" title="http://linked.data.gov.au/def/auorg/State">State or Territory</a>
+            </dd>
+        </dl>
+    </div>
+    <div id="PrimeMinister" class="entity">
+        <a name="http://linked.data.gov.au/def/auorg/PrimeMinister"></a>
+        <h3>PrimeMinister<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/auorg/PrimeMinister</p>
+        <dl class="description">
+            <dt>
+                belongs to
+            </dt>
+            <dd>
+                <span class="dotted" title="http://www.w3.org/ns/org#Role">role</span>
             </dd>
         </dl>
     </div>

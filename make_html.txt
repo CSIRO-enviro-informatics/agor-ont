@@ -1,5 +1,13 @@
 * use LODE2 http://lode2.linked.data.gov.au to generate HTML
 
+* add nick.css:
+
+<link href="style/nick.css" rel="stylesheet" type="text/css">
+
+* add AGLS headers
+
+
+
 * change Other visualisation to Ontology source & change URI text
 
 <dl>
