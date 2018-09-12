@@ -1,22 +1,35 @@
-* static links to http://pid.data.gov.au/websrv/static/LODE/
-* ont GitHub:
+* use LODE2 http://lode2.linked.data.gov.au to generate HTML
 
-<dl>
-    <dt>Further documentation &amp; examples:</dt>
-    <dd><a href="http://github.com/CSIRO-enviro-informatics/auorg-ont">This ontology's full documentation on GitHub</a></dd>
-</dl>
+* add nick.css:
 
-* add note to RDF:
+<link href="style/nick.css" rel="stylesheet" type="text/css">
+
+* add AGLS headers
+
+
+
+* change Other visualisation to Ontology source & change URI text
 
 <dl>
     <dt>
-        Other visualisation:
+        Ontology source:
     </dt>
     <dd>
         <a href="https://linked.data.gov.au/def/auorg.ttl">Ontology source (RDF, turtle)</a>
     </dd>
 </dl>
 
+* add GitHub after Ontology source:
+
+
+<dl>
+    <dt>
+        Further documentation &amp; examples:
+    </dt>
+    <dd>
+        <a href="http://github.com/CSIRO-enviro-informatics/auorg-ont">This ontology's full documentation on GitHub</a>
+    </dd>
+</dl>
 
 * delete all:
 
@@ -26,6 +39,36 @@
 
 * remove a couple of namespaces
 
-* add CSIRO logo:
+* remove all markdown spans
+  <span class="markdown"> -> ''
+  </p> </span> -> ''
 
-<img src="csiro-logo.jpg" style="width:200px;" alt="CSIRO Logo" /><br />
+* images
+  * add CSIRO logo above <h1>:
+
+  <img src="style/csiro-logo.png" style="width:100px;" alt="CSIRO Logo" /><br />
+
+  * in Classes
+
+  <div class="figure">
+      <img src="images/entities.png" title="AU Org ontology Entities diagram" /><br />
+      <span class="caption"><strong>Figure 1</strong>: AU Org ontology Entities diagram</span>
+  </div>
+  <div class="figure">
+      <img src="images/posts.png" title="AU Org ontology Posts diagram" /><br />
+      <span class="caption"><strong>Figure 2</strong>: AU Org ontology Posts diagram</span>
+  </div>
+
+  * in Object properties
+
+  <div class="figure">
+      <img src="images/objects.png" title="AU Org ontology object properties" /><br />
+      <span class="caption"><strong>Figure 3</strong>: AU Org ontology object properties</span>
+  </div>
+
+  * in Data types
+
+  <div class="figure">
+      <img src="images/datatypes.png" title="AU Org ontology datatype properties" /><br />
+      <span class="caption"><strong>Figure 4</strong>: AU Org ontology datatype properties</span>
+  </div>

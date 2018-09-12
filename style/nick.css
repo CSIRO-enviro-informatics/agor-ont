@@ -1,0 +1,13 @@
+.figure {
+
+    margin-bottom: 30px;
+}
+
+.figure > img {
+    /*width: 900px;*/
+    border-bottom: solid 2px #eee;
+}
+
+.figure span.caption {
+
+}
