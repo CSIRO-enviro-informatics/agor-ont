@@ -1,5 +1,7 @@
 * use LODE2 http://lode2.linked.data.gov.au to generate HTML
 
+* change CSS links to relative
+
 * add nick.css:
 
 <link href="style/nick.css" rel="stylesheet" type="text/css">
