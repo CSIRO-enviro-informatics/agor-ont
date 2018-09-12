@@ -60,17 +60,21 @@
       <img src="images/posts.png" title="AU Org ontology Posts diagram" /><br />
       <span class="caption"><strong>Figure 2</strong>: AU Org ontology Posts diagram</span>
   </div>
+  <div class="figure">
+      <img src="images/changeevent.png" title="AU Org ontology Change Event subclasses diagram" /><br />
+      <span class="caption"><strong>Figure 3</strong>: AU Org ontology Change Event subclasses diagram</span>
+  </div>
 
   * in Object properties
 
-  <div class="figure">
-      <img src="images/objects.png" title="AU Org ontology object properties" /><br />
-      <span class="caption"><strong>Figure 3</strong>: AU Org ontology object properties</span>
-  </div>
+    <div class="figure">
+        <img src="images/objects.png" title="AU Org ontology object properties" style="width:475px;" /><br />
+        <span class="caption"><strong>Figure 4</strong>: AU Org ontology object properties</span>
+    </div>
 
   * in Data types
 
-  <div class="figure">
-      <img src="images/datatypes.png" title="AU Org ontology datatype properties" /><br />
-      <span class="caption"><strong>Figure 4</strong>: AU Org ontology datatype properties</span>
-  </div>
+    <div class="figure">
+        <img src="images/datatypes.png" title="AU Org ontology datatype properties" style="width:417px;" /><br />
+        <span class="caption"><strong>Figure 5</strong>: AU Org ontology datatype properties</span>
+    </div>

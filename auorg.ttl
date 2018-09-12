@@ -22,7 +22,6 @@
                                        dc:creator "Nicholas J. Car" ;
                                        rdfs:label "AU Org Ontology"@en ;
                                        dcterms:publisher <http://www.csiro.au> ;
-                                       owl:versionInfo "0.7 reduced in scope removing Appropriations Framework concepts" ;
                                        dc:publisher "CSIRO" ;
                                        dcterms:contributor <https://orcid.org/0000-0002-3884-3420> ;
                                        owl:versionInfo "Beta version"@en ;
@@ -30,16 +29,15 @@
                                        dcterms:created "2018-05-21"^^xsd:date ;
                                        dc:contributor "Simon J.D. Cox" ;
                                        rdfs:seeAlso "The GitHub repository containing addition documentation: http://github.com/CSIRO-enviro-informatics/auorg-ont/"@en ;
-                                       dcterms:modified "2018-09-12"^^xsd:date ;
                                        rdfs:comment """The purpose of this ontology is to allow for the Semantic Web representation of Australian Federal Government Entities (organisations), their subcomponents and people related to them with particular roles.
 
 This ontology specialises the W3C's recommended Organization Ontology to model Entities. Its specialised classes and properties have been initially informed by the Australian government's online organisations directory, https://www.directory.gov.au. This includes particular types of organisation found in Australian Federal government such as a 'Board', 'Government Entity' and so on.
 
-It also models some functional units of government (Portfolio, Program, Outcome) as concepts and relates those units to Budget Items and Appropriations.
-
 Further specialisation and extension is likely as this ontology is developed to cover the conceptual space of systems that are important for Australian government structure, such as the Administrative Arrangement Orders that alter Entities.
 
 This ontology is incomplete as of v0.6 and is currently for demo purposes only."""@en ;
+                                       dcterms:modified "2018-09-12"^^xsd:date ;
+                                       owl:versionInfo "0.7 reduced in scope removing Appropriations Framework concepts" ;
                                        vann:preferredNamespacePrefix "auorg" .
 
 #################################################################
@@ -111,6 +109,16 @@ org:purpose rdf:type owl:ObjectProperty .
 gnaf:Address rdf:type owl:Class .
 
 
+###  http://linked.data.gov.au/def/auorg/AbolitionEvent
+:AbolitionEvent rdf:type owl:Class ;
+                rdfs:subClassOf org:ChangeEvent ;
+                owl:disjointWith :ModificationEvent ;
+                rdfs:comment """An Abolition Event abolishes an Entity. It may also be a creation event in that it could also create an entity.
+
+This Change Event subclass is disjoint with Modification Event."""@en ;
+                rdfs:label "Abolition Event"@en .
+
+
 ###  http://linked.data.gov.au/def/auorg/Agency
 :Agency rdf:type owl:Class ;
         rdfs:subClassOf :Entity ,
@@ -133,6 +141,16 @@ gnaf:Address rdf:type owl:Class .
        rdfs:subClassOf org:FormalOrganization ;
        rdfs:comment "An Australian Government Board"@en ;
        rdfs:label "Board"@en .
+
+
+###  http://linked.data.gov.au/def/auorg/CreationEvent
+:CreationEvent rdf:type owl:Class ;
+               rdfs:subClassOf org:ChangeEvent ;
+               owl:disjointWith :ModificationEvent ;
+               rdfs:comment """A Creation Event is one that creates a Government Entity. It could also be an Abolition Event when the same even both abolishes and creates Entities. 
+
+This Change Event subclass is disjoint with Modification Event."""@en ;
+               rdfs:label "Creation Event"@en .
 
 
 ###  http://linked.data.gov.au/def/auorg/Department
@@ -162,17 +180,18 @@ gnaf:Address rdf:type owl:Class .
         rdfs:label "Government Entity" .
 
 
-###  http://linked.data.gov.au/def/auorg/Function
-:Function rdf:type owl:Class ;
-          rdfs:subClassOf skos:Concept ;
-          rdfs:label "Government function" .
-
-
 ###  http://linked.data.gov.au/def/auorg/Jurisdiction
 :Jurisdiction rdf:type owl:Class ;
               rdfs:subClassOf :Entity ;
               rdfs:comment "This applies to the top/autonomous government entity - e.g. one for each national, state, local government jurisdiction" ;
               rdfs:label "Government or Jurisdiction" .
+
+
+###  http://linked.data.gov.au/def/auorg/ModificationEvent
+:ModificationEvent rdf:type owl:Class ;
+                   rdfs:subClassOf org:ChangeEvent ;
+                   rdfs:comment "An event that modifies an existing Entity but doesn't create or abolish any Entities."@en ;
+                   rdfs:label "Modification Event"@en .
 
 
 ###  http://linked.data.gov.au/def/auorg/NonBoard
@@ -187,6 +206,10 @@ gnaf:Address rdf:type owl:Class .
                      rdfs:subClassOf org:Post ;
                      rdfs:comment "A single executive (Senior Executive Service in the Australian Public Service) role"@en ;
                      rdfs:label "Single Executive Role"@en .
+
+
+###  http://reference.data.gov.au/def/ont/agrif#Function
+<http://reference.data.gov.au/def/ont/agrif#Function> rdf:type owl:Class .
 
 
 #################################################################
@@ -220,8 +243,8 @@ Australia's formal name is the Commonwealth of Australia. Australia is both a re
 ###  http://linked.data.gov.au/def/auorg/Federal
 :Federal rdf:type owl:NamedIndividual ,
                   skos:Concept ;
-         rdfs:label "Federal" ;
-         rdfs:comment "Federal government, of the Commonwealth of Australia, as outlined in the Australian Constritution" .
+         rdfs:comment "Federal government, of the Commonwealth of Australia, as outlined in the Australian Constritution" ;
+         rdfs:label "Federal" .
 
 
 ###  http://linked.data.gov.au/def/auorg/GovernorGeneral
