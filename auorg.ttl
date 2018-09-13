@@ -9,6 +9,7 @@
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix gnaf: <http://gnafld.net/def/gnaf#> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -46,7 +47,7 @@ This ontology is incomplete as of v0.6 and is currently for demo purposes only."
   owl:imports <http://www.w3.org/2006/time> ;
   owl:imports org: ;
   owl:imports <http://www.w3.org/ns/time/gregorian> ;
-  owl:imports <http://xmlns.com/foaf/0.1/> ;
+  owl:imports foaf: ;
   owl:versionIRI : ;
   owl:versionInfo "0.7 reduced in scope removing Appropriations Framework concepts" ;
   owl:versionInfo "Beta version"@en ;
@@ -225,6 +226,11 @@ This Change Event subclass is disjoint with Modification Event."""@en ;
   rdfs:label "Department of Finance" ;
   org:linkedTo :CommonwealthOfAustralia ;
 .
+:Finn_Pratt
+  rdf:type foaf:Person ;
+  rdfs:label "Finn Pratt" ;
+  org:holds :SecretaryEnvironmentEnergy ;
+.
 :GA
   rdf:type :Agency ;
   :levelOfGovernment :Federal ;
@@ -237,13 +243,30 @@ This Change Event subclass is disjoint with Modification Event."""@en ;
   org:postIn :CommonwealthOfAustralia ;
   org:role :GovernorGeneral ;
 .
+:GlenEira
+  rdf:type :Jurisdiction ;
+  :levelOfGovernment :Local ;
+  rdfs:label "City of Glen Eira" ;
+  org:subOrganizationOf :Victoria ;
+.
+:Governor
+  rdf:type org:Role ;
+  :levelOfGovernment :State ;
+  rdfs:label "Governor or Administrator" ;
+.
 :GovernorGeneral
   rdf:type owl:NamedIndividual ;
   rdf:type org:Role ;
+  :levelOfGovernment :Federal ;
   rdfs:comment """The representative of the Australian monarch in the Commonwealth of Australia.
 
 The Governor-General is appointed by the Australian monarch on the advice of the Prime Minister of Australia. The Governor-General has formal presidency over the Federal Executive Council and is Commander-in-Chief of the Australian Defence Force""" ;
   rdfs:label "Governor-General"@en ;
+.
+:James_Johnson
+  rdf:type foaf:Person ;
+  rdfs:label "James Johnson" ;
+  org:holds :CEO-GA ;
 .
 :Jurisdiction
   rdf:type owl:Class ;
@@ -251,14 +274,26 @@ The Governor-General is appointed by the Australian monarch on the advice of the
   rdfs:label "Government or Jurisdiction" ;
   rdfs:subClassOf :Entity ;
 .
+:Larry_Marshall
+  rdf:type foaf:Person ;
+  rdfs:label "Larry Marshall" ;
+  org:holds :CEO-CSIRO ;
+.
 :Local
   rdf:type owl:NamedIndividual ;
   rdf:type skos:Concept ;
   rdfs:label "Local government" ;
 .
+:Mayor
+  rdf:type org:Role ;
+  :levelOfGovernment :Local ;
+  rdfs:label "Mayor" ;
+.
 :Minister
   rdf:type owl:NamedIndividual ;
   rdf:type org:Role ;
+  :levelOfGovernment :Federal ;
+  :levelOfGovernment :State ;
   rdfs:comment "Political head of department" ;
   rdfs:label "Minister" ;
 .
@@ -312,12 +347,35 @@ The Governor-General is appointed by the Australian monarch on the advice of the
   rdfs:label "Northern Territory" ;
   org:subOrganizationOf :CommonwealthOfAustralia ;
 .
+:Premier
+  rdf:type org:Role ;
+  :levelOfGovernment :State ;
+  rdfs:label "Premier or first minister" ;
+.
 :Queensland
   rdf:type :Jurisdiction ;
   rdf:type owl:NamedIndividual ;
   :levelOfGovernment :State ;
   rdfs:label "Queensland" ;
   org:subOrganizationOf :CommonwealthOfAustralia ;
+.
+:Rosemary_Huxtable
+  rdf:type foaf:Person ;
+  rdfs:label "Rosemary Huxtable" ;
+  org:holds :SecretaryFinance ;
+.
+:SecretaryEnvironmentEnergy
+  rdf:type org:Post ;
+  rdfs:label "Secretary,  Department of the Environment and Energy" ;
+  org:postIn :DoEE ;
+  org:role :DepartmentSecretary ;
+.
+:SecretaryFinance
+  rdf:type org:Post ;
+  rdfs:label "Secretary, Department of Finance" ;
+  org:postIn :Finance ;
+  org:role :DepartmentSecretary ;
+  foaf:homepage <https://www.finance.gov.au/about-the-department/the-secretary.html> ;
 .
 :SingleExecutiveRole
   rdf:type owl:Class ;
@@ -349,13 +407,21 @@ The Governor-General is appointed by the Australian monarch on the advice of the
   rdf:type owl:NamedIndividual ;
   :levelOfGovernment :State ;
   rdfs:label "Victoria" ;
+  org:hasSubOrganization :GlenEira ;
   org:subOrganizationOf :CommonwealthOfAustralia ;
+.
+:Vincent
+  rdf:type :Jurisdiction ;
+  :levelOfGovernment :Local ;
+  rdfs:label "Town of Vincent" ;
+  org:subOrganizationOf :WesternAustralia ;
 .
 :WesternAustralia
   rdf:type :Jurisdiction ;
   rdf:type owl:NamedIndividual ;
   :levelOfGovernment :State ;
   rdfs:label "Western Australia" ;
+  org:hasSubOrganization :Vincent ;
   org:subOrganizationOf :CommonwealthOfAustralia ;
 .
 :hasABN
