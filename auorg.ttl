@@ -28,12 +28,12 @@ gnaf:Address
   rdf:type owl:Ontology ;
   dc:contributor "Simon J.D. Cox" ;
   dc:creator "Nicholas J. Car" ;
-  dc:publisher "CSIRO" ;
+  dc:publisher "Department of Finance" ;
   dcterms:contributor <https://orcid.org/0000-0002-3884-3420> ;
   dcterms:created "2018-05-21"^^xsd:date ;
   dcterms:creator <http://orcid.org/0000-0002-8742-7730> ;
   dcterms:modified "2018-09-12"^^xsd:date ;
-  dcterms:publisher <http://www.csiro.au> ;
+  dcterms:publisher <http://catalogue.linked.data.gov.au/org/O-000850> ;
   vann:preferredNamespacePrefix "auorg" ;
   rdfs:comment """The purpose of this ontology is to allow for the Semantic Web representation of Australian Federal Government Entities (organisations), their subcomponents and people related to them with particular roles.
 
