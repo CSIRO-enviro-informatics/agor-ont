@@ -1,4 +1,5 @@
 # baseURI: http://linked.data.gov.au/def/auorg
+# imports: http://purl.org/dc/elements/1.1/
 # imports: http://www.w3.org/2006/time
 # imports: http://www.w3.org/ns/org#
 # imports: http://www.w3.org/ns/time/gregorian
@@ -45,6 +46,7 @@ Further specialisation and extension is likely as this ontology is developed to 
 This ontology is incomplete as of v0.6 and is currently for demo purposes only."""@en ;
   rdfs:label "AU Org Ontology"@en ;
   rdfs:seeAlso "The GitHub repository containing addition documentation: http://github.com/CSIRO-enviro-informatics/auorg-ont/"@en ;
+  owl:imports dc: ;
   owl:imports <http://www.w3.org/2006/time> ;
   owl:imports org: ;
   owl:imports <http://www.w3.org/ns/time/gregorian> ;
@@ -614,7 +616,7 @@ auorg:isAssociatedWithDepartment
 auorg:isPartOfPortfolio
   rdf:type owl:FunctionalProperty ;
   rdf:type owl:ObjectProperty ;
-  rdfs:domain auorg:Entity ;
+  rdfs:domain auorg:Department ;
   rdfs:range auorg:Portfolio ;
   rdfs:subPropertyOf dcterms:isPartOf ;
 .
