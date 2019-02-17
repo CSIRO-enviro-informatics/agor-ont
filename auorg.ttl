@@ -28,22 +28,24 @@ gnaf:Address
 .
 <http://linked.data.gov.au/def/auorg>
   rdf:type owl:Ontology ;
-  dc:contributor "Simon J.D. Cox" ;
   dc:creator "Nicholas J. Car" ;
+  dc:creator "Simon J.D. Cox" ;
   dc:publisher "Department of Finance" ;
-  dcterms:contributor <https://orcid.org/0000-0002-3884-3420> ;
   dcterms:created "2018-05-21"^^xsd:date ;
   dcterms:creator <http://orcid.org/0000-0002-8742-7730> ;
-  dcterms:modified "2018-09-12"^^xsd:date ;
+  dcterms:creator <https://orcid.org/0000-0002-3884-3420> ;
+  dcterms:modified "2018-09-17"^^xsd:date ;
   dcterms:publisher <http://catalogue.linked.data.gov.au/org/O-000850> ;
   vann:preferredNamespacePrefix "auorg" ;
-  rdfs:comment """The purpose of this ontology is to allow for the Semantic Web representation of Australian Federal Government Entities (organisations), their subcomponents and people related to them with particular roles.
+  rdfs:comment """An OWL ontology specialising the [Organization Ontology](https://www.w3.org/TR/vocab-org/) to model Australian government entities.
 
-This ontology specialises the W3C's recommended Organization Ontology to model Entities. Its specialised classes and properties have been initially informed by the Australian government's online organisations directory, https://www.directory.gov.au. This includes particular types of organisation found in Australian Federal government such as a 'Board', 'Government Entity' and so on.
+The purpose of this ontology is to allow for the Semantic Web representation of Australian Government, mostly Federal Government, Entities (organisations), their subcomponents and people related to them with particular roles.
+
+This ontology specialises the W3C's recommended Organization Ontology to model Entities. Its specialised classes and properties have been initially informed by the Australian government's online organisations directory, <https://www.directory.gov.au>. This includes particular types of organisation found in Australian Federal government such as a 'Board', 'Government Entity' and so on. While it has been designed primarily with the Commonwealth Government in mind, it is intended that it shall also apply at other levels of government. 
 
 Further specialisation and extension is likely as this ontology is developed to cover the conceptual space of systems that are important for Australian government structure, such as the Administrative Arrangement Orders that alter Entities.
 
-This ontology is incomplete as of v0.6 and is currently for demo purposes only."""@en ;
+This ontology is incomplete and is currently for demonstration purposes only."""@en ;
   rdfs:label "AU Org Ontology"@en ;
   rdfs:seeAlso "The GitHub repository containing addition documentation: http://github.com/CSIRO-enviro-informatics/auorg-ont/"@en ;
   owl:imports dc: ;
@@ -52,7 +54,7 @@ This ontology is incomplete as of v0.6 and is currently for demo purposes only."
   owl:imports <http://www.w3.org/ns/time/gregorian> ;
   owl:imports foaf: ;
   owl:versionIRI auorg: ;
-  owl:versionInfo "0.7 reduced in scope removing Appropriations Framework concepts" ;
+  owl:versionInfo "0.7 reduced in scope with Appropriations Framework concepts mostly removed" ;
   owl:versionInfo "Beta version"@en ;
 .
 auorg:ABS
