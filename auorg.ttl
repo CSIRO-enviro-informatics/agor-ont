@@ -133,26 +133,20 @@ auorg:Agency
     ] ;
   rdfs:subClassOf [
       rdf:type owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty auorg:inDepartment ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onClass auorg:Budget ;
       owl:onProperty auorg:appropriatedBudget ;
     ] ;
   rdfs:subClassOf [
       rdf:type owl:Restriction ;
-      owl:onClass auorg:Jurisdiction ;
-      owl:onProperty org:linkedTo ;
-      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
       owl:onProperty org:classification ;
       owl:someValuesFrom skos:Concept ;
       skos:editorialNote "This range should be replaced by the AGOR classification when available" ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onProperty org:purpose ;
-      owl:someValuesFrom agrif:Function ;
     ] ;
   rdfs:subClassOf [
       rdf:type owl:Restriction ;
@@ -246,13 +240,13 @@ auorg:CorporateEntity
   rdfs:subClassOf auorg:Entity ;
   rdfs:subClassOf [
       rdf:type owl:Restriction ;
-      owl:onProperty org:linkedTo ;
-      owl:someValuesFrom auorg:Jurisdiction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty auorg:inDepartment ;
     ] ;
   rdfs:subClassOf [
       rdf:type owl:Restriction ;
-      owl:onProperty org:purpose ;
-      owl:someValuesFrom agrif:Function ;
+      owl:onProperty org:linkedTo ;
+      owl:someValuesFrom auorg:Jurisdiction ;
     ] ;
 .
 auorg:CreationEvent
@@ -272,11 +266,7 @@ auorg:Department
   rdfs:subClassOf org:OrganizationalUnit ;
   rdfs:subClassOf [
       rdf:type owl:Restriction ;
-      owl:onProperty org:purpose ;
-      owl:someValuesFrom agrif:Function ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
+      rdfs:comment "Government departments have a stronger relationship with their jurisdiction" ;
       owl:onProperty org:unitOf ;
       owl:someValuesFrom auorg:Jurisdiction ;
     ] ;
@@ -286,11 +276,15 @@ auorg:DepartmentOfState
   rdfs:comment "The Governor-General appoints ministers, establishes departments of state and agencies, and allocates responsibility among ministers through an Administrative Arrangements Order (AAO)."@en ;
   rdfs:label "Department of State" ;
   rdfs:subClassOf auorg:Department ;
-  rdfs:subClassOf org:Organization ;
   rdfs:subClassOf [
       rdf:type owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty auorg:isPartOfPortfolio ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue auorg:CommonwealthOfAustralia ;
+      owl:onProperty org:linkedTo ;
     ] ;
   rdfs:subClassOf [
       rdf:type owl:Restriction ;
@@ -319,11 +313,23 @@ auorg:Entity
   rdfs:comment "Government entity, any kind, any level of government" ;
   rdfs:label "Government Entity" ;
   rdfs:subClassOf org:Organization ;
-  rdfs:subClassOf <http://www.w3.org/ns/prov#Agent> ;
+  rdfs:subClassOf <http://www.w3.org/ns/prov#Organization> ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      rdfs:comment "This property indicated which government jurisidiction the entity is authorized by" ;
+      owl:onClass auorg:Jurisdiction ;
+      owl:onProperty org:linkedTo ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
   rdfs:subClassOf [
       rdf:type owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty auorg:agorID ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty org:purpose ;
+      owl:someValuesFrom agrif:Function ;
     ] ;
 .
 auorg:Federal
@@ -606,12 +612,18 @@ auorg:hasStreetAddress
   rdfs:range gnaf:Address ;
   rdfs:subPropertyOf org:hasSite ;
 .
-auorg:isAssociatedWithDepartment
+auorg:inDepartment
   rdf:type owl:FunctionalProperty ;
   rdf:type owl:ObjectProperty ;
-  rdfs:domain auorg:Entity ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          auorg:Agency
+          auorg:CorporateEntity
+        ) ;
+    ] ;
   rdfs:range auorg:Department ;
-  rdfs:subPropertyOf dcterms:isPartOf ;
+  rdfs:subPropertyOf org:linkedTo ;
 .
 auorg:isPartOfPortfolio
   rdf:type owl:FunctionalProperty ;
@@ -667,7 +679,7 @@ agrif:associatedFunction
   rdfs:isDefinedBy <http://reference.data.gov.au/def/ont/agrif> ;
   rdfs:label "associated function" ;
   rdfs:range agrif:Function ;
-  rdfs:subPropertyOf org:classification ;
+  rdfs:subPropertyOf org:purpose ;
 .
 skos:altLabel
   rdf:type owl:AnnotationProperty ;
