@@ -245,11 +245,6 @@ auorg:CorporateEntity
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty auorg:inDepartment ;
     ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onProperty org:linkedTo ;
-      owl:someValuesFrom auorg:Jurisdiction ;
-    ] ;
 .
 auorg:CreationEvent
   rdf:type owl:Class ;
@@ -319,9 +314,8 @@ auorg:Entity
   rdfs:subClassOf [
       rdf:type owl:Restriction ;
       rdfs:comment "This property indicated which government jurisidiction the entity is authorized by" ;
-      owl:onClass auorg:Jurisdiction ;
       owl:onProperty org:linkedTo ;
-      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:someValuesFrom auorg:Jurisdiction ;
     ] ;
   rdfs:subClassOf [
       rdf:type owl:Restriction ;
