@@ -1,0 +1,53 @@
+# baseURI: http://test.linked.data.gov.au/dataset/auorg/
+# imports: http://linked.data.gov.au/def/auorg/
+# prefix: auorgs
+
+@prefix auorg: <http://linked.data.gov.au/def/auorg/> .
+@prefix auorgs: <http://test.linked.data.gov.au/dataset/auorg/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+auorg:CEO-CSIRO
+  org:postIn auorgs:CSIRO ;
+.
+auorg:CEO-GA
+  org:postIn auorgs:GA ;
+.
+auorgs:
+  a owl:Ontology ;
+  owl:imports auorg: ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+auorgs:ABS
+  a auorg:Agency ;
+  auorg:levelOfGovernment auorg:Federal ;
+  rdfs:label "Australian Bureau of Statistics" ;
+  org:linkedTo auorg:CommonwealthOfAustralia ;
+.
+auorgs:BoM
+  a auorg:Agency ;
+  auorg:levelOfGovernment auorg:Federal ;
+  rdfs:label "Bureau of Meteorology" ;
+  org:linkedTo auorg:CommonwealthOfAustralia ;
+.
+auorgs:CSIRO
+  a auorg:CorporateEntity ;
+  auorg:levelOfGovernment auorg:Federal ;
+  rdfs:label "Commonwealth Scientific and Industrial Research Organisation" ;
+  org:linkedTo auorg:CommonwealthOfAustralia ;
+.
+auorgs:GA
+  a auorg:Agency ;
+  auorg:levelOfGovernment auorg:Federal ;
+  rdfs:label "Geoscience Australia" ;
+  org:linkedTo auorg:CommonwealthOfAustralia ;
+.
+auorgs:NAA
+  a auorg:Agency ;
+  auorg:levelOfGovernment auorg:Federal ;
+  rdfs:label "National Archives of Australia" ;
+  org:linkedTo auorg:CommonwealthOfAustralia ;
+.
