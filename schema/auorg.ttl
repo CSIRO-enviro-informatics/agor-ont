@@ -1,4 +1,5 @@
 # baseURI: http://linked.data.gov.au/def/auorg/
+# imports: http://linked.data.gov.au/def/crs
 # imports: http://purl.org/dc/elements/1.1/
 # imports: http://www.w3.org/2006/time
 # imports: http://www.w3.org/ns/org#
@@ -6,7 +7,8 @@
 # imports: http://xmlns.com/foaf/0.1/
 # prefix: auorg
 
-@prefix agrif: <http://reference.data.gov.au/def/ont/agrif#> .
+@prefix aao: <http://linked.data.gov.au/def/aao#> .
+@prefix agrif: <http://linked.data.gov.au/def/agrif#> .
 @prefix auorg: <http://linked.data.gov.au/def/auorg/> .
 @prefix auorgs: <http://test.linked.data.gov.au/dataset/auorg/> .
 @prefix crs: <http://linked.data.gov.au/def/crs#> .
@@ -17,6 +19,7 @@
 @prefix gnaf: <http://gnafld.net/def/gnaf#> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -50,6 +53,7 @@ Further specialisation and extension is likely as this ontology is developed to 
 This ontology is incomplete and is currently for demonstration purposes only."""@en ;
   rdfs:label "AU Org Ontology"@en ;
   rdfs:seeAlso "The GitHub repository containing addition documentation: http://github.com/CSIRO-enviro-informatics/auorg-ont/"@en ;
+  owl:imports <http://linked.data.gov.au/def/crs> ;
   owl:imports dc: ;
   owl:imports <http://www.w3.org/2006/time> ;
   owl:imports org: ;
@@ -286,7 +290,7 @@ auorg:Entity
   rdfs:comment "Government entity, any kind, any level of government" ;
   rdfs:label "Government Entity" ;
   rdfs:subClassOf org:Organization ;
-  rdfs:subClassOf <http://www.w3.org/ns/prov#Organization> ;
+  rdfs:subClassOf prov:Organization ;
   rdfs:subClassOf [
       a owl:Restriction ;
       rdfs:comment "This property indicated which government jurisidiction the entity is authorized by" ;
@@ -617,18 +621,6 @@ auorg:typeOfBody
   rdfs:label "Type of this body or agency" ;
   rdfs:subPropertyOf org:classification ;
   skos:editorialNote "Set range to AGOR type-of-body classification when available" ;
-.
-agrif:Function
-  a owl:Class ;
-.
-agrif:associatedFunction
-  a owl:ObjectProperty ;
-  rdfs:comment "A relation that associates a Function to an Entity, Event or Activity." ;
-  rdfs:domain auorg:Entity ;
-  rdfs:isDefinedBy <http://reference.data.gov.au/def/ont/agrif> ;
-  rdfs:label "associated function" ;
-  rdfs:range agrif:Function ;
-  rdfs:subPropertyOf org:purpose ;
 .
 skos:altLabel
   a owl:AnnotationProperty ;
