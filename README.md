@@ -3,7 +3,9 @@ An OWL ontology specialising the [Organization Ontology](https://www.w3.org/TR/v
 
 The purpose of this ontology is to allow for the Semantic Web representation of Australian Government, mostly Federal Government, Entities (organisations), their subcomponents and people related to them with particular roles.
 
-This ontology specialises the W3C's recommended Organization Ontology to model Entities. Its specialised classes and properties have been initially informed by the Australian government's online organisations directory, <https://www.directory.gov.au>. This includes particular types of organisation found in Australian Federal government such as a 'Board', 'Government Entity' and so on. While it has been designed primarily with the Commonwealth Government in mind, it is intended that it shall also apply at other levels of government. 
+This ontology specialises the W3C's recommended Organization Ontology to model Entities. Its specialised classes and properties have been initially informed by the Australian government's online organisations directory, <https://www.directory.gov.au>. This includes particular types of organisation found in Australian Federal government such as a 'Board', 'Government Entity' and so on. While it has been designed primarily with the Commonwealth Government in mind, it is intended that it shall also apply at other levels of government.
+
+![AU-Org dependencies](images/dependencies.png)
 
 Further specialisation and extension is likely as this ontology is developed to cover the conceptual space of systems that are important for Australian government structure, such as the Administrative Arrangement Orders that alter Entities.
 
