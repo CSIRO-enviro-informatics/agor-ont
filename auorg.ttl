@@ -1,12 +1,14 @@
-# baseURI: http://linked.data.gov.au/def/auorg
+# baseURI: http://linked.data.gov.au/def/auorg/
 # imports: http://purl.org/dc/elements/1.1/
 # imports: http://www.w3.org/2006/time
 # imports: http://www.w3.org/ns/org#
 # imports: http://www.w3.org/ns/time/gregorian
 # imports: http://xmlns.com/foaf/0.1/
+# prefix: auorg
 
 @prefix agrif: <http://reference.data.gov.au/def/ont/agrif#> .
 @prefix auorg: <http://linked.data.gov.au/def/auorg/> .
+@prefix auorgs: <http://test.linked.data.gov.au/dataset/auorg/> .
 @prefix crs: <http://linked.data.gov.au/def/crs#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dct: <http://purl.org/dc/terms/> .
@@ -24,10 +26,10 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 gnaf:Address
-  rdf:type owl:Class ;
+  a owl:Class ;
 .
-<http://linked.data.gov.au/def/auorg>
-  rdf:type owl:Ontology ;
+auorg:
+  a owl:Ontology ;
   dc:creator "Nicholas J. Car" ;
   dc:creator "Simon J.D. Cox" ;
   dc:publisher "Department of Finance" ;
@@ -57,14 +59,8 @@ This ontology is incomplete and is currently for demonstration purposes only."""
   owl:versionInfo "0.7 reduced in scope with Appropriations Framework concepts mostly removed" ;
   owl:versionInfo "Beta version"@en ;
 .
-auorg:ABS
-  rdf:type auorg:Agency ;
-  auorg:levelOfGovernment auorg:Federal ;
-  rdfs:label "Australian Bureau of Statistics" ;
-  org:linkedTo auorg:CommonwealthOfAustralia ;
-.
 auorg:AbolitionEvent
-  rdf:type owl:Class ;
+  a owl:Class ;
   rdfs:comment """An Abolition Event abolishes an Entity. It may also be a creation event in that it could also create an entity.
 
 This Change Event subclass is disjoint with Modification Event."""@en ;
@@ -73,152 +69,138 @@ This Change Event subclass is disjoint with Modification Event."""@en ;
   owl:disjointWith auorg:ModificationEvent ;
 .
 auorg:Agency
-  rdf:type owl:Class ;
+  a owl:Class ;
   rdfs:comment "The Governor-General appoints ministers, establishes departments of state and agencies, and allocates responsibility among ministers through an Administrative Arrangements Order (AAO)."@en ;
   rdfs:isDefinedBy <https://www.australia.gov.au/about-government/departments-and-agencies> ;
   rdfs:label "Government Agency" ;
   rdfs:subClassOf auorg:Entity ;
   rdfs:subClassOf [
-      rdf:type owl:Restriction ;
+      a owl:Restriction ;
       owl:allValuesFrom auorg:Budget ;
       owl:onProperty auorg:expenses ;
     ] ;
   rdfs:subClassOf [
-      rdf:type owl:Restriction ;
+      a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty auorg:establishedBy ;
     ] ;
   rdfs:subClassOf [
-      rdf:type owl:Restriction ;
+      a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty auorg:hasABN ;
     ] ;
   rdfs:subClassOf [
-      rdf:type owl:Restriction ;
+      a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty auorg:hasAverageStaffingLevel ;
     ] ;
   rdfs:subClassOf [
-      rdf:type owl:Restriction ;
+      a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty auorg:materiality ;
     ] ;
   rdfs:subClassOf [
-      rdf:type owl:Restriction ;
+      a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty auorg:psActBodyID ;
     ] ;
   rdfs:subClassOf [
-      rdf:type owl:Restriction ;
+      a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty auorg:sectorClassification ;
     ] ;
   rdfs:subClassOf [
-      rdf:type owl:Restriction ;
+      a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty auorg:typeOfBody ;
     ] ;
   rdfs:subClassOf [
-      rdf:type owl:Restriction ;
+      a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty dcterms:created ;
     ] ;
   rdfs:subClassOf [
-      rdf:type owl:Restriction ;
+      a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty dcterms:description ;
     ] ;
   rdfs:subClassOf [
-      rdf:type owl:Restriction ;
+      a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty org:hasPrimarySite ;
     ] ;
   rdfs:subClassOf [
-      rdf:type owl:Restriction ;
+      a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty auorg:inDepartment ;
     ] ;
   rdfs:subClassOf [
-      rdf:type owl:Restriction ;
+      a owl:Restriction ;
       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onClass auorg:Budget ;
       owl:onProperty auorg:appropriatedBudget ;
     ] ;
   rdfs:subClassOf [
-      rdf:type owl:Restriction ;
+      a owl:Restriction ;
       owl:onProperty org:classification ;
       owl:someValuesFrom skos:Concept ;
       skos:editorialNote "This range should be replaced by the AGOR classification when available" ;
     ] ;
   rdfs:subClassOf [
-      rdf:type owl:Restriction ;
+      a owl:Restriction ;
       owl:onProperty org:subOrganizationOf ;
       owl:someValuesFrom org:Organization ;
     ] ;
 .
 auorg:AustralianCapitalTerritory
-  rdf:type auorg:Jurisdiction ;
-  rdf:type owl:NamedIndividual ;
+  a auorg:Jurisdiction ;
+  a owl:NamedIndividual ;
   auorg:levelOfGovernment auorg:State ;
   rdfs:label "Australian Capital Territory" ;
   org:subOrganizationOf auorg:CommonwealthOfAustralia ;
 .
-auorg:BoM
-  rdf:type auorg:Agency ;
-  auorg:levelOfGovernment auorg:Federal ;
-  rdfs:label "Bureau of Meteorology" ;
-  org:linkedTo auorg:CommonwealthOfAustralia ;
-.
 auorg:Board
-  rdf:type owl:Class ;
+  a owl:Class ;
   rdfs:comment "An Australian Government Board"@en ;
   rdfs:label "Board"@en ;
   rdfs:subClassOf org:FormalOrganization ;
 .
 auorg:Budget
-  rdf:type owl:Class ;
+  a owl:Class ;
   rdfs:label "Budget for interval indicated" ;
   rdfs:subClassOf [
-      rdf:type owl:Restriction ;
+      a owl:Restriction ;
       owl:allValuesFrom xsd:decimal ;
       owl:onProperty rdf:value ;
     ] ;
   rdfs:subClassOf [
-      rdf:type owl:Restriction ;
+      a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty auorg:budgetInterval ;
     ] ;
   rdfs:subClassOf [
-      rdf:type owl:Restriction ;
+      a owl:Restriction ;
       owl:hasValue "AUD" ;
       owl:onProperty auorg:currency ;
     ] ;
 .
 auorg:CEO
-  rdf:type org:Role ;
+  a org:Role ;
   rdfs:label "Chief Executive Officer" ;
 .
 auorg:CEO-CSIRO
-  rdf:type org:Post ;
+  a org:Post ;
   rdfs:label "Chief Executive of CSIRO" ;
-  org:postIn auorg:CSIRO ;
   org:role auorg:CEO ;
 .
 auorg:CEO-GA
-  rdf:type org:Post ;
+  a org:Post ;
   rdfs:label "Chief Executive Officer of GA" ;
-  org:postIn auorg:GA ;
   org:role auorg:CEO ;
 .
-auorg:CSIRO
-  rdf:type auorg:CorporateEntity ;
-  auorg:levelOfGovernment auorg:Federal ;
-  rdfs:label "Commonwealth Scientific and Industrial Research Organisation" ;
-  org:linkedTo auorg:CommonwealthOfAustralia ;
-.
 auorg:CommonwealthOfAustralia
-  rdf:type auorg:Jurisdiction ;
-  rdf:type owl:NamedIndividual ;
+  a auorg:Jurisdiction ;
+  a owl:NamedIndividual ;
   auorg:levelOfGovernment auorg:Federal ;
   rdfs:comment """The Commonwealth of Australia.
 
@@ -235,19 +217,19 @@ Australia's formal name is the Commonwealth of Australia. Australia is both a re
   org:hasSubOrganization auorg:WesternAustralia ;
 .
 auorg:CorporateEntity
-  rdf:type owl:Class ;
+  a owl:Class ;
   rdfs:comment "The Governor-General appoints ministers, establishes departments of state and agencies, and allocates responsibility among ministers through an Administrative Arrangements Order (AAO)."@en ;
   rdfs:isDefinedBy <https://www.australia.gov.au/about-government/departments-and-agencies> ;
   rdfs:label "Government Corporate Entity" ;
   rdfs:subClassOf auorg:Entity ;
   rdfs:subClassOf [
-      rdf:type owl:Restriction ;
+      a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty auorg:inDepartment ;
     ] ;
 .
 auorg:CreationEvent
-  rdf:type owl:Class ;
+  a owl:Class ;
   rdfs:comment """A Creation Event is one that creates a Government Entity. It could also be an Abolition Event when the same even both abolishes and creates Entities.
 
 This Change Event subclass is disjoint with Modification Event."""@en ;
@@ -256,127 +238,109 @@ This Change Event subclass is disjoint with Modification Event."""@en ;
   owl:disjointWith auorg:ModificationEvent ;
 .
 auorg:Department
-  rdf:type owl:Class ;
+  a owl:Class ;
   rdfs:comment "Department of some level of government" ;
   rdfs:label "Government Department" ;
   rdfs:subClassOf auorg:Entity ;
   rdfs:subClassOf org:OrganizationalUnit ;
   rdfs:subClassOf [
-      rdf:type owl:Restriction ;
+      a owl:Restriction ;
       rdfs:comment "Government departments have a stronger relationship with their jurisdiction" ;
       owl:onProperty org:unitOf ;
       owl:someValuesFrom auorg:Jurisdiction ;
     ] ;
 .
 auorg:DepartmentOfState
-  rdf:type owl:Class ;
+  a owl:Class ;
   rdfs:comment "The Governor-General appoints ministers, establishes departments of state and agencies, and allocates responsibility among ministers through an Administrative Arrangements Order (AAO)."@en ;
   rdfs:label "Department of State" ;
   rdfs:subClassOf auorg:Department ;
   rdfs:subClassOf [
-      rdf:type owl:Restriction ;
+      a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty auorg:isPartOfPortfolio ;
     ] ;
   rdfs:subClassOf [
-      rdf:type owl:Restriction ;
+      a owl:Restriction ;
       owl:hasValue auorg:CommonwealthOfAustralia ;
       owl:onProperty org:linkedTo ;
     ] ;
   rdfs:subClassOf [
-      rdf:type owl:Restriction ;
+      a owl:Restriction ;
       owl:hasValue auorg:CommonwealthOfAustralia ;
       owl:onProperty org:unitOf ;
     ] ;
 .
 auorg:DepartmentSecretary
-  rdf:type owl:NamedIndividual ;
-  rdf:type org:Role ;
+  a owl:NamedIndividual ;
+  a org:Role ;
   rdfs:comment "Public servant who is head of a department" ;
   rdfs:label "Department Secretary" ;
 .
 auorg:Director
-  rdf:type org:Role ;
+  a org:Role ;
   rdfs:label "Director" ;
 .
-auorg:DoEE
-  rdf:type auorg:Department ;
-  auorg:levelOfGovernment auorg:Federal ;
-  rdfs:label "Department of the Environment and Energy" ;
-  org:linkedTo auorg:CommonwealthOfAustralia ;
-.
 auorg:Entity
-  rdf:type owl:Class ;
+  a owl:Class ;
   rdfs:comment "Government entity, any kind, any level of government" ;
   rdfs:label "Government Entity" ;
   rdfs:subClassOf org:Organization ;
   rdfs:subClassOf <http://www.w3.org/ns/prov#Organization> ;
   rdfs:subClassOf [
-      rdf:type owl:Restriction ;
+      a owl:Restriction ;
       rdfs:comment "This property indicated which government jurisidiction the entity is authorized by" ;
       owl:onProperty org:linkedTo ;
       owl:someValuesFrom auorg:Jurisdiction ;
     ] ;
   rdfs:subClassOf [
-      rdf:type owl:Restriction ;
+      a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty auorg:agorID ;
     ] ;
   rdfs:subClassOf [
-      rdf:type owl:Restriction ;
+      a owl:Restriction ;
       owl:onProperty org:purpose ;
       owl:someValuesFrom agrif:Function ;
     ] ;
 .
 auorg:Federal
-  rdf:type auorg:GovernmentLevel ;
-  rdf:type owl:NamedIndividual ;
-  rdf:type skos:Concept ;
+  a auorg:GovernmentLevel ;
+  a owl:NamedIndividual ;
+  a skos:Concept ;
   rdfs:comment "Federal government, of the Commonwealth of Australia, as outlined in the Australian Constritution" ;
   rdfs:label "Federal" ;
 .
-auorg:Finance
-  rdf:type auorg:Department ;
-  auorg:levelOfGovernment auorg:Federal ;
-  rdfs:label "Department of Finance" ;
-  org:linkedTo auorg:CommonwealthOfAustralia ;
-.
 auorg:Finn_Pratt
-  rdf:type foaf:Person ;
+  a foaf:Person ;
   rdfs:label "Finn Pratt" ;
   org:holds auorg:SecretaryEnvironmentEnergy ;
 .
-auorg:GA
-  rdf:type auorg:Agency ;
-  auorg:levelOfGovernment auorg:Federal ;
-  rdfs:label "Geoscience Australia" ;
-  org:linkedTo auorg:CommonwealthOfAustralia ;
-.
 auorg:GG
-  rdf:type org:Post ;
+  a org:Post ;
   rdfs:label "Governor General of Australia" ;
   org:postIn auorg:CommonwealthOfAustralia ;
   org:role auorg:GovernorGeneral ;
 .
 auorg:GlenEira
-  rdf:type auorg:Jurisdiction ;
+  a auorg:Jurisdiction ;
   auorg:levelOfGovernment auorg:Local ;
   rdfs:label "City of Glen Eira" ;
   org:subOrganizationOf auorg:Victoria ;
 .
 auorg:GovernmentLevel
-  rdf:type owl:Class ;
+  a owl:Class ;
   rdfs:label "Level of Government" ;
   rdfs:subClassOf skos:Concept ;
 .
 auorg:Governor
-  rdf:type org:Role ;
+  a org:Role ;
   auorg:levelOfGovernment auorg:State ;
   rdfs:label "Governor or Administrator" ;
 .
 auorg:GovernorGeneral
-  rdf:type owl:NamedIndividual ;
-  rdf:type org:Role ;
+  a owl:NamedIndividual ;
+  a org:Role ;
   auorg:levelOfGovernment auorg:Federal ;
   rdfs:comment """The representative of the Australian monarch in the Commonwealth of Australia.
 
@@ -384,235 +348,224 @@ The Governor-General is appointed by the Australian monarch on the advice of the
   rdfs:label "Governor-General"@en ;
 .
 auorg:James_Johnson
-  rdf:type foaf:Person ;
+  a foaf:Person ;
   rdfs:label "James Johnson" ;
   org:holds auorg:CEO-GA ;
 .
 auorg:Jurisdiction
-  rdf:type owl:Class ;
+  a owl:Class ;
   rdfs:comment "This applies to the top/autonomous government entity - e.g. one for each national, state, local government jurisdiction" ;
   rdfs:label "Government or Jurisdiction" ;
   rdfs:subClassOf auorg:Entity ;
 .
 auorg:Larry_Marshall
-  rdf:type foaf:Person ;
+  a foaf:Person ;
   rdfs:label "Larry Marshall" ;
   org:holds auorg:CEO-CSIRO ;
 .
 auorg:Local
-  rdf:type auorg:GovernmentLevel ;
-  rdf:type owl:NamedIndividual ;
-  rdf:type skos:Concept ;
+  a auorg:GovernmentLevel ;
+  a owl:NamedIndividual ;
+  a skos:Concept ;
   rdfs:label "Local government" ;
 .
 auorg:Mayor
-  rdf:type org:Role ;
+  a org:Role ;
   auorg:levelOfGovernment auorg:Local ;
   rdfs:label "Mayor" ;
 .
 auorg:Minister
-  rdf:type owl:NamedIndividual ;
-  rdf:type org:Role ;
+  a owl:NamedIndividual ;
+  a org:Role ;
   auorg:levelOfGovernment auorg:Federal ;
   auorg:levelOfGovernment auorg:State ;
   rdfs:comment "Political head of department" ;
   rdfs:label "Minister" ;
 .
 auorg:MinisterEnergy
-  rdf:type org:Post ;
+  a org:Post ;
   rdfs:label "Minister of Energy" ;
-  org:postIn auorg:DoEE ;
   org:role auorg:Minister ;
 .
 auorg:MinisterEnvironment
-  rdf:type org:Post ;
+  a org:Post ;
   rdfs:label "Minister of Environment" ;
-  org:postIn auorg:DoEE ;
   org:role auorg:Minister ;
 .
 auorg:MinisterFinance
-  rdf:type org:Post ;
+  a org:Post ;
   rdfs:label "Minister of Finance" ;
-  org:postIn auorg:Finance ;
   org:role auorg:Minister ;
 .
 auorg:ModificationEvent
-  rdf:type owl:Class ;
+  a owl:Class ;
   rdfs:comment "An event that modifies an existing Entity but doesn't create or abolish any Entities."@en ;
   rdfs:label "Modification Event"@en ;
   rdfs:subClassOf org:ChangeEvent ;
   owl:disjointWith auorg:AbolitionEvent ;
   owl:disjointWith auorg:CreationEvent ;
 .
-auorg:NAA
-  rdf:type auorg:Agency ;
-  auorg:levelOfGovernment auorg:Federal ;
-  rdfs:label "National Archives of Australia" ;
-  org:linkedTo auorg:CommonwealthOfAustralia ;
-.
 auorg:NewSouthWales
-  rdf:type auorg:Jurisdiction ;
-  rdf:type owl:NamedIndividual ;
+  a auorg:Jurisdiction ;
+  a owl:NamedIndividual ;
   auorg:levelOfGovernment auorg:State ;
   rdfs:label "New South Wales" ;
   org:subOrganizationOf auorg:CommonwealthOfAustralia ;
 .
 auorg:NonBoard
-  rdf:type owl:Class ;
+  a owl:Class ;
   rdfs:comment "An Australian Government non-board entity"@en ;
   rdfs:label "Non-Board"@en ;
   rdfs:subClassOf org:FormalOrganization ;
 .
 auorg:NorthernTerritory
-  rdf:type auorg:Jurisdiction ;
-  rdf:type owl:NamedIndividual ;
+  a auorg:Jurisdiction ;
+  a owl:NamedIndividual ;
   auorg:levelOfGovernment auorg:State ;
   rdfs:label "Northern Territory" ;
   org:subOrganizationOf auorg:CommonwealthOfAustralia ;
 .
 auorg:Portfolio
-  rdf:type owl:Class ;
+  a owl:Class ;
   rdfs:label "Portfolio of government" ;
   skos:editorialNote "Unclear if this is an organization, or something else, or just a classification? " ;
 .
 auorg:Premier
-  rdf:type org:Role ;
+  a org:Role ;
   auorg:levelOfGovernment auorg:State ;
   rdfs:label "Premier or first minister" ;
 .
 auorg:Queensland
-  rdf:type auorg:Jurisdiction ;
-  rdf:type owl:NamedIndividual ;
+  a auorg:Jurisdiction ;
+  a owl:NamedIndividual ;
   auorg:levelOfGovernment auorg:State ;
   rdfs:label "Queensland" ;
   org:subOrganizationOf auorg:CommonwealthOfAustralia ;
 .
 auorg:Rosemary_Huxtable
-  rdf:type foaf:Person ;
+  a foaf:Person ;
   rdfs:label "Rosemary Huxtable" ;
   org:holds auorg:SecretaryFinance ;
 .
 auorg:SecretaryEnvironmentEnergy
-  rdf:type org:Post ;
+  a org:Post ;
   rdfs:label "Secretary,  Department of the Environment and Energy" ;
-  org:postIn auorg:DoEE ;
   org:role auorg:DepartmentSecretary ;
 .
 auorg:SecretaryFinance
-  rdf:type org:Post ;
+  a org:Post ;
   rdfs:label "Secretary, Department of Finance" ;
-  org:postIn auorg:Finance ;
   org:role auorg:DepartmentSecretary ;
   foaf:homepage <https://www.finance.gov.au/about-the-department/the-secretary.html> ;
 .
 auorg:SingleExecutiveRole
-  rdf:type owl:Class ;
+  a owl:Class ;
   rdfs:comment "A single executive (Senior Executive Service in the Australian Public Service) role"@en ;
   rdfs:label "Single Executive Role"@en ;
   rdfs:subClassOf org:Post ;
 .
 auorg:SouthAustralia
-  rdf:type auorg:Jurisdiction ;
-  rdf:type owl:NamedIndividual ;
+  a auorg:Jurisdiction ;
+  a owl:NamedIndividual ;
   auorg:levelOfGovernment auorg:State ;
   rdfs:label "South Australia" ;
   org:subOrganizationOf auorg:CommonwealthOfAustralia ;
 .
 auorg:State
-  rdf:type auorg:GovernmentLevel ;
-  rdf:type owl:NamedIndividual ;
-  rdf:type skos:Concept ;
+  a auorg:GovernmentLevel ;
+  a owl:NamedIndividual ;
+  a skos:Concept ;
   rdfs:label "State or Territory" ;
 .
 auorg:Tasmania
-  rdf:type auorg:Jurisdiction ;
-  rdf:type owl:NamedIndividual ;
+  a auorg:Jurisdiction ;
+  a owl:NamedIndividual ;
   auorg:levelOfGovernment auorg:State ;
   rdfs:label "Tasmania" ;
   org:subOrganizationOf auorg:CommonwealthOfAustralia ;
 .
 auorg:Victoria
-  rdf:type auorg:Jurisdiction ;
-  rdf:type owl:NamedIndividual ;
+  a auorg:Jurisdiction ;
+  a owl:NamedIndividual ;
   auorg:levelOfGovernment auorg:State ;
   rdfs:label "Victoria" ;
   org:hasSubOrganization auorg:GlenEira ;
   org:subOrganizationOf auorg:CommonwealthOfAustralia ;
 .
 auorg:Vincent
-  rdf:type auorg:Jurisdiction ;
+  a auorg:Jurisdiction ;
   auorg:levelOfGovernment auorg:Local ;
   rdfs:label "Town of Vincent" ;
   org:subOrganizationOf auorg:WesternAustralia ;
 .
 auorg:WesternAustralia
-  rdf:type auorg:Jurisdiction ;
-  rdf:type owl:NamedIndividual ;
+  a auorg:Jurisdiction ;
+  a owl:NamedIndividual ;
   auorg:levelOfGovernment auorg:State ;
   rdfs:label "Western Australia" ;
   org:hasSubOrganization auorg:Vincent ;
   org:subOrganizationOf auorg:CommonwealthOfAustralia ;
 .
 auorg:agorID
-  rdf:type owl:DatatypeProperty ;
-  rdf:type owl:FunctionalProperty ;
+  a owl:DatatypeProperty ;
+  a owl:FunctionalProperty ;
   rdfs:domain auorg:Entity ;
   rdfs:label "AGOR identifier for the government entity" ;
   rdfs:subPropertyOf dcterms:identifier ;
 .
 auorg:appropriatedBudget
-  rdf:type owl:ObjectProperty ;
+  a owl:ObjectProperty ;
   rdfs:label "Budget appropriation in AUD" ;
   rdfs:range auorg:Budget ;
 .
 auorg:budgetInterval
-  rdf:type owl:ObjectProperty ;
+  a owl:ObjectProperty ;
   rdfs:comment "Time interval over which budget applies" ;
   rdfs:domain auorg:Budget ;
   rdfs:label "Budget interval " ;
   rdfs:range <http://www.w3.org/2006/time#ProperInterval> ;
 .
 auorg:currency
-  rdf:type owl:DatatypeProperty ;
+  a owl:DatatypeProperty ;
   rdfs:label "Currency for budget amount" ;
 .
 auorg:establishedBy
-  rdf:type owl:AnnotationProperty ;
+  a owl:AnnotationProperty ;
   rdfs:domain auorg:Agency ;
   rdfs:label "Established by ... " ;
   rdfs:subPropertyOf rdfs:comment ;
   skos:editorialNote "Unclear what this means ... " ;
 .
 auorg:expenses
-  rdf:type owl:ObjectProperty ;
+  a owl:ObjectProperty ;
   rdfs:label "Expenditure in AUD" ;
   rdfs:range auorg:Budget ;
 .
 auorg:hasABN
-  rdf:type owl:DatatypeProperty ;
+  a owl:DatatypeProperty ;
   rdfs:comment "org:identifier is a sub-property of skos:notation, which is a owl:DatatypeProperty, i.e. a literal. Could be constrained to be a string with the pattern 'NN NNN NNN NNN` to match ABN structure" ;
   rdfs:label "has ABN" ;
   rdfs:range xsd:integer ;
   rdfs:subPropertyOf org:identifier ;
 .
 auorg:hasAverageStaffingLevel
-  rdf:type owl:DatatypeProperty ;
+  a owl:DatatypeProperty ;
   rdfs:comment "has an average annual staffing level of (no. of people)"@en ;
   rdfs:label "has average staffing level" ;
   rdfs:range xsd:integer ;
 .
 auorg:hasStreetAddress
-  rdf:type owl:ObjectProperty ;
+  a owl:ObjectProperty ;
   rdfs:comment "has a GNAF address of"@en ;
   rdfs:label "has street address" ;
   rdfs:range gnaf:Address ;
   rdfs:subPropertyOf org:hasSite ;
 .
 auorg:inDepartment
-  rdf:type owl:FunctionalProperty ;
-  rdf:type owl:ObjectProperty ;
+  a owl:FunctionalProperty ;
+  a owl:ObjectProperty ;
   rdfs:domain [
-      rdf:type owl:Class ;
+      a owl:Class ;
       owl:unionOf (
           auorg:Agency
           auorg:CorporateEntity
@@ -622,14 +575,14 @@ auorg:inDepartment
   rdfs:subPropertyOf org:linkedTo ;
 .
 auorg:isPartOfPortfolio
-  rdf:type owl:FunctionalProperty ;
-  rdf:type owl:ObjectProperty ;
+  a owl:FunctionalProperty ;
+  a owl:ObjectProperty ;
   rdfs:domain auorg:Department ;
   rdfs:range auorg:Portfolio ;
   rdfs:subPropertyOf dcterms:isPartOf ;
 .
 auorg:levelOfGovernment
-  rdf:type owl:ObjectProperty ;
+  a owl:ObjectProperty ;
   rdfs:comment "level of government (Federal, State, Local)" ;
   rdfs:domain auorg:Jurisdiction ;
   rdfs:label "level of government" ;
@@ -637,21 +590,21 @@ auorg:levelOfGovernment
   rdfs:subPropertyOf org:classification ;
 .
 auorg:materiality
-  rdf:type owl:ObjectProperty ;
+  a owl:ObjectProperty ;
   rdfs:domain auorg:Agency ;
   rdfs:label "Materiality" ;
   rdfs:range skos:Concept ;
   skos:editorialNote "Set range to Materiality when available" ;
 .
 auorg:psActBodyID
-  rdf:type owl:DatatypeProperty ;
-  rdf:type owl:FunctionalProperty ;
+  a owl:DatatypeProperty ;
+  a owl:FunctionalProperty ;
   rdfs:domain auorg:Agency ;
   rdfs:label "PS Act Body identifier for the agency" ;
   rdfs:subPropertyOf dcterms:identifier ;
 .
 auorg:sectorClassification
-  rdf:type owl:ObjectProperty ;
+  a owl:ObjectProperty ;
   rdfs:comment "GFS Sector classification for this agency" ;
   rdfs:domain auorg:Agency ;
   rdfs:label "GFS Sector" ;
@@ -659,17 +612,17 @@ auorg:sectorClassification
   skos:editorialNote "Set range to GFS_Sector_CLassification when available" ;
 .
 auorg:typeOfBody
-  rdf:type owl:ObjectProperty ;
+  a owl:ObjectProperty ;
   rdfs:domain auorg:Agency ;
   rdfs:label "Type of this body or agency" ;
   rdfs:subPropertyOf org:classification ;
   skos:editorialNote "Set range to AGOR type-of-body classification when available" ;
 .
 agrif:Function
-  rdf:type owl:Class ;
+  a owl:Class ;
 .
 agrif:associatedFunction
-  rdf:type owl:ObjectProperty ;
+  a owl:ObjectProperty ;
   rdfs:comment "A relation that associates a Function to an Entity, Event or Activity." ;
   rdfs:domain auorg:Entity ;
   rdfs:isDefinedBy <http://reference.data.gov.au/def/ont/agrif> ;
@@ -678,8 +631,8 @@ agrif:associatedFunction
   rdfs:subPropertyOf org:purpose ;
 .
 skos:altLabel
-  rdf:type owl:AnnotationProperty ;
+  a owl:AnnotationProperty ;
 .
 org:purpose
-  rdf:type owl:ObjectProperty ;
+  a owl:ObjectProperty ;
 .
