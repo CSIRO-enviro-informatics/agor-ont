@@ -1,13 +1,11 @@
-# baseURI: http://linked.data.gov.au/def/auorg/
-# imports: http://purl.org/dc/elements/1.1/
+# baseURI: http://linked.data.gov.au/def/auorg#
 # imports: http://www.w3.org/2006/time
 # imports: http://www.w3.org/ns/org#
 # prefix: auorg
 
 @prefix aao: <http://linked.data.gov.au/def/aao#> .
 @prefix agrif: <http://linked.data.gov.au/def/agrif#> .
-@prefix auorg: <http://linked.data.gov.au/def/auorg/> .
-@prefix auorgs: <http://test.linked.data.gov.au/dataset/auorg/> .
+@prefix auorg: <http://linked.data.gov.au/def/auorg#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix dct: <http://purl.org/dc/terms/> .
@@ -76,7 +74,6 @@ This ontology is incomplete and is currently for demonstration purposes only."""
   owl:versionIRI auorg: ;
   owl:versionInfo "0.8 concise documentation" ;
   owl:versionInfo "0.7 reduced in scope with Appropriations Framework concepts mostly removed" ;
-  owl:versionInfo "Beta version"@en ;
 .
 auorg:AbolitionEvent
   a owl:Class ;
