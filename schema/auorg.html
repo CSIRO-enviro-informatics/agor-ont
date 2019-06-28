@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AU Org Ontology</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="pylode">made by <a href="http://github.com/rdflib/pyLODE">pyLODE</a></div>
+<h1>AU Org Ontology</h1>
+<section id="metadata">
+    <h2 style="display:none;">Metadata</h2>
+    <dl>
+        <dt>IRI</dt>
+        <dd><code>http://linked.data.gov.au/def/auorg/</code></dd>
+        <dt>Publisher(s)</dt>
+        <dd>
+            <a href="http://catalogue.linked.data.gov.au/def/finance">Department of Finance</a><br/>
+            http://catalogue.linked.data.gov.au/org/finance<br/>
+        </dd>
+        <dt>Creator(s)</dt>
+        <dd>
+            <a href="https://orcid.org/0000-0002-3884-3420">Simon J.D.Cox</a> (<a href="mailto:simon.cox@csiro.au">simon.cox@csiro.au</a>) of <a href="http://catalogue.linked.data.gov.au/def/csiro">CSIRO</a><br/>
+            <a href="https://orcid.org/0000-0002-8742-7730">Nicholas J. Car</a> (<a href="mailto:nicholas.car@csiro.au">nicholas.car@csiro.au</a>) of <a href="http://catalogue.linked.data.gov.au/def/csiro">CSIRO</a><br/>
+        </dd>
+        <dt>Created</dt>
+        <dd>2018-05-21</dd>
+        <dt>Modified</dt>
+        <dd>2019-06-27</dd>
+        <dt>Version Information</dt>
+        <dd>0.8 concise documentation</dd>
+        <dt>Version IRI</dt>
+        <dd><a href="http://linked.data.gov.au/def/auorg/">http://linked.data.gov.au/def/auorg/</a></dd>
+        <dt>Imports</dt>
+        <dd>
+            <a href="http://www.w3.org/ns/org#">org:</a><br/>
+            <a href="http://www.w3.org/2006/time">time:</a><br/>
+        </dd>
+        <dt>Ontology Source</dt>
+        <dd><a href="schema/auorg.ttl">RDF (turtle)</a></dd>
+        <dt>Further Documentation</dt>
+        <dd>
+            <p>See the code repository online containing this ontology for further documentation:</p>
+            <ul><li><a href="https://github.com/CSIRO-enviro-informatics/auord-ont">AU Org Ontology in GitHub</a></li></ul>
+        </dd>
+    </dl>
+    <h2>Description</h2>
+    <div id="description">
+        <p>An OWL ontology specialising the <a href="https://www.w3.org/TR/vocab-org/">Organization Ontology</a> to model Australian government entities.</p>
+        <p>The purpose of this ontology is to allow for the Semantic Web representation of Australian Government, mostly Federal Government, Entities (organisations), their subcomponents and people related to them with particular roles.</p>
+        <p>This ontology specialises the W3C's recommended Organization Ontology to model Entities. Its specialised classes and properties have been initially informed by the Australian government's online organisations directory, <a href="https://www.directory.gov.au">https://www.directory.gov.au</a>. This includes particular types of organisation found in Australian Federal government such as a 'Board', 'Government Entity' and so on. While it has been designed primarily with the Commonwealth Government in mind, it is intended that it shall also apply at other levels of government. </p>
+        <p>Further specialisation and extension is likely as this ontology is developed to cover the conceptual space of systems that are important for Australian government structure, such as the Administrative Arrangement Orders that alter Entities.</p>
+        <p>This ontology is incomplete and is currently for demonstration purposes only.</p>
+    </div>
+</section>
+<section id="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+        <li><a href="#classes">Classes</a></li>
+        <li><a href="#objectproperties">Object Properties</a></li>
+        <li><a href="#datatypeproperties">Datatype Properties</a></li>
+        <li><a href="#annotationproperties">Annotation Properties</a></li>
+        <li><a href="#namespaces">Namespaces</a></li>
+    </ol>
+</section>
+<section id="overview">
+    <h2>Overview</h2>
+    <div class="figure">
+        <a href="images/auorg.png"><img src="images/auorg.png" alt="AU Org overview diagram" style="width:1000px" /></a>
+        <div class="caption"><strong>Figure 1:</strong> the AU Org ontology's main classes and properties</div>
+    </div>
+</section>
+<section id="classes">
+    <h2>Classes <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#abolitionevent">Abolition Event</a></li>
+        <li><a href="#address">Address</a></li>
+        <li><a href="#board">Board</a></li>
+        <li><a href="#budget">Budget</a></li>
+        <li><a href="#creationevent">Creation Event</a></li>
+        <li><a href="#department">Department</a></li>
+        <li><a href="#departmentofstate">Department of State</a></li>
+        <li><a href="#governmentagency">Government Agency</a></li>
+        <li><a href="#governmentcorporateentity">Government Corporate Entity</a></li>
+        <li><a href="#governmententity">Government Entity</a></li>
+        <li><a href="#governmentorjurisdiction">Government or Jurisdiction</a></li>
+        <li><a href="#governmentlevel">Level of Government</a></li>
+        <li><a href="#modificationevent">Modification Event</a></li>
+        <li><a href="#non-board">Non-Board</a></li>
+        <li><a href="#portfolioofgovernment">Portfolio of government</a></li>
+        <li><a href="#singleexecutiverole">Single Executive Role</a></li>
+    </ul>
+    <div class="entity class" id="address">
+        <h3>Address<sup title="class" class="type-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://gnafld.net/def/gnaf#Address</code></td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/hasStreetAddress">auorg:hasStreetAddress</a> <sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="abolitionevent">
+        <h3>Abolition Event<sup title="class" class="type-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://linked.data.gov.au/def/auorg/AbolitionEvent</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    An Abolition Event abolishes an Entity. It may also be a creation event in that it could also create an entity.
+
+This Change Event subclass is disjoint with Modification Event.
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/org#ChangeEvent">org:ChangeEvent</a> <sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="governmentagency">
+        <h3>Government Agency<sup title="class" class="type-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://linked.data.gov.au/def/auorg/Agency</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    The Governor-General appoints ministers, establishes departments of state and agencies, and allocates responsibility among ministers through an Administrative Arrangements Order (AAO).
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/Entity">auorg:Entity</a> <sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/hasABN">auorg:hasABN</a> <sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
+                    <a href="http://linked.data.gov.au/def/auorg/expenses">auorg:expenses</a> <sup class="sup-op" title="object property">op</sup> <span class="cardinality">only</span> <a href="http://linked.data.gov.au/def/auorg/Budget">auorg:Budget</a> <sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://linked.data.gov.au/def/auorg/sectorClassification">auorg:sectorClassification</a> <sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
+                    <a href="http://www.w3.org/ns/org#subOrganizationOf">org:subOrganizationOf</a> <span class="cardinality">some</span> <a href="http://www.w3.org/ns/org#Organization">org:Organization</a> <sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://linked.data.gov.au/def/auorg/typeOfBody">auorg:typeOfBody</a> <sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
+                    <a href="http://purl.org/dc/terms/created">dct:created</a> <span class="cardinality">exactly</span> 1<br/>
+                    <a href="http://linked.data.gov.au/def/auorg/establishedBy">auorg:establishedBy</a> <span class="cardinality">exactly</span> 1<br/>
+                    <a href="http://purl.org/dc/terms/description">dct:description</a> <span class="cardinality">exactly</span> 1<br/>
+                    <a href="http://linked.data.gov.au/def/auorg/hasAverageStaffingLevel">auorg:hasAverageStaffingLevel</a> <sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
+                    <a href="http://linked.data.gov.au/def/auorg/appropriatedBudget">auorg:appropriatedBudget</a> <sup class="sup-op" title="object property">op</sup> <span class="cardinality">min</span> 1 <a href="http://linked.data.gov.au/def/auorg/Budget">auorg:Budget</a> <sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/org#hasPrimarySite">org:hasPrimarySite</a> <span class="cardinality">exactly</span> 1<br/>
+                    <a href="http://www.w3.org/ns/org#classification">org:classification</a> <span class="cardinality">some</span> <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a> <sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://linked.data.gov.au/def/auorg/materiality">auorg:materiality</a> <sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
+                    <a href="http://linked.data.gov.au/def/auorg/inDepartment">auorg:inDepartment</a> <sup class="sup-op" title="object property">op</sup> <span class="cardinality">min</span> 1<br/>
+                    <a href="http://linked.data.gov.au/def/auorg/psActBodyID">auorg:psActBodyID</a> <sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/typeOfBody">auorg:typeOfBody</a> <sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://linked.data.gov.au/def/auorg/establishedBy">auorg:establishedBy</a><br/>
+                    <a href="http://linked.data.gov.au/def/auorg/sectorClassification">auorg:sectorClassification</a> <sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://linked.data.gov.au/def/auorg/psActBodyID">auorg:psActBodyID</a> <sup class="sup-dp" title="datatype property">dp</sup><br/>
+                    <a href="http://linked.data.gov.au/def/auorg/materiality">auorg:materiality</a> <sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="board">
+        <h3>Board<sup title="class" class="type-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://linked.data.gov.au/def/auorg/Board</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    An Australian Government Board
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/org#FormalOrganization">org:FormalOrganization</a> <sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="budget">
+        <h3>Budget<sup title="class" class="type-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://linked.data.gov.au/def/auorg/Budget</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Amount of money that can be spent within the interval indicated
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/currency">auorg:currency</a> <sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">value</span> <a href="AUD">AUD</a> <sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#value">rdf:value</a> <span class="cardinality">only</span> <a href="http://www.w3.org/2001/XMLSchema#decimal">xsd:decimal</a> <sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://linked.data.gov.au/def/auorg/budgetInterval">auorg:budgetInterval</a> <sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/budgetInterval">auorg:budgetInterval</a> <sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/appropriatedBudget">auorg:appropriatedBudget</a> <sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://linked.data.gov.au/def/auorg/expenses">auorg:expenses</a> <sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="governmentcorporateentity">
+        <h3>Government Corporate Entity<sup title="class" class="type-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://linked.data.gov.au/def/auorg/CorporateEntity</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    The Governor-General appoints ministers, establishes departments of state and agencies, and allocates responsibility among ministers through an Administrative Arrangements Order (AAO).
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/Entity">auorg:Entity</a> <sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/inDepartment">auorg:inDepartment</a> <sup class="sup-op" title="object property">op</sup> <span class="cardinality">min</span> 1<br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="creationevent">
+        <h3>Creation Event<sup title="class" class="type-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://linked.data.gov.au/def/auorg/CreationEvent</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    A Creation Event is one that creates a Government Entity. It could also be an Abolition Event when the same even both abolishes and creates Entities.
+
+This Change Event subclass is disjoint with Modification Event.
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/org#ChangeEvent">org:ChangeEvent</a> <sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="department">
+        <h3>Department<sup title="class" class="type-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://linked.data.gov.au/def/auorg/Department</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Department of some level of government
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/org#OrganizationalUnit">org:OrganizationalUnit</a> <sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://linked.data.gov.au/def/auorg/Entity">auorg:Entity</a> <sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://www.w3.org/ns/org#unitOf">org:unitOf</a> <span class="cardinality">some</span> <a href="http://linked.data.gov.au/def/auorg/Jurisdiction">auorg:Jurisdiction</a> <sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/DepartmentOfState">auorg:DepartmentOfState</a> <sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/isPartOfPortfolio">auorg:isPartOfPortfolio</a> <sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/inDepartment">auorg:inDepartment</a> <sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="departmentofstate">
+        <h3>Department of State<sup title="class" class="type-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://linked.data.gov.au/def/auorg/DepartmentOfState</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    The Governor-General appoints ministers, establishes departments of state and agencies, and allocates responsibility among ministers through an Administrative Arrangements Order (AAO).
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/Department">auorg:Department</a> <sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/isPartOfPortfolio">auorg:isPartOfPortfolio</a> <sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
+                    <a href="http://www.w3.org/ns/org#linkedTo">org:linkedTo</a> <span class="cardinality">value</span> <a href="http://linked.data.gov.au/def/auorg/CommonwealthOfAustralia">auorg:CommonwealthOfAustralia</a> <sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/org#unitOf">org:unitOf</a> <span class="cardinality">value</span> <a href="http://linked.data.gov.au/def/auorg/CommonwealthOfAustralia">auorg:CommonwealthOfAustralia</a> <sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="governmententity">
+        <h3>Government Entity<sup title="class" class="type-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://linked.data.gov.au/def/auorg/Entity</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    A part of government: any kind, any level of government
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Organization">prov:Organization</a> <sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/org#Organization">org:Organization</a> <sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/agorID">auorg:agorID</a> <sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
+                    <a href="http://www.w3.org/ns/org#purpose">org:purpose</a> <sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="http://linked.data.gov.au/def/agrif#Function">agrif:Function</a> <sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/org#linkedTo">org:linkedTo</a> <span class="cardinality">some</span> <a href="http://linked.data.gov.au/def/auorg/Jurisdiction">auorg:Jurisdiction</a> <sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/Agency">auorg:Agency</a> <sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://linked.data.gov.au/def/auorg/CorporateEntity">auorg:CorporateEntity</a> <sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://linked.data.gov.au/def/auorg/Jurisdiction">auorg:Jurisdiction</a> <sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://linked.data.gov.au/def/auorg/Department">auorg:Department</a> <sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/agorID">auorg:agorID</a> <sup class="sup-dp" title="datatype property">dp</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="governmentlevel">
+        <h3>Level of Government<sup title="class" class="type-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://linked.data.gov.au/def/auorg/GovernmentLevel</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a> <sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/levelOfGovernment">auorg:levelOfGovernment</a> <sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="governmentorjurisdiction">
+        <h3>Government or Jurisdiction<sup title="class" class="type-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://linked.data.gov.au/def/auorg/Jurisdiction</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    This applies to the top/autonomous government entity - e.g. one for each national, state, local government jurisdiction
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/Entity">auorg:Entity</a> <sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/levelOfGovernment">auorg:levelOfGovernment</a> <sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="modificationevent">
+        <h3>Modification Event<sup title="class" class="type-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://linked.data.gov.au/def/auorg/ModificationEvent</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    An event that modifies an existing Entity but doesn't create or abolish any Entities.
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/org#ChangeEvent">org:ChangeEvent</a> <sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="non-board">
+        <h3>Non-Board<sup title="class" class="type-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://linked.data.gov.au/def/auorg/NonBoard</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    An Australian Government non-board entity
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/org#FormalOrganization">org:FormalOrganization</a> <sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="portfolioofgovernment">
+        <h3>Portfolio of government<sup title="class" class="type-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://linked.data.gov.au/def/auorg/Portfolio</code></td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/isPartOfPortfolio">auorg:isPartOfPortfolio</a> <sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="singleexecutiverole">
+        <h3>Single Executive Role<sup title="class" class="type-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://linked.data.gov.au/def/auorg/SingleExecutiveRole</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    A single executive (Senior Executive Service in the Australian Public Service) role
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/org#Post">org:Post</a> <sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+<section id="objectproperties">
+    <h2>Object Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#budgetappropriationinaud">Budget appropriation in AUD</a></li>
+        <li><a href="#budgetinterval">Budget interval </a></li>
+        <li><a href="#expenditureinaud">Expenditure in AUD</a></li>
+        <li><a href="#hasstreetaddress">has street address</a></li>
+        <li><a href="#indepartment">inDepartment</a></li>
+        <li><a href="#ispartofportfolio">isPartOfPortfolio</a></li>
+        <li><a href="#levelofgovernment">level of government</a></li>
+        <li><a href="#materiality">Materiality</a></li>
+        <li><a href="#gfssector">GFS Sector</a></li>
+        <li><a href="#typeofthisbodyoragency">Type of this body or agency</a></li>
+        <li><a href="#purpose">purpose</a></li>
+    </ul>
+    <div class="entity property" id="budgetappropriationinaud">
+        <h3>Budget appropriation in AUD<sup title="object property" class="type-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://linked.data.gov.au/def/auorg/appropriatedBudget</code></td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/Budget">auorg:Budget</a> <sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="budgetinterval">
+        <h3>Budget interval <sup title="object property" class="type-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://linked.data.gov.au/def/auorg/budgetInterval</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Time interval over which budget applies
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/Budget">auorg:Budget</a> <sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2006/time#ProperInterval">http://www.w3.org/2006/time#ProperInterval</a> <sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="expenditureinaud">
+        <h3>Expenditure in AUD<sup title="object property" class="type-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://linked.data.gov.au/def/auorg/expenses</code></td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/Budget">auorg:Budget</a> <sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasstreetaddress">
+        <h3>has street address<sup title="object property" class="type-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://linked.data.gov.au/def/auorg/hasStreetAddress</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    has a GNAF address of
+                </td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/ns/org#hasSite">org:hasSite</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://gnafld.net/def/gnaf#Address">gnaf:Address</a> <sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="indepartment">
+        <h3>inDepartment<sup title="object property" class="type-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://linked.data.gov.au/def/auorg/inDepartment</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/ns/org#linkedTo">org:linkedTo</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    (<a href="http://linked.data.gov.au/def/auorg/Agency">auorg:Agency</a> <sup class="sup-c" title="class">c</sup> or <a href="http://linked.data.gov.au/def/auorg/CorporateEntity">auorg:CorporateEntity</a> <sup class="sup-c" title="class">c</sup>)
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/Department">auorg:Department</a> <sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="ispartofportfolio">
+        <h3>isPartOfPortfolio<sup title="object property" class="type-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://linked.data.gov.au/def/auorg/isPartOfPortfolio</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://purl.org/dc/terms/isPartOf">dct:isPartOf</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/Department">auorg:Department</a> <sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/Portfolio">auorg:Portfolio</a> <sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="levelofgovernment">
+        <h3>level of government<sup title="object property" class="type-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://linked.data.gov.au/def/auorg/levelOfGovernment</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    level of government (Federal, State, Local)
+                </td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/ns/org#classification">org:classification</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/Jurisdiction">auorg:Jurisdiction</a> <sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/GovernmentLevel">auorg:GovernmentLevel</a> <sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="materiality">
+        <h3>Materiality<sup title="object property" class="type-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://linked.data.gov.au/def/auorg/materiality</code></td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/Agency">auorg:Agency</a> <sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a> <sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="gfssector">
+        <h3>GFS Sector<sup title="object property" class="type-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://linked.data.gov.au/def/auorg/sectorClassification</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    GFS Sector classification for this agency
+                </td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/ns/org#classification">org:classification</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/Agency">auorg:Agency</a> <sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="typeofthisbodyoragency">
+        <h3>Type of this body or agency<sup title="object property" class="type-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://linked.data.gov.au/def/auorg/typeOfBody</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/ns/org#classification">org:classification</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/Agency">auorg:Agency</a> <sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="purpose">
+        <h3>purpose<sup title="object property" class="type-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://www.w3.org/ns/org#purpose</code></td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section id="datatypeproperties">
+    <h2>Datatype Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#agoridentifierforthegovernmententity">AGOR identifier for the government entity</a></li>
+        <li><a href="#currencyforbudgetamount">Currency for budget amount</a></li>
+        <li><a href="#hasabn">has ABN</a></li>
+        <li><a href="#hasaveragestaffinglevel">has average staffing level</a></li>
+        <li><a href="#publicserviceactbodyidentifier">Public Service Act Body Identifier</a></li>
+    </ul>
+    <div class="entity property" id="agoridentifierforthegovernmententity">
+        <h3>AGOR identifier for the government entity<sup title="datatype property" class="type-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://linked.data.gov.au/def/auorg/agorID</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://purl.org/dc/terms/identifier">dct:identifier</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/Entity">auorg:Entity</a> <sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="currencyforbudgetamount">
+        <h3>Currency for budget amount<sup title="datatype property" class="type-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://linked.data.gov.au/def/auorg/currency</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasabn">
+        <h3>has ABN<sup title="datatype property" class="type-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://linked.data.gov.au/def/auorg/hasABN</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    org:identifier is a sub-property of skos:notation, which is a owl:DatatypeProperty, i.e. a literal. Could be constrained to be a string with the pattern 'NN NNN NNN NNN` to match ABN structure
+                </td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/ns/org#identifier">org:identifier</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2001/XMLSchema#integer">xsd:integer</a> <sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasaveragestaffinglevel">
+        <h3>has average staffing level<sup title="datatype property" class="type-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://linked.data.gov.au/def/auorg/hasAverageStaffingLevel</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    has an average annual staffing level of (no. of people)
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2001/XMLSchema#integer">xsd:integer</a> <sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="publicserviceactbodyidentifier">
+        <h3>Public Service Act Body Identifier<sup title="datatype property" class="type-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://linked.data.gov.au/def/auorg/psActBodyID</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    PS Act Body identifier for the agency
+                </td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://purl.org/dc/terms/identifier">dct:identifier</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://linked.data.gov.au/def/auorg/Agency">auorg:Agency</a> <sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section id="annotationproperties">
+    <h2>Annotation Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#altlabel">altLabel</a></li>
+    </ul>
+    <div class="entity property" id="altlabel">
+        <h3>altLabel<sup title="annotation property" class="type-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://www.w3.org/2004/02/skos/core#altLabel</code></td>
+            </tr>
+        </table>
+    </div>
+</section>
+<section id="namespaces">
+    <h2>Namespaces <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <dl>
+        <dt>aao</dt>
+        <dd><code>http://linked.data.gov.au/def/aao#</code></dd>
+        <dt>agrif</dt>
+        <dd><code>http://linked.data.gov.au/def/agrif#</code></dd>
+        <dt>auorg</dt>
+        <dd><code>http://linked.data.gov.au/def/auorg/</code></dd>
+        <dt>auorgs</dt>
+        <dd><code>http://test.linked.data.gov.au/dataset/auorg/</code></dd>
+        <dt>dc</dt>
+        <dd><code>http://purl.org/dc/elements/1.1/</code></dd>
+        <dt>dct</dt>
+        <dd><code>http://purl.org/dc/terms/</code></dd>
+        <dt>gnaf</dt>
+        <dd><code>http://gnafld.net/def/gnaf#</code></dd>
+        <dt>org</dt>
+        <dd><code>http://www.w3.org/ns/org#</code></dd>
+        <dt>owl</dt>
+        <dd><code>http://www.w3.org/2002/07/owl#</code></dd>
+        <dt>prov</dt>
+        <dd><code>http://www.w3.org/ns/prov#</code></dd>
+        <dt>rdf</dt>
+        <dd><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></dd>
+        <dt>rdfs</dt>
+        <dd><code>http://www.w3.org/2000/01/rdf-schema#</code></dd>
+        <dt>sdo</dt>
+        <dd><code>https://schema.org/</code></dd>
+        <dt>skos</dt>
+        <dd><code>http://www.w3.org/2004/02/skos/core#</code></dd>
+        <dt>time</dt>
+        <dd><code>http://www.w3.org/2006/time</code></dd>
+        <dt>vann</dt>
+        <dd><code>http://purl.org/vocab/vann/</code></dd>
+        <dt>xml</dt>
+        <dd><code>http://www.w3.org/XML/1998/namespace</code></dd>
+        <dt>xsd</dt>
+        <dd><code>http://www.w3.org/2001/XMLSchema#</code></dd>
+    </dl>
+</section>
+    <div id="legend">
+    <h2>Legend</h2>
+    <table class="entity">
+        <tr><td><sup class="type-c" title="Classes">c</sup></td><td>Classes</td></tr>
+        <tr><td><sup class="type-op" title="Object Properties">op</sup></td><td>Object Properties</td></tr>
+        <tr><td><sup class="type-dp" title="Data Properties">dp</sup></td><td>Data Properties</td></tr>
+        <tr><td><sup class="type-ap" title="Annotation Properties">dp</sup></td><td>Annotation Properties</td></tr>
+        <tr><td><sup class="type-p" title="Properties">p</sup></td><td>Properties</td></tr>
+        <tr><td><sup class="type-ni" title="Named Individuals">ni</sup></td><td>Named Individuals</td></tr>
+    </table>
+    </div>
+</body>
+</html>

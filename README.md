@@ -11,7 +11,7 @@ Further specialisation and extension is likely as this ontology is developed to 
 
 This ontology is incomplete and is currently for demonstration purposes only.
 
-![Main AU-Org classes](images/DepartmentOfState.png)
+![Main AU-Org classes](images/auorg.png)
 
 
 ## Introduction
