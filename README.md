@@ -11,7 +11,7 @@ Further specialisation and extension is likely as this ontology is developed to 
 
 This ontology is incomplete and is currently for demonstration purposes only.
 
-![Main AU-Org classes](images/auorg.png)
+![Main AU-Org classes](images/agor.png)
 
 
 ## Introduction
@@ -22,16 +22,16 @@ Terminology in this ontology is sourced from:
 
 ## Ontology document
 Namespace location:
-* HTML: <http://linked.data.gov.au/def/auorg>
-* RDF turtle: <http://linked.data.gov.au/def/auorg.ttl>
+* HTML: <http://linked.data.gov.au/def/agor>
+* RDF turtle: <http://linked.data.gov.au/def/agor.ttl>
 
 *Note: namespace locations will only work when the ontology is officially published via the [Australian Government Linked Data Working Group](http://linked.data.gov.au)'s PID URI assignment system.*
 
-While under early development, HTML documentation of this ontology can be viewed at: <https://rawgit.com/CSIRO-enviro-informatics/auorg-ont/master/auorg.html>, but note that where they differ, the RDF representation is correct.
+While under early development, HTML documentation of this ontology can be viewed at: <https://rawgit.com/CSIRO-enviro-informatics/agor-ont/master/agor.html>, but note that where they differ, the RDF representation is correct.
 
 Local copies:
-* HTML: [auorg.html](auorg.html)  
-* RDF Turtle: [auorg.ttl](auorg.ttl)
+* HTML: [agor.html](agor.html)  
+* RDF Turtle: [agor.ttl](agor.ttl)
 
 
 ## License
