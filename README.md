@@ -1,5 +1,5 @@
-# Au Org Ontology
-An OWL ontology specialising the [Organization Ontology](https://www.w3.org/TR/vocab-org/) to model Australian government entities.
+# AGOR Ontology
+An OWL ontology specialising the [Organization Ontology](https://www.w3.org/TR/vocab-org/) to model Australian government entities stored in the internal [Department of Finance](https://www.finance.gov.au) Australian Government Organisations Register (AGOR) dataset, part of which is available online at <http://directory.gov.au>.
 
 The purpose of this ontology is to allow for the Semantic Web representation of Australian Government, mostly Federal Government, Entities (organisations), their subcomponents and people related to them with particular roles.
 
