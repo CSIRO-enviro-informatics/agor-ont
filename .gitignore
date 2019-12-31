@@ -71,3 +71,7 @@ catalog-*
 
 # PyCharm
 .idea/
+
+# TopBraid
+.project
+

@@ -12,7 +12,7 @@
     <h2 style="display:none;">Metadata</h2>
     <dl>
         <dt>IRI</dt>
-        <dd><code>http://linked.data.gov.au/def/auorg#</code></dd>
+        <dd><code>http://linked.data.gov.au/def/agor#</code></dd>
         <dt>Publisher(s)</dt>
         <dd>
             http://catalogue.linked.data.gov.au/org/finance<br/>
@@ -30,14 +30,14 @@
         <dt>Version Information</dt>
         <dd>0.7 reduced in scope with Appropriations Framework concepts mostly removed</dd>
         <dt>Version IRI</dt>
-        <dd><a href="http://linked.data.gov.au/def/auorg#">http://linked.data.gov.au/def/auorg#</a></dd>
+        <dd><a href="http://linked.data.gov.au/def/agor#">http://linked.data.gov.au/def/agor#</a></dd>
         <dt>Imports</dt>
         <dd>
             <a href="http://www.w3.org/2006/time">http://www.w3.org/2006/time</a><br/>
             <a href="http://www.w3.org/ns/org#">org:</a><br/>
         </dd>
         <dt>Ontology Source</dt>
-        <dd><a href="auorg.ttl">RDF (turtle)</a></dd>
+        <dd><a href="agor.ttl">RDF (turtle)</a></dd>
     </dl>
     <h2>Description</h2>
     <div id="description">
@@ -61,7 +61,7 @@
 <section id="overview">
     <h2>Overview</h2>
     <div class="figure">
-        <a href="../images/auorg.png"><img src="../images/auorg.png" alt="AAO Ont overview diagram" style="width:1500px;" /></a>
+        <a href="../images/agor.png"><img src="../images/agor.png" alt="AAO Ont overview diagram" style="width:1500px;" /></a>
         <div class="caption"><strong>Figure 1:</strong> The AU Org ontology's main classes and properties</div>
     </div>
 </section>
@@ -95,7 +95,7 @@
             <tr>
                 <th>In range of</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#hasStreetAddress">auorg:hasStreetAddress</a> <sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://linked.data.gov.au/def/agor#hasStreetAddress">agor:hasStreetAddress</a> <sup class="sup-op" title="object property">op</sup><br/>
                 </td>
             </tr>
         </table>
@@ -105,7 +105,7 @@
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/auorg#AbolitionEvent</code></td>
+                <td><code>http://linked.data.gov.au/def/agor#AbolitionEvent</code></td>
             </tr>
             <tr>
                 <th>Description</th>
@@ -128,7 +128,7 @@ This Change Event subclass is disjoint with Modification Event.
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/auorg#Agency</code></td>
+                <td><code>http://linked.data.gov.au/def/agor#Agency</code></td>
             </tr>
             <tr>
                 <th>Description</th>
@@ -139,37 +139,37 @@ This Change Event subclass is disjoint with Modification Event.
             <tr>
                 <th>Super-classes</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#Entity">auorg:Entity</a> <sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://linked.data.gov.au/def/agor#Entity">agor:Entity</a> <sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
                 <th>Restrictions</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#hasABN">auorg:hasABN</a> <sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
-                    <a href="http://linked.data.gov.au/def/auorg#appropriatedBudget">auorg:appropriatedBudget</a> <sup class="sup-op" title="object property">op</sup> <span class="cardinality">min</span> 1 <a href="http://linked.data.gov.au/def/auorg#Budget">auorg:Budget</a> <sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://linked.data.gov.au/def/agor#hasABN">agor:hasABN</a> <sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
+                    <a href="http://linked.data.gov.au/def/agor#appropriatedBudget">agor:appropriatedBudget</a> <sup class="sup-op" title="object property">op</sup> <span class="cardinality">min</span> 1 <a href="http://linked.data.gov.au/def/agor#Budget">agor:Budget</a> <sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://www.w3.org/ns/org#hasPrimarySite">org:hasPrimarySite</a> <span class="cardinality">exactly</span> 1<br/>
-                    <a href="http://linked.data.gov.au/def/auorg#expenses">auorg:expenses</a> <sup class="sup-op" title="object property">op</sup> <span class="cardinality">only</span> <a href="http://linked.data.gov.au/def/auorg#Budget">auorg:Budget</a> <sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://linked.data.gov.au/def/agor#expenses">agor:expenses</a> <sup class="sup-op" title="object property">op</sup> <span class="cardinality">only</span> <a href="http://linked.data.gov.au/def/agor#Budget">agor:Budget</a> <sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://www.w3.org/ns/org#classification">org:classification</a> <span class="cardinality">some</span> <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a> <sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://linked.data.gov.au/def/auorg#inDepartment">auorg:inDepartment</a> <sup class="sup-op" title="object property">op</sup> <span class="cardinality">min</span> 1<br/>
-                    <a href="http://linked.data.gov.au/def/auorg#sectorClassification">auorg:sectorClassification</a> <sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
-                    <a href="http://linked.data.gov.au/def/auorg#establishedBy">auorg:establishedBy</a> <span class="cardinality">exactly</span> 1<br/>
-                    <a href="http://linked.data.gov.au/def/auorg#hasAverageStaffingLevel">auorg:hasAverageStaffingLevel</a> <sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
+                    <a href="http://linked.data.gov.au/def/agor#inDepartment">agor:inDepartment</a> <sup class="sup-op" title="object property">op</sup> <span class="cardinality">min</span> 1<br/>
+                    <a href="http://linked.data.gov.au/def/agor#sectorClassification">agor:sectorClassification</a> <sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
+                    <a href="http://linked.data.gov.au/def/agor#establishedBy">agor:establishedBy</a> <span class="cardinality">exactly</span> 1<br/>
+                    <a href="http://linked.data.gov.au/def/agor#hasAverageStaffingLevel">agor:hasAverageStaffingLevel</a> <sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
                     <a href="http://www.w3.org/ns/org#subOrganizationOf">org:subOrganizationOf</a> <span class="cardinality">some</span> <a href="http://www.w3.org/ns/org#Organization">org:Organization</a> <sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://linked.data.gov.au/def/auorg#typeOfBody">auorg:typeOfBody</a> <sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
-                    <a href="http://linked.data.gov.au/def/auorg#psActBodyID">auorg:psActBodyID</a> <sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
+                    <a href="http://linked.data.gov.au/def/agor#typeOfBody">agor:typeOfBody</a> <sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
+                    <a href="http://linked.data.gov.au/def/agor#psActBodyID">agor:psActBodyID</a> <sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
                     <a href="http://purl.org/dc/terms/description">dct:description</a> <span class="cardinality">exactly</span> 1<br/>
-                    <a href="http://linked.data.gov.au/def/auorg#materiality">auorg:materiality</a> <sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
+                    <a href="http://linked.data.gov.au/def/agor#materiality">agor:materiality</a> <sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
                     <a href="http://purl.org/dc/terms/created">dct:created</a> <span class="cardinality">exactly</span> 1<br/>
                 </td>
             </tr>
             <tr>
                 <th>In domain of</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#sectorClassification">auorg:sectorClassification</a> <sup class="sup-op" title="object property">op</sup><br/>
-                    <a href="http://linked.data.gov.au/def/auorg#psActBodyID">auorg:psActBodyID</a> <sup class="sup-dp" title="datatype property">dp</sup><br/>
-                    <a href="http://linked.data.gov.au/def/auorg#materiality">auorg:materiality</a> <sup class="sup-op" title="object property">op</sup><br/>
-                    <a href="http://linked.data.gov.au/def/auorg#typeOfBody">auorg:typeOfBody</a> <sup class="sup-op" title="object property">op</sup><br/>
-                    <a href="http://linked.data.gov.au/def/auorg#establishedBy">auorg:establishedBy</a><br/>
+                    <a href="http://linked.data.gov.au/def/agor#sectorClassification">agor:sectorClassification</a> <sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://linked.data.gov.au/def/agor#psActBodyID">agor:psActBodyID</a> <sup class="sup-dp" title="datatype property">dp</sup><br/>
+                    <a href="http://linked.data.gov.au/def/agor#materiality">agor:materiality</a> <sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://linked.data.gov.au/def/agor#typeOfBody">agor:typeOfBody</a> <sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://linked.data.gov.au/def/agor#establishedBy">agor:establishedBy</a><br/>
                 </td>
             </tr>
         </table>
@@ -179,7 +179,7 @@ This Change Event subclass is disjoint with Modification Event.
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/auorg#Board</code></td>
+                <td><code>http://linked.data.gov.au/def/agor#Board</code></td>
             </tr>
             <tr>
                 <th>Description</th>
@@ -200,7 +200,7 @@ This Change Event subclass is disjoint with Modification Event.
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/auorg#Budget</code></td>
+                <td><code>http://linked.data.gov.au/def/agor#Budget</code></td>
             </tr>
             <tr>
                 <th>Description</th>
@@ -211,22 +211,22 @@ This Change Event subclass is disjoint with Modification Event.
             <tr>
                 <th>Restrictions</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#budgetInterval">auorg:budgetInterval</a> <sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
+                    <a href="http://linked.data.gov.au/def/agor#budgetInterval">agor:budgetInterval</a> <sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
                     <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#value">rdf:value</a> <span class="cardinality">only</span> <a href="http://www.w3.org/2001/XMLSchema#decimal">xsd:decimal</a> <sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://linked.data.gov.au/def/auorg#currency">auorg:currency</a> <sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">value</span> <a href="AUD">AUD</a> <sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://linked.data.gov.au/def/agor#currency">agor:currency</a> <sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">value</span> <a href="AUD">AUD</a> <sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
                 <th>In domain of</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#budgetInterval">auorg:budgetInterval</a> <sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://linked.data.gov.au/def/agor#budgetInterval">agor:budgetInterval</a> <sup class="sup-op" title="object property">op</sup><br/>
                 </td>
             </tr>
             <tr>
                 <th>In range of</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#appropriatedBudget">auorg:appropriatedBudget</a> <sup class="sup-op" title="object property">op</sup><br/>
-                    <a href="http://linked.data.gov.au/def/auorg#expenses">auorg:expenses</a> <sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://linked.data.gov.au/def/agor#appropriatedBudget">agor:appropriatedBudget</a> <sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://linked.data.gov.au/def/agor#expenses">agor:expenses</a> <sup class="sup-op" title="object property">op</sup><br/>
                 </td>
             </tr>
         </table>
@@ -236,7 +236,7 @@ This Change Event subclass is disjoint with Modification Event.
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/auorg#CorporateEntity</code></td>
+                <td><code>http://linked.data.gov.au/def/agor#CorporateEntity</code></td>
             </tr>
             <tr>
                 <th>Description</th>
@@ -247,13 +247,13 @@ This Change Event subclass is disjoint with Modification Event.
             <tr>
                 <th>Super-classes</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#Entity">auorg:Entity</a> <sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://linked.data.gov.au/def/agor#Entity">agor:Entity</a> <sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
                 <th>Restrictions</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#inDepartment">auorg:inDepartment</a> <sup class="sup-op" title="object property">op</sup> <span class="cardinality">min</span> 1<br/>
+                    <a href="http://linked.data.gov.au/def/agor#inDepartment">agor:inDepartment</a> <sup class="sup-op" title="object property">op</sup> <span class="cardinality">min</span> 1<br/>
                 </td>
             </tr>
         </table>
@@ -263,7 +263,7 @@ This Change Event subclass is disjoint with Modification Event.
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/auorg#CreationEvent</code></td>
+                <td><code>http://linked.data.gov.au/def/agor#CreationEvent</code></td>
             </tr>
             <tr>
                 <th>Description</th>
@@ -286,7 +286,7 @@ This Change Event subclass is disjoint with Modification Event.
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/auorg#Department</code></td>
+                <td><code>http://linked.data.gov.au/def/agor#Department</code></td>
             </tr>
             <tr>
                 <th>Description</th>
@@ -297,32 +297,32 @@ This Change Event subclass is disjoint with Modification Event.
             <tr>
                 <th>Super-classes</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#Entity">auorg:Entity</a> <sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://linked.data.gov.au/def/agor#Entity">agor:Entity</a> <sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://www.w3.org/ns/org#OrganizationalUnit">org:OrganizationalUnit</a> <sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
                 <th>Restrictions</th>
                 <td>
-                    <a href="http://www.w3.org/ns/org#unitOf">org:unitOf</a> <span class="cardinality">some</span> <a href="http://linked.data.gov.au/def/auorg#Jurisdiction">auorg:Jurisdiction</a> <sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/org#unitOf">org:unitOf</a> <span class="cardinality">some</span> <a href="http://linked.data.gov.au/def/agor#Jurisdiction">agor:Jurisdiction</a> <sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
                 <th>Sub-classes</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#DepartmentOfState">auorg:DepartmentOfState</a> <sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://linked.data.gov.au/def/agor#DepartmentOfState">agor:DepartmentOfState</a> <sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
                 <th>In domain of</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#isPartOfPortfolio">auorg:isPartOfPortfolio</a> <sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://linked.data.gov.au/def/agor#isPartOfPortfolio">agor:isPartOfPortfolio</a> <sup class="sup-op" title="object property">op</sup><br/>
                 </td>
             </tr>
             <tr>
                 <th>In range of</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#inDepartment">auorg:inDepartment</a> <sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://linked.data.gov.au/def/agor#inDepartment">agor:inDepartment</a> <sup class="sup-op" title="object property">op</sup><br/>
                 </td>
             </tr>
         </table>
@@ -332,7 +332,7 @@ This Change Event subclass is disjoint with Modification Event.
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/auorg#DepartmentOfState</code></td>
+                <td><code>http://linked.data.gov.au/def/agor#DepartmentOfState</code></td>
             </tr>
             <tr>
                 <th>Description</th>
@@ -343,15 +343,15 @@ This Change Event subclass is disjoint with Modification Event.
             <tr>
                 <th>Super-classes</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#Department">auorg:Department</a> <sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://linked.data.gov.au/def/agor#Department">agor:Department</a> <sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
                 <th>Restrictions</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#isPartOfPortfolio">auorg:isPartOfPortfolio</a> <sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
-                    <a href="http://www.w3.org/ns/org#linkedTo">org:linkedTo</a> <span class="cardinality">value</span> <a href="http://linked.data.gov.au/def/auorg#CommonwealthOfAustralia">auorg:CommonwealthOfAustralia</a> <sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://www.w3.org/ns/org#unitOf">org:unitOf</a> <span class="cardinality">value</span> <a href="http://linked.data.gov.au/def/auorg#CommonwealthOfAustralia">auorg:CommonwealthOfAustralia</a> <sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://linked.data.gov.au/def/agor#isPartOfPortfolio">agor:isPartOfPortfolio</a> <sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
+                    <a href="http://www.w3.org/ns/org#linkedTo">org:linkedTo</a> <span class="cardinality">value</span> <a href="http://linked.data.gov.au/def/agor#CommonwealthOfAustralia">agor:CommonwealthOfAustralia</a> <sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/org#unitOf">org:unitOf</a> <span class="cardinality">value</span> <a href="http://linked.data.gov.au/def/agor#CommonwealthOfAustralia">agor:CommonwealthOfAustralia</a> <sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -361,7 +361,7 @@ This Change Event subclass is disjoint with Modification Event.
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/auorg#Entity</code></td>
+                <td><code>http://linked.data.gov.au/def/agor#Entity</code></td>
             </tr>
             <tr>
                 <th>Description</th>
@@ -379,24 +379,24 @@ This Change Event subclass is disjoint with Modification Event.
             <tr>
                 <th>Restrictions</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#agorID">auorg:agorID</a> <sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
+                    <a href="http://linked.data.gov.au/def/agor#agorID">agor:agorID</a> <sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
                     <a href="http://www.w3.org/ns/org#purpose">org:purpose</a> <sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="http://linked.data.gov.au/def/agrif#Function">agrif:Function</a> <sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://www.w3.org/ns/org#linkedTo">org:linkedTo</a> <span class="cardinality">some</span> <a href="http://linked.data.gov.au/def/auorg#Jurisdiction">auorg:Jurisdiction</a> <sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/org#linkedTo">org:linkedTo</a> <span class="cardinality">some</span> <a href="http://linked.data.gov.au/def/agor#Jurisdiction">agor:Jurisdiction</a> <sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
                 <th>Sub-classes</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#Agency">auorg:Agency</a> <sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://linked.data.gov.au/def/auorg#Department">auorg:Department</a> <sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://linked.data.gov.au/def/auorg#Jurisdiction">auorg:Jurisdiction</a> <sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://linked.data.gov.au/def/auorg#CorporateEntity">auorg:CorporateEntity</a> <sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://linked.data.gov.au/def/agor#Agency">agor:Agency</a> <sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://linked.data.gov.au/def/agor#Department">agor:Department</a> <sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://linked.data.gov.au/def/agor#Jurisdiction">agor:Jurisdiction</a> <sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://linked.data.gov.au/def/agor#CorporateEntity">agor:CorporateEntity</a> <sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
                 <th>In domain of</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#agorID">auorg:agorID</a> <sup class="sup-dp" title="datatype property">dp</sup><br/>
+                    <a href="http://linked.data.gov.au/def/agor#agorID">agor:agorID</a> <sup class="sup-dp" title="datatype property">dp</sup><br/>
                 </td>
             </tr>
         </table>
@@ -406,7 +406,7 @@ This Change Event subclass is disjoint with Modification Event.
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/auorg#GovernmentLevel</code></td>
+                <td><code>http://linked.data.gov.au/def/agor#GovernmentLevel</code></td>
             </tr>
             <tr>
                 <th>Super-classes</th>
@@ -417,7 +417,7 @@ This Change Event subclass is disjoint with Modification Event.
             <tr>
                 <th>In range of</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#levelOfGovernment">auorg:levelOfGovernment</a> <sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://linked.data.gov.au/def/agor#levelOfGovernment">agor:levelOfGovernment</a> <sup class="sup-op" title="object property">op</sup><br/>
                 </td>
             </tr>
         </table>
@@ -427,7 +427,7 @@ This Change Event subclass is disjoint with Modification Event.
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/auorg#Jurisdiction</code></td>
+                <td><code>http://linked.data.gov.au/def/agor#Jurisdiction</code></td>
             </tr>
             <tr>
                 <th>Description</th>
@@ -438,13 +438,13 @@ This Change Event subclass is disjoint with Modification Event.
             <tr>
                 <th>Super-classes</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#Entity">auorg:Entity</a> <sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://linked.data.gov.au/def/agor#Entity">agor:Entity</a> <sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
                 <th>In domain of</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#levelOfGovernment">auorg:levelOfGovernment</a> <sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://linked.data.gov.au/def/agor#levelOfGovernment">agor:levelOfGovernment</a> <sup class="sup-op" title="object property">op</sup><br/>
                 </td>
             </tr>
         </table>
@@ -454,7 +454,7 @@ This Change Event subclass is disjoint with Modification Event.
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/auorg#ModificationEvent</code></td>
+                <td><code>http://linked.data.gov.au/def/agor#ModificationEvent</code></td>
             </tr>
             <tr>
                 <th>Description</th>
@@ -475,7 +475,7 @@ This Change Event subclass is disjoint with Modification Event.
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/auorg#NonBoard</code></td>
+                <td><code>http://linked.data.gov.au/def/agor#NonBoard</code></td>
             </tr>
             <tr>
                 <th>Description</th>
@@ -496,12 +496,12 @@ This Change Event subclass is disjoint with Modification Event.
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/auorg#Portfolio</code></td>
+                <td><code>http://linked.data.gov.au/def/agor#Portfolio</code></td>
             </tr>
             <tr>
                 <th>In range of</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#isPartOfPortfolio">auorg:isPartOfPortfolio</a> <sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://linked.data.gov.au/def/agor#isPartOfPortfolio">agor:isPartOfPortfolio</a> <sup class="sup-op" title="object property">op</sup><br/>
                 </td>
             </tr>
         </table>
@@ -511,7 +511,7 @@ This Change Event subclass is disjoint with Modification Event.
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/auorg#SingleExecutiveRole</code></td>
+                <td><code>http://linked.data.gov.au/def/agor#SingleExecutiveRole</code></td>
             </tr>
             <tr>
                 <th>Description</th>
@@ -548,12 +548,12 @@ This Change Event subclass is disjoint with Modification Event.
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/auorg#appropriatedBudget</code></td>
+                <td><code>http://linked.data.gov.au/def/agor#appropriatedBudget</code></td>
             </tr>
             <tr>
                 <th>Range(s)</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#Budget">auorg:Budget</a> <sup class="sup-c" title="class">c</sup>
+                    <a href="http://linked.data.gov.au/def/agor#Budget">agor:Budget</a> <sup class="sup-c" title="class">c</sup>
                 </td>
             </tr>
         </table>
@@ -563,7 +563,7 @@ This Change Event subclass is disjoint with Modification Event.
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/auorg#budgetInterval</code></td>
+                <td><code>http://linked.data.gov.au/def/agor#budgetInterval</code></td>
             </tr>
             <tr>
                 <th>Description</th>
@@ -574,7 +574,7 @@ This Change Event subclass is disjoint with Modification Event.
             <tr>
                 <th>Domain(s)</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#Budget">auorg:Budget</a> <sup class="sup-c" title="class">c</sup>
+                    <a href="http://linked.data.gov.au/def/agor#Budget">agor:Budget</a> <sup class="sup-c" title="class">c</sup>
                 </td>
             </tr>
             <tr>
@@ -590,12 +590,12 @@ This Change Event subclass is disjoint with Modification Event.
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/auorg#expenses</code></td>
+                <td><code>http://linked.data.gov.au/def/agor#expenses</code></td>
             </tr>
             <tr>
                 <th>Range(s)</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#Budget">auorg:Budget</a> <sup class="sup-c" title="class">c</sup>
+                    <a href="http://linked.data.gov.au/def/agor#Budget">agor:Budget</a> <sup class="sup-c" title="class">c</sup>
                 </td>
             </tr>
         </table>
@@ -605,7 +605,7 @@ This Change Event subclass is disjoint with Modification Event.
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/auorg#hasStreetAddress</code></td>
+                <td><code>http://linked.data.gov.au/def/agor#hasStreetAddress</code></td>
             </tr>
             <tr>
                 <th>Description</th>
@@ -632,7 +632,7 @@ This Change Event subclass is disjoint with Modification Event.
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/auorg#inDepartment</code></td>
+                <td><code>http://linked.data.gov.au/def/agor#inDepartment</code></td>
             </tr>
             <tr>
                 <th>Super-properties</th>
@@ -643,13 +643,13 @@ This Change Event subclass is disjoint with Modification Event.
             <tr>
                 <th>Domain(s)</th>
                 <td>
-                    (<a href="http://linked.data.gov.au/def/auorg#Agency">auorg:Agency</a> <sup class="sup-c" title="class">c</sup> or <a href="http://linked.data.gov.au/def/auorg#CorporateEntity">auorg:CorporateEntity</a> <sup class="sup-c" title="class">c</sup>)
+                    (<a href="http://linked.data.gov.au/def/agor#Agency">agor:Agency</a> <sup class="sup-c" title="class">c</sup> or <a href="http://linked.data.gov.au/def/agor#CorporateEntity">agor:CorporateEntity</a> <sup class="sup-c" title="class">c</sup>)
                 </td>
             </tr>
             <tr>
                 <th>Range(s)</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#Department">auorg:Department</a> <sup class="sup-c" title="class">c</sup>
+                    <a href="http://linked.data.gov.au/def/agor#Department">agor:Department</a> <sup class="sup-c" title="class">c</sup>
                 </td>
             </tr>
         </table>
@@ -659,7 +659,7 @@ This Change Event subclass is disjoint with Modification Event.
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/auorg#isPartOfPortfolio</code></td>
+                <td><code>http://linked.data.gov.au/def/agor#isPartOfPortfolio</code></td>
             </tr>
             <tr>
                 <th>Super-properties</th>
@@ -670,13 +670,13 @@ This Change Event subclass is disjoint with Modification Event.
             <tr>
                 <th>Domain(s)</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#Department">auorg:Department</a> <sup class="sup-c" title="class">c</sup>
+                    <a href="http://linked.data.gov.au/def/agor#Department">agor:Department</a> <sup class="sup-c" title="class">c</sup>
                 </td>
             </tr>
             <tr>
                 <th>Range(s)</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#Portfolio">auorg:Portfolio</a> <sup class="sup-c" title="class">c</sup>
+                    <a href="http://linked.data.gov.au/def/agor#Portfolio">agor:Portfolio</a> <sup class="sup-c" title="class">c</sup>
                 </td>
             </tr>
         </table>
@@ -686,7 +686,7 @@ This Change Event subclass is disjoint with Modification Event.
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/auorg#levelOfGovernment</code></td>
+                <td><code>http://linked.data.gov.au/def/agor#levelOfGovernment</code></td>
             </tr>
             <tr>
                 <th>Description</th>
@@ -703,13 +703,13 @@ This Change Event subclass is disjoint with Modification Event.
             <tr>
                 <th>Domain(s)</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#Jurisdiction">auorg:Jurisdiction</a> <sup class="sup-c" title="class">c</sup>
+                    <a href="http://linked.data.gov.au/def/agor#Jurisdiction">agor:Jurisdiction</a> <sup class="sup-c" title="class">c</sup>
                 </td>
             </tr>
             <tr>
                 <th>Range(s)</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#GovernmentLevel">auorg:GovernmentLevel</a> <sup class="sup-c" title="class">c</sup>
+                    <a href="http://linked.data.gov.au/def/agor#GovernmentLevel">agor:GovernmentLevel</a> <sup class="sup-c" title="class">c</sup>
                 </td>
             </tr>
         </table>
@@ -719,12 +719,12 @@ This Change Event subclass is disjoint with Modification Event.
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/auorg#materiality</code></td>
+                <td><code>http://linked.data.gov.au/def/agor#materiality</code></td>
             </tr>
             <tr>
                 <th>Domain(s)</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#Agency">auorg:Agency</a> <sup class="sup-c" title="class">c</sup>
+                    <a href="http://linked.data.gov.au/def/agor#Agency">agor:Agency</a> <sup class="sup-c" title="class">c</sup>
                 </td>
             </tr>
             <tr>
@@ -740,7 +740,7 @@ This Change Event subclass is disjoint with Modification Event.
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/auorg#sectorClassification</code></td>
+                <td><code>http://linked.data.gov.au/def/agor#sectorClassification</code></td>
             </tr>
             <tr>
                 <th>Description</th>
@@ -757,7 +757,7 @@ This Change Event subclass is disjoint with Modification Event.
             <tr>
                 <th>Domain(s)</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#Agency">auorg:Agency</a> <sup class="sup-c" title="class">c</sup>
+                    <a href="http://linked.data.gov.au/def/agor#Agency">agor:Agency</a> <sup class="sup-c" title="class">c</sup>
                 </td>
             </tr>
         </table>
@@ -767,7 +767,7 @@ This Change Event subclass is disjoint with Modification Event.
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/auorg#typeOfBody</code></td>
+                <td><code>http://linked.data.gov.au/def/agor#typeOfBody</code></td>
             </tr>
             <tr>
                 <th>Super-properties</th>
@@ -778,7 +778,7 @@ This Change Event subclass is disjoint with Modification Event.
             <tr>
                 <th>Domain(s)</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#Agency">auorg:Agency</a> <sup class="sup-c" title="class">c</sup>
+                    <a href="http://linked.data.gov.au/def/agor#Agency">agor:Agency</a> <sup class="sup-c" title="class">c</sup>
                 </td>
             </tr>
         </table>
@@ -807,7 +807,7 @@ This Change Event subclass is disjoint with Modification Event.
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/auorg#agorID</code></td>
+                <td><code>http://linked.data.gov.au/def/agor#agorID</code></td>
             </tr>
             <tr>
                 <th>Super-properties</th>
@@ -818,7 +818,7 @@ This Change Event subclass is disjoint with Modification Event.
             <tr>
                 <th>Domain(s)</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#Entity">auorg:Entity</a> <sup class="sup-c" title="class">c</sup>
+                    <a href="http://linked.data.gov.au/def/agor#Entity">agor:Entity</a> <sup class="sup-c" title="class">c</sup>
                 </td>
             </tr>
         </table>
@@ -828,7 +828,7 @@ This Change Event subclass is disjoint with Modification Event.
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/auorg#currency</code></td>
+                <td><code>http://linked.data.gov.au/def/agor#currency</code></td>
             </tr>
         </table>
     </div>
@@ -837,7 +837,7 @@ This Change Event subclass is disjoint with Modification Event.
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/auorg#hasABN</code></td>
+                <td><code>http://linked.data.gov.au/def/agor#hasABN</code></td>
             </tr>
             <tr>
                 <th>Description</th>
@@ -864,7 +864,7 @@ This Change Event subclass is disjoint with Modification Event.
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/auorg#hasAverageStaffingLevel</code></td>
+                <td><code>http://linked.data.gov.au/def/agor#hasAverageStaffingLevel</code></td>
             </tr>
             <tr>
                 <th>Description</th>
@@ -885,7 +885,7 @@ This Change Event subclass is disjoint with Modification Event.
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/auorg#psActBodyID</code></td>
+                <td><code>http://linked.data.gov.au/def/agor#psActBodyID</code></td>
             </tr>
             <tr>
                 <th>Description</th>
@@ -902,7 +902,7 @@ This Change Event subclass is disjoint with Modification Event.
             <tr>
                 <th>Domain(s)</th>
                 <td>
-                    <a href="http://linked.data.gov.au/def/auorg#Agency">auorg:Agency</a> <sup class="sup-c" title="class">c</sup>
+                    <a href="http://linked.data.gov.au/def/agor#Agency">agor:Agency</a> <sup class="sup-c" title="class">c</sup>
                 </td>
             </tr>
         </table>
@@ -930,8 +930,8 @@ This Change Event subclass is disjoint with Modification Event.
         <dd><code>http://linked.data.gov.au/def/aao#</code></dd>
         <dt>agrif</dt>
         <dd><code>http://linked.data.gov.au/def/agrif#</code></dd>
-        <dt>auorg</dt>
-        <dd><code>http://linked.data.gov.au/def/auorg#</code></dd>
+        <dt>agor</dt>
+        <dd><code>http://linked.data.gov.au/def/agor#</code></dd>
         <dt>dc</dt>
         <dd><code>http://purl.org/dc/elements/1.1/</code></dd>
         <dt>dct</dt>
